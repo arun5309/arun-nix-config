@@ -59,6 +59,7 @@
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
   # Manager then you have to manually source 'hm-session-vars.sh' located at
+
   # either
   #
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
@@ -109,7 +110,7 @@
       "line"
     ];
 
-    # zsh framework
+    ## zsh framework
     prezto = {
       enable = true;
       editor.keymap = "vi";
@@ -125,8 +126,37 @@
     };
   };
 
-  ## shell theme
+  ## Shell theme
   programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  # Shell Utilities
+
+  ## Pager: bat
+  programs.bat = {
+    enable = true;
+  };
+
+  ## Process viewer/manager
+  programs.btop = {
+    enable = true;
+  };
+
+  ## Downloader: aria2
+  programs.aria2 = {
+    enable = true;
+  };
+
+  ## Fuzzy finder: fzf
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  ## Improved cd: zoxide
+  programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
