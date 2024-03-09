@@ -93,12 +93,10 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Enable locate service (using plocate)
+  # Enable locate service
   services.locate = {
     enable = true;
-    package = pkgs.plocate;
     interval = "hourly";
-    localuser = null; # Need to run updatedb as root
   };
 
   # Enable zsh so that it can be arun's default shell
