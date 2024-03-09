@@ -1,0 +1,47 @@
+buku
+silver searcher
+aria2
+file
+firejail
+graphviz
+jq
+xxd
+lf (check alternatives)
+ffmpeg
+imagemagick
+mpv
+nsxiv (check alternatives)
+w3m (+ w3m-image)
+sloccount
+fastfetch
+rlwrap
+pdftk
+espeak
+pdfsandwich
+sox
+
+downloader: qbittorrent, filezilla
+development: text editor, programming langs, lsp
+office suite: libreoffice, unpaper, calibre, xournalpp, plantuml
+video: obs, kdenlive, handbrake, lossless cut, natron
+audio: audacium (or newer fork), ardour, geonkit, surge XT, +plugins, sonic visualizer
+3d: blender, freecad, librecad, plastik cad (US military one)
+image: krita, digikam, darktable, gimp, inkscape
+animation:
+virtualization: virtualbox, kvm, docker, kubernetes
+fonts: nerd fonts, noto fonts, ttf, otf
+remote access: vnc server + client
+hexedit: okteta, kaitai, structured binary editor by gnu
+backup: restic? dar? rsync? timeshift?
+window manager: hyprland
+terminal emulator: kitty
+gaming: retroarch, the dark mod
+networking: netcat, scapy, nmap?, tor, proxy like mitm, ZAP proxy
+multiplexer: zellij? tmux? screen? byobu?
+secrets: SOPS + home manager integration
+decentralized web3
+proxy: tor
+input remapper: keyboard remapper?, xremap?, joystick remapper
+misc: screenkey, stow
+
+check kde website for applications
