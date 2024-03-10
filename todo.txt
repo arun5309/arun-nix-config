@@ -1,27 +1,12 @@
-buku
-silver searcher
-file
 firejail
-graphviz
-xxd
-lf (check alternatives)
-ffmpeg
-imagemagick
-nsxiv (check alternatives)
-w3m (+ w3m-image)
-sloccount
-fastfetch
-rlwrap
-pdftk
-espeak
-pdfsandwich
-sox
+
+w3m (+ w3m-image) (check image working)
 
 downloader: qbittorrent, filezilla
 development: text editor, programming langs, lsp
 office suite: libreoffice, unpaper, calibre, xournalpp, plantuml
 video: obs, kdenlive, handbrake, lossless cut, natron
-audio: audacium (or newer fork), ardour, geonkit, surge XT, +plugins, sonic visualizer
+audio: audacium (or newer fork), ardour, geonkit, surge XT, +plugins, sonic visualizer, sox?
 3d: blender, freecad, librecad, plastik cad (US military one)
 image: krita, digikam, darktable, gimp, inkscape
 animation:
@@ -38,6 +23,7 @@ secrets: SOPS + home manager integration
 decentralized web3
 proxy: tor
 input remapper: keyboard remapper?, xremap?, joystick remapper
+theming: sddm, qt, gtk, nix-colors (catpuccin, one-dark, gruvbox, tomorrow-night-bright)
 misc: screenkey, stow
 
 Done:
@@ -45,4 +31,7 @@ Done:
 terminal emulator: kitty
 
 
+Search:
+
 check kde website for more applications
+tools, unixtools in nixpkgs
