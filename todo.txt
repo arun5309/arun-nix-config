@@ -1,15 +1,12 @@
 buku
 silver searcher
-aria2
 file
 firejail
 graphviz
-jq
 xxd
 lf (check alternatives)
 ffmpeg
 imagemagick
-mpv
 nsxiv (check alternatives)
 w3m (+ w3m-image)
 sloccount
@@ -34,7 +31,6 @@ remote access: vnc server + client
 hexedit: okteta, kaitai, structured binary editor by gnu
 backup: restic? dar? rsync? timeshift?
 window manager: hyprland
-terminal emulator: kitty
 gaming: retroarch, the dark mod
 networking: netcat, scapy, nmap?, tor, proxy like mitm, ZAP proxy
 multiplexer: zellij? tmux? screen? byobu?
@@ -44,4 +40,9 @@ proxy: tor
 input remapper: keyboard remapper?, xremap?, joystick remapper
 misc: screenkey, stow
 
-check kde website for applications
+Done:
+
+terminal emulator: kitty
+
+
+check kde website for more applications

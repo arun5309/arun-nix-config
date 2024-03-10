@@ -74,6 +74,7 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    PAGER = "bat";
   };
 
   # Let Home Manager install and manage itself.
@@ -88,14 +89,16 @@
     "audio/*" = [ "vlc.desktop" ];
     "text/html" = [ "firefox.desktop" ];
     "x-scheme-handler/http" = [ "firefox.desktop" ];
-    "x-scheme-handler/https" = [ "firefox.desktop" ];
+    "x-scheme-handler/hanually source 'hm-session-vars.sh' located atttps" = [ "firefox.desktop" ];
     "x-scheme-handler/about" = [ "firefox.desktop" ];
     "x-scheme-handler/unknown" = [ "firefox.desktop" ];
   };
 
   # My custom programs
 
-  # Default shell: zsh
+  # Shell and shell utilities
+
+  ## Default shell: zsh
   programs.zsh = {
     enable = true;
     zprof.enable = false; # Profiling zsh
@@ -110,13 +113,13 @@
       "line"
     ];
 
-    ## zsh framework
+    ## zsh framework: prezto
     prezto = {
       enable = true;
       editor.keymap = "vi";
     };
 
-    ## Abbreviations
+    ## Abbreviations: zsh-abbr
     zsh-abbr.enable = true;
     zsh-abbr.abbreviations = {
       nswt = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default'";
@@ -126,7 +129,7 @@
     };
   };
 
-  ## Shell theme
+  ## Shell theme: starship
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
@@ -139,7 +142,7 @@
     enable = true;
   };
 
-  ## Process viewer/manager
+  ## Process viewer/manager: btop
   programs.btop = {
     enable = true;
   };
@@ -161,16 +164,67 @@
     enableZshIntegration = true;
   };
 
-  # Git
+  ## Improved ls: eza
+  programs.eza = {
+    enable = true;
+    enableAliases = true;
+  };
+
+  ## JSON processor: jq
+  programs.jq = {
+    enable = true;
+  };
+
+  ## Terminal file manager: lf
+  programs.lf = {
+    enable = true;
+  };
+
+  ## VCS: git
   programs.git = {
     enable = true;
     userName = "arun5309";
     userEmail = "arun5309@gmail.com";
+    lfs = {
+      enable = true;
+    };
   };
 
-  # Firefox
+  ## Terminal helper for git: lazygit
+  programs.lazygit = {
+    enable = true;
+  };
+
+  # Graphical applications
+
+  ## Terminal emulator:
+  programs.kitty = {
+    enable = true;
+    shellIntegration.enableZshIntegration = true;
+  };
+
+  ## Video player (minimalistic): mpv
+  programs.mpv = {
+    enable = true;
+  };
+
+  ## Browser: firefox
   programs.firefox = {
     enable = true;
+
+    policies = {
+      DisableFirefoxAccounts = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      FirefoxSuggest = {
+        SponsoredSuggestions = false;
+      };
+      OfferToSaveLogins = false;
+      PasswordManagerEnabled = false;
+      StartDownloadsInTempDirectory = true;
+    };
+
     profiles.default = {
 
     search.engines = {
