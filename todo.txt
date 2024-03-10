@@ -1,5 +1,3 @@
-w3m (+ w3m-image) (check image working)
-
 downloader: qbittorrent, filezilla
 development: text editor, programming langs, lsp
 office suite: libreoffice, unpaper, calibre, xournalpp, plantuml
@@ -24,6 +22,7 @@ input remapper: keyboard remapper?, xremap?, joystick remapper
 theming: sddm, qt, gtk, nix-colors (catpuccin, one-dark, gruvbox, tomorrow-night-bright)
 compression utilites: p7zip?, zip?, dar? dtrx?
 clipboard: way-copy, xclip (make it work on both way-copy and xclip)
+terminal: asciicinema?
 misc: screenkey, stow
 
 Done:
@@ -35,6 +34,7 @@ Config:
 * kitty config
 * integrate zsh clipboard with graphical server's clipboard
 * let some emacs keybinds work in viins mode (particularly ^a, ^e, ^k)
+* config lf (ctpv integration. Check ctpv man page for other supported file formats.)
 
 Search:
 

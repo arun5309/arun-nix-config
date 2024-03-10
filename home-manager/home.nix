@@ -53,6 +53,7 @@
     pdfsandwich
     espeak
     graphviz
+    ctpv
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -155,7 +156,7 @@
       cht = "curl https://cht.sh/";
       ginit = "git init";
       gadd = "git add -A";
-      gcom = "git commit -m";
+      gcom = "git commit -m '";
       game = "git commit --amend";
       gamne = "git commit --amend --no-edit";
       gpush = "git push";
