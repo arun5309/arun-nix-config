@@ -117,6 +117,7 @@
   programs.zsh = {
     enable = true;
     zprof.enable = false; # Profiling zsh
+    defaultKeymap = "viins";
     enableAutosuggestions = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
@@ -138,11 +139,11 @@
       cd = "z";
     };
 
-    ## zsh framework: prezto
-    prezto = {
+    ## zsh framework: none # prezto (disabled)
+    /*prezto = {
       enable = true;
       editor.keymap = "vi";
-    };
+    };*/
 
     ## Abbreviations: zsh-abbr
     zsh-abbr.enable = true;

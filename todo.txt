@@ -14,7 +14,7 @@ virtualization: virtualbox, kvm, docker, kubernetes
 fonts: nerd fonts, noto fonts, ttf, otf
 remote access: vnc server + client
 hexedit: okteta, kaitai, structured binary editor by gnu
-backup: restic? dar? rsync? timeshift?
+backup: restic? rsync? timeshift? zsync?
 window manager: hyprland
 gaming: retroarch, the dark mod
 networking: netcat, scapy, nmap?, tor, proxy like mitm, ZAP proxy
@@ -24,12 +24,18 @@ decentralized web3
 proxy: tor
 input remapper: keyboard remapper?, xremap?, joystick remapper
 theming: sddm, qt, gtk, nix-colors (catpuccin, one-dark, gruvbox, tomorrow-night-bright)
+compression utilites: p7zip?, zip?, dar? dtrx?
+clipboard: way-copy, xclip (make it work on both way-copy and xclip)
 misc: screenkey, stow
 
 Done:
 
 terminal emulator: kitty
 
+Config:
+
+* integrate zsh clipboard with graphical server's clipboard
+* let some emacs keybinds work in viins mode (particularly ^a, ^e, ^k)
 
 Search:
 
