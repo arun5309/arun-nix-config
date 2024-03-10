@@ -119,6 +119,11 @@
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
     '';
 
+    # Aliases
+    shellAliases = {
+      cd = "z";
+    };
+
     ## zsh framework: prezto
     prezto = {
       enable = true;
