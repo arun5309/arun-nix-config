@@ -36,6 +36,13 @@ Config:
 * let some emacs keybinds work in viins mode (particularly ^a, ^e, ^k)
 * config lf (ctpv integration. Check ctpv man page for other supported file formats.)
 
+Major config:
+
+* hyprland
+* nixvim (neovim distro)
+* theming sddm, qt, gtk
+* keyboard mapping both with and without graphical server
+
 Search:
 
 check kde website for more applications
