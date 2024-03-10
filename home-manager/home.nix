@@ -75,6 +75,7 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
     PAGER = "bat";
+    VISUAL = "bat";
   };
 
   # Let Home Manager install and manage itself.
@@ -113,6 +114,11 @@
       "line"
     ];
 
+    # Source session variables
+    initExtra = ''
+      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+    '';
+
     ## zsh framework: prezto
     prezto = {
       enable = true;
@@ -126,6 +132,19 @@
       hswt = "sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       hupd = "home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       upd = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default' && sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
+      cht = "curl https://cht.sh/";
+      ginit = "git init";
+      gadd = "git add -A";
+      gcom = "git commit -m";
+      game = "git commit --amend";
+      gamne = "git commit --amend --no-edit";
+      gpush = "git push";
+      gpull = "git pull";
+      gco = "git checkout";
+      gbc = "git checkout -b";
+      grst = "git reset --hard";
+      gstat = "git status";
+      gdiff = "git diff HEAD";
     };
   };
 
@@ -187,6 +206,11 @@
     userEmail = "arun5309@gmail.com";
     lfs = {
       enable = true;
+    };
+    extraConfig = {
+      init = {
+        defaultBranch = "main";
+      };
     };
   };
 
