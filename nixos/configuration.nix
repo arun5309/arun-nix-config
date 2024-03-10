@@ -135,6 +135,9 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Global programs (in addition to zsh)
+  programs.firejail.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
