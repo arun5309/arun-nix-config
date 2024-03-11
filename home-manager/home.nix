@@ -69,6 +69,15 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".config/btop/themes/${lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)}.theme".text = builtins.readFile
+      (pkgs.fetchFromGitHub
+        {
+          owner = "catppuccin";
+          repo = "btop";
+          rev = "c646919";
+          sha256 = "jodJl4f2T9ViNqsY9fk8IV62CrpC5hy7WK3aRpu70Cs=";
+        } + /themes/${lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)}.theme);
   };
 
   # Home Manager can also manage your environment variables through
@@ -240,6 +249,9 @@
   ## Process viewer/manager: btop
   programs.btop = {
     enable = true;
+    settings = {
+      color_theme = lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString);
+    };
   };
 
   ## Downloader: aria2
