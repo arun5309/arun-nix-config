@@ -1,4 +1,4 @@
-{ config, pkgs, lib, allowed-unfree-packages, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
+{ config, pkgs, lib, system, allowed-unfree-packages, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
 
 {
   # Allow unfree packages
@@ -442,11 +442,12 @@
     search.default = "Brave search";
     search.privateDefault = "Brave search";
 
-    extensions = [
-      inputs.firefox-addons.packages."x86_64-linux".ublock-origin
-      inputs.firefox-addons.packages."x86_64-linux".sponsorblock
-      inputs.firefox-addons.packages."x86_64-linux".tridactyl
-      inputs.firefox-addons.packages."x86_64-linux".darkreader
+    extensions = with inputs.firefox-addons.packages.${system}; [
+      ublock-origin
+      sponsorblock
+      tridactyl
+      darkreader
+      firefox-color
     ];
     };
   };
