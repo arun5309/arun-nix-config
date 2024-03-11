@@ -39,6 +39,8 @@
       # colorSchemeString = "Catppuccin-Macchiato";
       # colorSchemeString = "Catppuccin-Frappe";
 
+      colorSchemeAccent = "mauve";
+
       fzf_color_scheme = {
         "Catppuccin-Mocha" = {
           "bg+" = "#313244";
@@ -112,7 +114,7 @@
 
       homeConfigurations = {
         arun_home_default = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit system allowed-unfree-packages colorSchemeString fzf_color_scheme inputs; };
+          extraSpecialArgs = { inherit system allowed-unfree-packages colorSchemeString colorSchemeAccent fzf_color_scheme inputs; };
 
           pkgs = nixpkgs.legacyPackages.${system};
 

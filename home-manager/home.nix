@@ -1,4 +1,4 @@
-{ config, pkgs, lib, allowed-unfree-packages, colorSchemeString, fzf_color_scheme, inputs, ... }:
+{ config, pkgs, lib, allowed-unfree-packages, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
 
 {
   # Allow unfree packages
@@ -39,6 +39,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    nerdfonts
     file
     silver-searcher
     buku
