@@ -176,6 +176,17 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    settings = {
+      format = "$all";
+      palette = lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString);
+    } // builtins.fromTOML (builtins.readFile
+      (pkgs.fetchFromGitHub
+        {
+          owner = "catppuccin";
+          repo = "starship";
+          rev = "5629d23";
+          sha256 = "nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
+        } + /palettes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.toml));
   };
 
   # Shell Utilities
@@ -290,6 +301,7 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
+    theme = colorSchemeString;
   };
 
   ## Video player (minimalistic): mpv
