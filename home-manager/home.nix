@@ -79,6 +79,15 @@
           rev = "c646919";
           sha256 = "jodJl4f2T9ViNqsY9fk8IV62CrpC5hy7WK3aRpu70Cs=";
         } + /themes/${lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)}.theme);
+
+    ".config/lazygit/config.yml".text = builtins.readFile
+      (pkgs.fetchFromGitHub
+        {
+          owner = "catppuccin";
+          repo = "lazygit";
+          rev = "a544cef";
+          sha256 = "gM0HplHhcpvtpmIVdlX/p59h0v+ihKEidS1imqPYlBg=";
+        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}/${colorSchemeAccent}.yml);
   };
 
   # Home Manager can also manage your environment variables through
