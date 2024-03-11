@@ -1,4 +1,4 @@
-{ config, pkgs, lib, allowed-unfree-packages, colorSchemeString, inputs, ... }:
+{ config, pkgs, lib, allowed-unfree-packages, colorSchemeString, fzf_color_scheme, inputs, ... }:
 
 {
   # Allow unfree packages
@@ -263,6 +263,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    colors = fzf_color_scheme.${colorSchemeString};
   };
 
   ## Improved cd: zoxide
