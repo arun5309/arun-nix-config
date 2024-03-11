@@ -33,6 +33,12 @@
       allowed-unfree-packages = [
         "zsh-abbr"
       ];
+
+      # colorSchemeString = "Catppuccin-Mocha"; # Preferred dark theme
+      colorSchemeString = "Catppuccin-Latte"; # Light theme
+      # colorSchemeString = "Catppuccin-Macchiato";
+      # colorSchemeString = "Catppuccin-Frappe";
+
     in
     {
       nixosConfigurations = {
@@ -47,7 +53,7 @@
 
       homeConfigurations = {
         arun_home_default = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit system allowed-unfree-packages inputs; };
+          extraSpecialArgs = { inherit system allowed-unfree-packages colorSchemeString inputs; };
 
           pkgs = nixpkgs.legacyPackages.${system};
 

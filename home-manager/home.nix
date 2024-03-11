@@ -1,4 +1,4 @@
-{ config, pkgs, lib, allowed-unfree-packages, inputs, ... }:
+{ config, pkgs, lib, allowed-unfree-packages, colorSchemeString, inputs, ... }:
 
 {
   # Allow unfree packages
@@ -110,7 +110,9 @@
     "x-scheme-handler/unknown" = [ "firefox.desktop" ];
   };
 
-  # My custom programs
+  # Theming and colors
+
+  # TODO: SDDM, gtk, qt theming
 
   # Shell and shell utilities
 
@@ -181,6 +183,47 @@
   ## Pager: bat
   programs.bat = {
     enable = true;
+    config = {
+      theme = colorSchemeString;
+    };
+    themes = {
+      Catppuccin-Mocha = {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "a875b71";
+          sha256 = "PWX8LR3xTgNBUpk+xBIGpEBQCNJHre8cRX4OTSWkZvs=";
+        };
+        file = "themes/Catppuccin Mocha.tmTheme";
+      };
+      Catppuccin-Latte = {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "a875b71";
+          sha256 = "PWX8LR3xTgNBUpk+xBIGpEBQCNJHre8cRX4OTSWkZvs=";
+        };
+        file = "themes/Catppuccin Latte.tmTheme";
+      };
+      Catppuccin-Macchiato = {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "a875b71";
+          sha256 = "PWX8LR3xTgNBUpk+xBIGpEBQCNJHre8cRX4OTSWkZvs=";
+        };
+        file = "themes/Catppuccin Macchiato.tmTheme";
+      };
+      Catppuccin-Frappe = {
+        src = pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "bat";
+          rev = "a875b71";
+          sha256 = "PWX8LR3xTgNBUpk+xBIGpEBQCNJHre8cRX4OTSWkZvs=";
+        };
+        file = "themes/Catppuccin Frappe.tmTheme";
+      };
+    };
   };
 
   ## Process viewer/manager: btop
