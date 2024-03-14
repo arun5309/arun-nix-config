@@ -1,4 +1,4 @@
-{ config, pkgs, lib, system, allowed-unfree-packages, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
+{ config, pkgs, lib, system, allowed-unfree-packages, colorSchemeMode, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
 
 {
   # Allow unfree packages
@@ -138,7 +138,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "${colorSchemeString}-Compact-${colorSchemeAccent}-Dark";
+      name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.catppuccin-gtk.override {
         accents = [ (lib.toLower colorSchemeAccent) ];
         size = "compact";
@@ -150,10 +150,13 @@
       name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
       package = pkgs.catppuccin-cursors;
     };
-#     iconTheme = {
-#       name = "";
-#       package = pkgs.;
-#     };
+    iconTheme = {
+      name = "Papirus-${colorSchemeMode}";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}";
+        accent = lib.toLower colorSchemeAccent;
+      };
+    };
   };
 
   xdg.configFile = {

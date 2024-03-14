@@ -47,3 +47,7 @@ Search:
 
 check kde website for more applications
 tools, unixtools in nixpkgs
+
+Issues:
+
+Fix gtk icon bug
