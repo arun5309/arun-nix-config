@@ -132,6 +132,9 @@
   # Theming and colors
 
   # TODO: SDDM, gtk, qt theming
+
+  # GTK theming
+
   gtk = {
     enable = true;
     theme = {
@@ -143,6 +146,14 @@
         variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
       };
     };
+    cursorTheme = {
+      name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
+      package = pkgs.catppuccin-cursors;
+    };
+#     iconTheme = {
+#       name = "";
+#       package = pkgs.;
+#     };
   };
 
   xdg.configFile = {
@@ -150,6 +161,13 @@
     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
+
+  # Qt theming
+
+#   qt = {
+#     enable = true;
+#     platformTheme = "gtk";
+#   };
 
   # Shell and shell utilities
 
