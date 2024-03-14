@@ -167,10 +167,27 @@
 
   # Qt theming
 
-#   qt = {
-#     enable = true;
-#     platformTheme = "gtk";
-#   };
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+    /*style = {
+      name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ (lib.toLower colorSchemeAccent) ];
+        size = "compact";
+        tweaks = [ "rimless" "black" ];
+        variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
+      };
+    };*/
+    style = {
+      name = "cat-${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}-${lib.toLower colorSchemeAccent}";
+      package = pkgs.catppuccin-kde.override {
+        flavour = [ "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}" ];
+        accents = [ (lib.toLower colorSchemeAccent) ];
+        winDecStyles = [ "modern" ];
+      };
+    };
+  };
 
   # Shell and shell utilities
 
