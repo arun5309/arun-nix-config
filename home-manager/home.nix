@@ -87,7 +87,7 @@
           repo = "lazygit";
           rev = "a544cef";
           sha256 = "gM0HplHhcpvtpmIVdlX/p59h0v+ihKEidS1imqPYlBg=";
-        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}/${colorSchemeAccent}.yml);
+        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}/${lib.toLower colorSchemeAccent}.yml);
   };
 
   # Home Manager can also manage your environment variables through
@@ -132,6 +132,24 @@
   # Theming and colors
 
   # TODO: SDDM, gtk, qt theming
+  gtk = {
+    enable = true;
+    theme = {
+      name = "${colorSchemeString}-Compact-${colorSchemeAccent}-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ (lib.toLower colorSchemeAccent) ];
+        size = "compact";
+        tweaks = [ "rimless" "black" ];
+        variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
+      };
+    };
+  };
+
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  };
 
   # Shell and shell utilities
 
@@ -187,6 +205,7 @@
       grst = "git reset --hard";
       gstat = "git status";
       gdiff = "git diff HEAD";
+      glog = "git log";
       tree = "ls --tree";
     };
   };
