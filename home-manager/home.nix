@@ -196,7 +196,7 @@
     enable = true;
     zprof.enable = false; # Profiling zsh
     defaultKeymap = "viins";
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     syntaxHighlighting.highlighters = [
