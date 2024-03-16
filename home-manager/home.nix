@@ -180,7 +180,7 @@
       };
     };*/
     style = {
-      name = "cat-${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}-${lib.toLower colorSchemeAccent}";
+      name = "Breeze"; # "cat-${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}-${lib.toLower colorSchemeAccent}";
       package = pkgs.catppuccin-kde.override {
         flavour = [ "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}" ];
         accents = [ (lib.toLower colorSchemeAccent) ];
