@@ -230,10 +230,13 @@
       hswt = "sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       hupd = "home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       upd = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default' && sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
+      fupd = "nix flake update";
+      uchan  = "nix-channel --update";
+      sui = "sudo -i ";
       cht = "curl https://cht.sh/";
       ginit = "git init";
       gadd = "git add -A";
-      gcom = "git commit -m '";
+      gcom = "git commit -m \"";
       game = "git commit --amend";
       gamne = "git commit --amend --no-edit";
       gpush = "git push";
