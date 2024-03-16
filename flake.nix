@@ -34,9 +34,10 @@
         "zsh-abbr"
       ];
 
-      colorSchemeMode = "Dark"; # Light
-      colorSchemeString = "Catppuccin-Mocha"; # Preferred dark theme
-      # colorSchemeString = "Catppuccin-Latte"; # Light theme
+      colorSchemeMode = "Light";
+      colorSchemeString = "Catppuccin-Latte"; # Light theme
+      # colorSchemeMode = "Dark";
+      # colorSchemeString = "Catppuccin-Mocha"; # Preferred dark theme
       # colorSchemeString = "Catppuccin-Macchiato";
       # colorSchemeString = "Catppuccin-Frappe";
 
