@@ -45,6 +45,7 @@ Major config:
 * lf file manager with ctpv previews
 * Firefox containers (check if existing stuff works well)
 * GTK cursor
+* Firefox search
 
 Search:
 

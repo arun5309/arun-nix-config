@@ -45,10 +45,12 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable and configure the SDDM login manager.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.wayland.enable = true;
   services.xserver.displayManager.sddm.autoNumlock = true;
+
+  # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -135,7 +137,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Global programs (in addition to zsh)
+  # Global programs (in addition to zsh, plasma desktop, sddm, print server, etc declared above)
   programs.firejail.enable = true;
 
   # List packages installed in system profile. To search, run:
