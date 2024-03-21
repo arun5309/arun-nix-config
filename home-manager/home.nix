@@ -393,8 +393,8 @@
     enable = true;
   };
 
-  ## Image viewer (minimalistic): feh
-  programs.feh = {
+  ## Image viewer (minimalistic): imv
+  programs.imv = {
     enable = true;
   };
 
