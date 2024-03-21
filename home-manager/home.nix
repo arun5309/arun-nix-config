@@ -609,8 +609,15 @@
       "privacy.window.maxInnerWidth" = 1600;
       "privacy.window.maxInnerHeight" = 900;
       "privacy.resistFingerprinting.block_mozAddonManager" = true;
-      "browser.display.use_system_colors" = true; # Overrided
+      "browser.display.use_system_colors" = false;
       "browser.startup.blankWindow" = false;
+
+      # Non-hardening
+
+      # Use system dark mode (for prefers color scheme)
+      # "ui.systemUsesDarkTheme" = if colorSchemeMode == "Dark" then 1 else (if colorSchemeMode == "Light" then 0 else 2);
+      # "browser.in-content.dark-mode" = colorSchemeMode != "Dark";
+      # TODO: as both methods above don't work
     };
 
     containers= {
