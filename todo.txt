@@ -43,7 +43,8 @@ Major config:
 * theming sddm, qt, gtk (mostly done for qt and gtk)
 * keyboard mapping both with and without graphical server
 * lf file manager with ctpv previews
-* Firefox containers
+* Firefox containers (check if existing stuff works well)
+* GTK cursor
 
 Search:
 

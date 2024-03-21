@@ -146,10 +146,10 @@
         variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
       };
     };
-    cursorTheme = {
+    /*cursorTheme = {
       name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
       package = pkgs.catppuccin-cursors;
-    };
+    };*/ # Use breeze cursor instead of gtk cursor
     iconTheme = {
       name = "Papirus-${colorSchemeMode}";
       package = pkgs.catppuccin-papirus-folders.override {
