@@ -609,8 +609,28 @@
       "privacy.window.maxInnerWidth" = 1600;
       "privacy.window.maxInnerHeight" = 900;
       "privacy.resistFingerprinting.block_mozAddonManager" = true;
-      "browser.display.use_system_colors" = false;
+      "browser.display.use_system_colors" = true; # Overrided
       "browser.startup.blankWindow" = false;
+    };
+
+    containers= {
+      fun = {
+        id = 1;
+        icon = "circle";
+        color = "blue";
+      };
+
+      iisc = {
+        id = 2;
+        icon = "briefcase";
+        color = "green";
+      };
+
+      throwaway = {
+        id = 3;
+        icon = "fence";
+        color = "red";
+      };
     };
 
     search.engines = {
