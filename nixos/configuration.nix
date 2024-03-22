@@ -116,7 +116,6 @@
       xournalpp
       vlc
       hplip
-      anydesk
       brave
     #  thunderbird
     ];
