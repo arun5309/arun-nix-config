@@ -181,7 +181,7 @@
 
   qt = {
     enable = true;
-    platformTheme = "kde";
+    #platformTheme = "kde";
     /*style = {
       name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.catppuccin-gtk.override {
@@ -278,7 +278,7 @@
       ginit = "git init";
       gadd = "git add -A";
       gcom = "git commit -m \"";
-      game = "git commit --amend";
+      game = "git commit --amend -m \"";
       gamne = "git commit --amend --no-edit";
       gpush = "git push";
       gpull = "git pull";

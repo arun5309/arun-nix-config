@@ -135,6 +135,7 @@
 
           modules = [
             ./home-manager/home.nix
+            #./home-manager/dummy_home.nix
           ];
         };
       };
