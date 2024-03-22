@@ -120,6 +120,13 @@
         };
       };
 
+      home-manager.users.arun = {
+        dconf = {
+          enable = true;
+          settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+        };
+      };
+
       homeConfigurations = {
         arun_home_default = home-manager.lib.homeManagerConfiguration {
           extraSpecialArgs = { inherit system allowed-unfree-packages colorSchemeMode colorSchemeString colorSchemeAccent fzf_color_scheme inputs; };

@@ -149,7 +149,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "adw-gtk3"; # "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
+      name = "adw-gtk3-dark"; # "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.adw-gtk3;
 #       pkgs.catppuccin-gtk.override {
 #         accents = [ (lib.toLower colorSchemeAccent) ];
