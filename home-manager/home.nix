@@ -146,29 +146,29 @@
 
   # GTK theming
 
-  gtk = {
-    enable = true;
-    theme = {
-      name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ (lib.toLower colorSchemeAccent) ];
-        size = "compact";
-        tweaks = [ "rimless" "black" ];
-        variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
-      };
-    };
-    /*cursorTheme = {
-      name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
-      package = pkgs.catppuccin-cursors;
-    };*/ # Use breeze cursor instead of gtk cursor
-    iconTheme = {
-      name = "Papirus-${colorSchemeMode}";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}";
-        accent = lib.toLower colorSchemeAccent;
-      };
-    };
-  };
+#   gtk = {
+#     enable = true;
+#     theme = {
+#       name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
+#       package = pkgs.catppuccin-gtk.override {
+#         accents = [ (lib.toLower colorSchemeAccent) ];
+#         size = "compact";
+#         tweaks = [ "rimless" "black" ];
+#         variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
+#       };
+#     };
+#     /*cursorTheme = {
+#       name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
+#       package = pkgs.catppuccin-cursors;
+#     };*/ # Use breeze cursor instead of gtk cursor
+#     iconTheme = {
+#       name = "Papirus-${colorSchemeMode}";
+#       package = pkgs.catppuccin-papirus-folders.override {
+#         flavor = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}";
+#         accent = lib.toLower colorSchemeAccent;
+#       };
+#     };
+#   };
 
 #   xdg.configFile = {
 #     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
