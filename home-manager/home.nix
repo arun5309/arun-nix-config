@@ -226,6 +226,7 @@
     ## Abbreviations: zsh-abbr
     zsh-abbr.enable = true;
     zsh-abbr.abbreviations = {
+      cupd = "rm ~/.mozilla/firefox/default/containers.json ~/.gtkrc-2.0";
       nswt = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default'";
       hswt = "sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       hupd = "home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
@@ -695,13 +696,13 @@
 
       "Home manager options" = {
         urls = [{
-          template = "https://mipmip.github.io/home-manager-option-search";
+          template = "https://home-manager-options.extranix.com";
           params = [
             { name = "query"; value = "{searchTerms}"; }
           ];
         }];
 
-        iconUpdateURL = "https://mipmip.github.io/home-manager-option-search/images/favicon.png";
+        iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
         updateInterval = 24 * 60 * 60 * 1000;
         definedAliases = [ "@ho" ];
       };
