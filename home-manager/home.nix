@@ -358,6 +358,15 @@
   ## Terminal file manager: lf
   programs.lf = {
     enable = true;
+    previewer = {
+      source = "${pkgs.ctpv}/bin/ctpv";
+      keybinding = "i";
+    };
+    extraConfig = ''
+      &${pkgs.ctpv}/bin/ctpv -s $id
+      cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
+      set cleaner ${pkgs.ctpv}/bin/ctpvclear
+    '';
   };
 
   ## VCS: git
