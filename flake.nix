@@ -47,7 +47,7 @@
       # colorSchemeString = "Catppuccin-Macchiato";
       # colorSchemeString = "Catppuccin-Frappe";
 
-      colorSchemeAccent = "Mauve";
+      colorSchemeAccent = "Blue";
 
       fzf_color_scheme = {
         "Catppuccin-Mocha" = {
