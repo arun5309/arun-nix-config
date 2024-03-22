@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -138,7 +138,13 @@
   nixpkgs.config.allowUnfree = true;
 
   # Global programs (in addition to zsh, plasma desktop, sddm, print server, etc declared above)
+
   programs.firejail.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -11,6 +11,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Hyprland flake (makes installation of plugins more convinient)
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     # Firefox addons NUR package
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -105,7 +112,7 @@
     {
       nixosConfigurations = {
         arun_nixos_default = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit system; };
+          specialArgs = { inherit system inputs; };
 
           modules = [
             ./nixos/configuration.nix

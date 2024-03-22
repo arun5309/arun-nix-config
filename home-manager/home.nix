@@ -93,6 +93,14 @@
       url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
       sha256 = "0141nzyjr3mybkbn9p0wwv5l0d0scdc2r7pl8s1lgh11wi2l771x";
     };
+
+    ".config/hypr/${(lib.toLower builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf".text = builtins.readFile (
+      pkgs.fetchFromGithub {
+        owner = "catppuccin";
+        repo = "hyprland";
+        rev = "fc228737d3d0c12e34a7fa155a0fc3192e5e4017";
+        sha256 = "";
+      } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf);
   };
 
   # Home Manager can also manage your environment variables through
@@ -135,8 +143,6 @@
   };
 
   # Theming and colors
-
-  # TODO: SDDM, gtk, qt theming
 
   # GTK theming
 
@@ -191,6 +197,36 @@
         accents = [ (lib.toLower colorSchemeAccent) ];
         winDecStyles = [ "modern" ];
       };
+    };
+  };
+
+  # Window manager: hyprland
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      source = [
+        "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf"
+      ];
+      "$mod" = "SUPER";
+      bind = [
+        "$mod, F, exec, firefox"
+      ] ++ (
+        # Workspaces
+        # binds $mod + [shift +] {1..0} to move to workspace {1..10}
+        builtins.concatLists (builtins.genList (
+            x: let
+              ws = let
+                c = (x + 1) / 10;
+              in
+                builtins.toString (x + 1 - (c * 10));
+            in [
+              "$mod, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            ]
+          )
+        10)
+      );
     };
   };
 
@@ -639,7 +675,7 @@
       # Use system dark mode (for prefers color scheme)
       "ui.systemUsesDarkTheme" = if colorSchemeMode == "Dark" then 1 else (if colorSchemeMode == "Light" then 0 else 2);
       "browser.in-content.dark-mode" = colorSchemeMode == "Dark";
-      # TODO: as both methods above don't work
+      # TODO: as both methods above don't work without disabling resistFingerprinting
     };
 
     containers= {
