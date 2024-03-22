@@ -94,12 +94,12 @@
       sha256 = "0141nzyjr3mybkbn9p0wwv5l0d0scdc2r7pl8s1lgh11wi2l771x";
     };
 
-    ".config/hypr/${(lib.toLower builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf".text = builtins.readFile (
-      pkgs.fetchFromGithub {
+    ".config/hypr/${(lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2))}.conf".text = builtins.readFile (
+      pkgs.fetchFromGitHub {
         owner = "catppuccin";
         repo = "hyprland";
         rev = "fc228737d3d0c12e34a7fa155a0fc3192e5e4017";
-        sha256 = "";
+        sha256 = "0ynyapg6nrpgm6rmwqdy6h9q063jp2z3lsph03gn2bkmsammj67l";
       } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf);
   };
 
@@ -205,9 +205,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      source = [
-        "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf"
-      ];
+      source = [ "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf" ];
       "$mod" = "SUPER";
       bind = [
         "$mod, F, exec, firefox"
