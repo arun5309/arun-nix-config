@@ -146,35 +146,36 @@
 
   # GTK theming
 
-#   gtk = {
-#     enable = true;
-#     theme = {
-#       name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
-#       package = pkgs.catppuccin-gtk.override {
+  gtk = {
+    enable = true;
+    theme = {
+      name = "adw-gtk3"; # "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
+      package = pkgs.adw-gtk3;
+#       pkgs.catppuccin-gtk.override {
 #         accents = [ (lib.toLower colorSchemeAccent) ];
 #         size = "compact";
 #         tweaks = [ "rimless" "black" ];
 #         variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
 #       };
-#     };
-#     /*cursorTheme = {
-#       name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
-#       package = pkgs.catppuccin-cursors;
-#     };*/ # Use breeze cursor instead of gtk cursor
-#     iconTheme = {
-#       name = "Papirus-${colorSchemeMode}";
-#       package = pkgs.catppuccin-papirus-folders.override {
-#         flavor = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}";
-#         accent = lib.toLower colorSchemeAccent;
-#       };
-#     };
-#   };
+    };
+    /*cursorTheme = {
+      name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
+      package = pkgs.catppuccin-cursors;
+    };*/ # Use breeze cursor instead of gtk cursor
+    iconTheme = {
+      name = "Papirus-${colorSchemeMode}";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}";
+        accent = lib.toLower colorSchemeAccent;
+      };
+    };
+  };
 
-#   xdg.configFile = {
-#     "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-#     "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-#     "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-#   };
+  xdg.configFile = {
+    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+  };
 
   # Qt theming
 
