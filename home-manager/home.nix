@@ -88,6 +88,11 @@
           rev = "a544cef";
           sha256 = "gM0HplHhcpvtpmIVdlX/p59h0v+ihKEidS1imqPYlBg=";
         } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}/${lib.toLower colorSchemeAccent}.yml);
+
+    ".config/lf/icons".source = builtins.fetchurl {
+      url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
+      sha256 = "0141nzyjr3mybkbn9p0wwv5l0d0scdc2r7pl8s1lgh11wi2l771x";
+    };
   };
 
   # Home Manager can also manage your environment variables through
@@ -358,6 +363,13 @@
   ## Terminal file manager: lf
   programs.lf = {
     enable = true;
+    settings = {
+      shell = "zsh";
+      hidden = true;
+      icons = true;
+      mouse = true;
+      relativenumber = true;
+    };
     previewer = {
       source = "${pkgs.ctpv}/bin/ctpv";
       keybinding = "i";
