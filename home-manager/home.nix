@@ -214,6 +214,7 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
       general = {
+        allow_tearing = true;
         monitor = [ "VGA-1, 1920x1080, 1920x0, 1" "HDMI-A-1, 1920x1080, 0x0, 1" ];
       };
       input = {
@@ -240,6 +241,9 @@
         "$mod ALT, ,resizeactive,"
 
         "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | ${pkgs.json2tsv}/bin/jaq -r '.int') ^ 1))"
+
+        "$mod, Period, layoutmsg, cyclenext"
+        "$mod, Comma, layoutmsg, swapwithmaster master"
 
         "$mod, Escape, exec, wlogout -p layer-shell"
         "$mod SHIFT, L, exec, loginctl lock-session"
