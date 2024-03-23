@@ -8,7 +8,51 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.xremap-flake.nixosModules.default
     ];
+
+  services.xremap = {
+    withWlroots = true;
+    yamlConfig = ''
+      modmap:
+        - name: Make compose into an additional escape
+          remap:
+            Compose: Esc
+        - name: Switch backspace and caps lock
+          remap:
+            BackSpace: CapsLock
+            CapsLock: BackSpace
+        - name: Workman layout
+          remap:
+            q: q
+            w: d
+            e: r
+            r: w
+            t: b
+            y: j
+            u: f
+            i: u
+            o: p
+            p: SemiColon
+            a: a
+            s: s
+            d: h
+            f: t
+            g: g
+            h: y
+            j: n
+            k: e
+            l: o
+            SemiColon: i
+            z: z
+            x: x
+            c: m
+            v: c
+            b: v
+            n: k
+            m: l
+    '';
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -59,11 +103,6 @@
     layout = "us";
     variant = "workman";
   };
-
-  # Configure keymap overrides (using xremap)
-  hardware.uinput.enable = true;
-  users.groups.uinput.members = [ "arun" ];
-  users.groups.input.members = [ "arun" ];
 
   # Enable CUPS to print documents.
   services.printing = {

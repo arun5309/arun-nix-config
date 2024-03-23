@@ -1,24 +1,6 @@
 { config, pkgs, lib, system, allowed-unfree-packages, colorSchemeMode, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
 
 {
-  # Modules
-  imports = [
-    inputs.xremap-flake.homeManagerModules.default
-  ];
-
-  services.xremap = {
-    withWlroots = true;
-    yamlConfig = ''
-      modmap:
-        - name: Make compose into an additional escape
-          remap:
-            Compose: Esc
-        - name: Make backspace into caps lock
-          remap:
-            BackSpace: CapsLock
-    '';
-  };
-
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) allowed-unfree-packages;
@@ -57,7 +39,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    #inputs.xremap-flake.packages.${system}.default
     nerdfonts
     file
     silver-searcher
