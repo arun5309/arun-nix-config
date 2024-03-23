@@ -65,5 +65,5 @@ zvm make ^k cut contents to the clipboard
 Make cupd redundant
 lf keybinds
 hyprland keybinds (config at the moment is extremely minimal)
-xremap or keymapper
+xremap buggy conf on kde
 SOPS?

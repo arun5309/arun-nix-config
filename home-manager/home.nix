@@ -7,8 +7,7 @@
   ];
 
   services.xremap = {
-    # withHypr = true;
-    withKDE = true;
+    withWlroots = true;
     yamlConfig = ''
       modmap:
         - name: Make compose into an additional escape
@@ -58,7 +57,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    inputs.xremap-flake.packages.${system}.default
+    #inputs.xremap-flake.packages.${system}.default
     nerdfonts
     file
     silver-searcher
@@ -75,6 +74,8 @@
     espeak
     graphviz
     ctpv
+    wlogout
+    hyprlock
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -228,8 +229,56 @@
     settings = {
       source = [ "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf" ];
       "$mod" = "SUPER";
-      bind = [
-        "$mod, F, exec, firefox"
+      env = [
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+      ];
+      exec-once = [
+        # "hyprlock"
+      ];
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
+      ];
+      bind = let monocle = "dwindle:no_gaps_when_only"; in [
+        "$mod SHIFT, E, exec, pkill Hyprland"
+        "$mod, Q, killactive"
+        "$mod, F, fullscreen"
+        "$mod, G, togglegroup"
+        "$mod SHIFT, N, changegroupactive, f"
+        "$mod SHIFT, P, changegroupactive, b"
+        "$mod, R, togglesplit"
+        "$mod, T, togglefloating"
+        "$mod, P, pseudo"
+        "$mod ALT, ,resizeactive,"
+
+        "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | ${pkgs.json2tsv}/bin/jaq -r '.int') ^ 1))"
+
+        "$mod, Escape, exec, wlogout -p layer-shell"
+        "$mod SHIFT, L, exec, loginctl lock-session"
+        # "$mod SHIFT, O, exec, run-as-service wl-ocr"
+
+        "$mod, Return, exec, kitty"
+
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+        "$mod, H, movefocus, l"
+        "$mod, L, movefocus, r"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+
+        "$mod SHIFT, grave, movetoworkspace, special"
+        "$mod, grave, togglespecialworkspace, VGA-1"
+
+        "$mod, bracketleft, workspace, m-1"
+        "$mod, bracketright, workspace, m+1"
+
+        "$mod SHIFT, bracketleft, movecurrentworkspacetomonitor, l"
+        "$mod SHIFT, bracketright, movecurrentworkspacetomonitor, r"
+
+        "$mod, D, exec, rofi -show run"
       ] ++ (
         # Workspaces
         # binds $mod + [shift +] {1..0} to move to workspace {1..10}
@@ -247,6 +296,11 @@
         10)
       );
     };
+  };
+
+  # Application launcher
+  programs.rofi = {
+    enable = true;
   };
 
   # Shell and shell utilities
