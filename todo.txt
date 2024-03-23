@@ -67,3 +67,4 @@ lf keybinds
 hyprland keybinds (config at the moment is extremely minimal)
 xremap buggy conf on kde
 SOPS?
+rofi more plugins and search options

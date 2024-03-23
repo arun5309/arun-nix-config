@@ -55,8 +55,13 @@
     espeak
     graphviz
     ctpv
+    wl-clipboard
+    wl-clip-persist
     wlogout
     hyprlock
+    hyprpicker
+    hyprpaper
+    hypridle
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -111,6 +116,19 @@
         rev = "5350da41a11814f950c3354f090b90d4674a95ce";
         sha256 = "15phrl9qlbzjxmp29hak3a5k015x60w2hxjif90q82vp55zjpnhc";
       } + "/basic/.local/share/rofi/themes/${lib.toLower colorSchemeString}.rasi");
+
+    ".config/dunst/dunstrc_themed".text = builtins.readFile (
+        pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "dunst";
+          rev = "a72991e56338289a9fce941b5df9f0509d2cba09";
+          sha256 = "12gidkxw7kkalhn9rflki2f4wcd2flmrz2m9rzynmfawwqm95dyl";
+        } + /src/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf) +
+        ''
+        [global]
+        icon_position=off
+        origin = "bottom-right"
+        '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -232,6 +250,11 @@
         workspace = [ "1,monitor:HDMI-A-1,default:true" "2,monitor:VGA-1,default:true" ];
       };
       exec-once = [
+        "dunst -config /home/arun/.config/dunst/dunstrc_themed"
+        "copyq --start-server"
+        "wl-paste --type text --watch cliphist store #Stores only text data"
+        "wl-paste --type text --watch cliphist store #Stores only text data"
+        "wl-clip-persist --clipboard both"
         # "hyprlock"
       ];
       bindm = [
@@ -280,7 +303,8 @@
         "$mod SHIFT, bracketleft, movecurrentworkspacetomonitor, l"
         "$mod SHIFT, bracketright, movecurrentworkspacetomonitor, r"
 
-        "$mod, D, exec, rofi -show run"
+        "$mod, D, exec, rofi -show drun"
+        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
       ] ++ (
         # Workspaces
         # binds $mod + [shift +] {1..0} to move to workspace {1..10}
@@ -300,7 +324,7 @@
     };
   };
 
-  # Application launcher
+  # Application launcher: rofi
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -324,6 +348,17 @@
       package = pkgs.rofi-pass-wayland;
     };
   };
+
+  # Notification daemon: dunst
+  services.dunst = {
+    enable = true;
+    configFile = /home/arun/.config/dunst/dunstrc_themed; # May have to disable this and re-enable to get the desired effect. Due ordering issues.
+    waylandDisplay = "wayland-1";
+  };
+
+  # Clipboard history: copyq
+  services.copyq.enable = true;
+  services.cliphist.enable = true;
 
   # Shell and shell utilities
 
