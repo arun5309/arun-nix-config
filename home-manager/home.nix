@@ -235,7 +235,7 @@
   programs.zsh = {
     enable = true;
     zprof.enable = false; # Profiling zsh
-    defaultKeymap = "viins";
+    # defaultKeymap = "viins";
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
@@ -250,6 +250,19 @@
     # Source session variables
     initExtra = ''
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      function zvm_after_init() {
+        emulate -LR zsh
+        # spacebar expands abbreviations
+        bindkey " " abbr-expand-and-insert
+        # control-spacebar is a normal space
+        bindkey "^ " magic-space
+        # when running an incremental search,
+        # spacebar behaves normally and control-space expands abbreviations
+        bindkey -M isearch "^ " abbr-expand-and-insert
+        bindkey -M isearch " " magic-space
+        # enter key expands and accepts abbreviations
+        bindkey "^M" abbr-expand-and-accept
+      }
     '';
 
     # Aliases
@@ -262,6 +275,15 @@
       enable = true;
       editor.keymap = "vi";
     };*/
+
+    ## Plugins
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+    ];
 
     ## Abbreviations: zsh-abbr
     zsh-abbr.enable = true;
@@ -441,7 +463,10 @@
   ## Terminal emulator:
   programs.kitty = {
     enable = true;
-    shellIntegration.enableZshIntegration = true;
+    shellIntegration = {
+      enableZshIntegration = true;
+      mode = "no-cursor";
+    };
     theme = colorSchemeString;
   };
 
