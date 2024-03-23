@@ -183,7 +183,7 @@
 
   qt = {
     enable = true;
-    #platformTheme = "kde";
+    platformTheme = "kde";
     /*style = {
       name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.catppuccin-gtk.override {
@@ -219,6 +219,9 @@
       };
       input = {
         numlock_by_default = true;
+      };
+      workspacerule = {
+        workspace = [ "1,monitor:HDMI-A-1,default:true" "2,monitor:VGA-1,default:true" ];
       };
       exec-once = [
         # "hyprlock"
@@ -292,6 +295,10 @@
   # Application launcher
   programs.rofi = {
     enable = true;
+    package = pkgs.rofi-wayland;
+    pass = {
+      package = pkgs.rofi-pass-wayland;
+    };
   };
 
   # Shell and shell utilities
