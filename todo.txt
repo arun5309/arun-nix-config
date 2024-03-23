@@ -74,3 +74,5 @@ get waybar working
 configure hyprlock (lockscreen theming, other functionality)
 configure hypridle (proper commands instead of notify-send)
 configure hyprpaper?
+configure polkit / authentication agent for hyprland
+configure hyprland portal to prefer qt over gtk, kde stuff in general
