@@ -213,6 +213,12 @@
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
+      general = {
+        monitor = [ "VGA-1, 1920x1080, 1920x0, 1" "HDMI-A-1, 1920x1080, 0x0, 1" ];
+      };
+      input = {
+        numlock_by_default = true;
+      };
       exec-once = [
         # "hyprlock"
       ];
@@ -223,7 +229,7 @@
       ];
       bind = let monocle = "dwindle:no_gaps_when_only"; in [
         "$mod SHIFT, E, exec, pkill Hyprland"
-        "$mod, Q, killactive"
+        "$mod SHIFT, Q, killactive"
         "$mod, F, fullscreen"
         "$mod, G, togglegroup"
         "$mod SHIFT, N, changegroupactive, f"
