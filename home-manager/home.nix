@@ -55,6 +55,7 @@
     espeak
     graphviz
     ctpv
+    libnotify
     wl-clipboard
     wl-clip-persist
     wlogout
@@ -130,6 +131,35 @@
         icon_position=off
         origin = "bottom-right"
         '';
+
+      ".config/hypr/hypridle.conf".text = ''
+        general {
+          lock_cmd = hyprlock"          # dbus/sysd lock command (loginctl lock-session)
+          unlock_cmd = notify-send "unlock!"      # same as above, but unlock
+          before_sleep_cmd = notify-send "Zzz"    # command ran before sleep
+          after_sleep_cmd = notify-send "Awake!"  # command ran after sleep
+          ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
+        }
+
+        listener {
+            timeout = 500                            # in seconds
+            on-timeout = lock_cmd # command to run when timeout has passed
+            on-resume = notify-send "Welcome back!"  # command to run when activity is detected after timeout has fired.
+        }
+      '';
+      ".config/hypr/hyprlock.conf".text = ''
+        background {
+          monitor =
+          color = rgba(0, 0, 0, 1.0)
+          brightness = 0.01
+        }
+      '';
+      ".config/hypr/hyprpaper.conf".text = ''
+        preload = ${/home/arun/arun-nix-config/media/wallpapers/main.png}
+        wallpaper = HDMI-A-1, ${/home/arun/arun-nix-config/media/wallpapers/main.png}
+        wallpaper = VGA-1, ${/home/arun/arun-nix-config/media/wallpapers/main.png}
+        splash = false
+      '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -252,7 +282,10 @@
         workspace = [ "1,monitor:HDMI-A-1,default:true" "2,monitor:VGA-1,default:true" ];
       };
       exec-once = [
-        "dunst -config /home/arun/.config/dunst/dunstrc_themed"
+        "imv ${/home/arun/arun-nix-config/media/splash/main.png} -f -t 5 -x"
+        "hyprpaper"
+        "hypridle"
+        "dunst -config ${/home/arun/.config/dunst/dunstrc_themed}"
         "copyq --start-server"
         "wl-paste --type text --watch cliphist store #Stores only text data"
         "wl-paste --type text --watch cliphist store #Stores only text data"
@@ -282,7 +315,7 @@
         "$mod, Comma, layoutmsg, swapwithmaster master"
 
         "$mod, Escape, exec, wlogout -p layer-shell"
-        "$mod SHIFT, L, exec, loginctl lock-session"
+        "$mod SHIFT, L, exec, hyprlock"
         # "$mod SHIFT, O, exec, run-as-service wl-ocr"
 
         "$mod, Return, exec, kitty"

@@ -68,3 +68,9 @@ hyprland keybinds (config at the moment is extremely minimal)
 xremap buggy conf on kde
 SOPS?
 rofi more plugins and search options
+wlogout options
+configure the splash screen to work properly (try proper method instead of hacks)
+get waybar working
+configure hyprlock (lockscreen theming, other functionality)
+configure hypridle (proper commands instead of notify-send)
+configure hyprpaper?
