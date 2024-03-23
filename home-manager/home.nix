@@ -103,6 +103,14 @@
         rev = "fc228737d3d0c12e34a7fa155a0fc3192e5e4017";
         sha256 = "0ynyapg6nrpgm6rmwqdy6h9q063jp2z3lsph03gn2bkmsammj67l";
       } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf);
+
+    ".local/share/rofi/themes/${lib.toLower colorSchemeString}.rasi".text = builtins.readFile (
+      pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "rofi";
+        rev = "5350da41a11814f950c3354f090b90d4674a95ce";
+        sha256 = "15phrl9qlbzjxmp29hak3a5k015x60w2hxjif90q82vp55zjpnhc";
+      } + "/basic/.local/share/rofi/themes/${lib.toLower colorSchemeString}.rasi");
   };
 
   # Home Manager can also manage your environment variables through
@@ -296,6 +304,22 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    terminal = "kitty";
+    cycle = true;
+    theme = "${lib.toLower colorSchemeString}";
+    extraConfig = {
+      modi = "run,drun,window";
+      icon-theme = "Papirus-${colorSchemeMode}";
+      show-icons = true;
+      drun-display-format = "{icon} {name}";
+      disable-history = false;
+      hide-scrollbar = true;
+      display-drun = "   Apps ";
+      display-run = "   Run ";
+      display-window = " 﩯  Window";
+      display-Network = " 󰤨  Network";
+      sidebar-mode = true;
+    };
     pass = {
       package = pkgs.rofi-pass-wayland;
     };
@@ -318,7 +342,10 @@
       "root"
       "line"
     ];
-
+    # History
+    history = {
+      ignoreSpace = true;
+    };
     # Source session variables
     initExtra = ''
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
