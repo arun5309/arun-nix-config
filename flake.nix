@@ -20,6 +20,26 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      # inputs.hyprland.follows = "hyprland";
+    };
+    hyprpicker = {
+      url = "github:hyprwm/hyprpicker";
+      # inputs.hyprland.follows = "hyprland";
+    };
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      # inputs.hyprland.follows = "hyprland";
+    };
+    hypridle = {
+      url = "github:hyprwm/hypridle";
+      # inputs.hyprland.follows = "hyprland";
+    };
+    xdg-desktop-portal-hyprland = {
+      url = "github:hyprwm/xdg-desktop-portal-hyprland";
+      # inputs.hyprland.follows = "hyprland";
+    };
 
     # Firefox addons NUR package
     firefox-addons = {

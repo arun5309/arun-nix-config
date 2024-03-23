@@ -58,10 +58,11 @@
     wl-clipboard
     wl-clip-persist
     wlogout
-    hyprlock
-    hyprpicker
-    hyprpaper
-    hypridle
+    inputs.hyprlock.packages.${pkgs.system}.hyprlock
+    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
+    inputs.hypridle.packages.${pkgs.system}.hypridle
+    inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -233,6 +234,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       source = [ "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf" ];
       "$mod" = "SUPER";
