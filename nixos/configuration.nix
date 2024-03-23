@@ -60,6 +60,11 @@
     variant = "workman";
   };
 
+  # Configure keymap overrides (using xremap)
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [ "arun" ];
+  users.groups.input.members = [ "arun" ];
+
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;

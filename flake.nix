@@ -11,6 +11,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Xremap flake
+    xremap-flake.url = "github:xremap/nix-flake";
+
     # Hyprland flake (makes installation of plugins more convinient)
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {

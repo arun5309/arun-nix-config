@@ -60,6 +60,7 @@ Qt platform theme? (is it safe to ignore)
 sddm theme?
 Fix kitty cursor bug (related to zvm?)
 zsh-abbr use global instead of regular
+remove additional spaces after zvm expansion
 zvm make ^k cut contents to the clipboard
 Make cupd redundant
 lf keybinds
