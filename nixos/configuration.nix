@@ -104,6 +104,11 @@
     # variant = "workman";
   };
 
+  # Add main user (i.e user arun) to (u)input group
+  hardware.uinput.enable = true;
+  users.groups.uinput.members = [ "arun" ];
+  users.groups.input.members = [ "arun" ];
+
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;

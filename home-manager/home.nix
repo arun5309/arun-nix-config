@@ -45,6 +45,7 @@
     buku
     fastfetch
     unixtools.xxd
+    psmisc
     ffmpeg-full
     imagemagick
     w3m
@@ -55,7 +56,9 @@
     espeak
     graphviz
     ctpv
+    pavucontrol
     libnotify
+    wayland-pipewire-idle-inhibit
     wl-clipboard
     wl-clip-persist
     wlogout
@@ -160,6 +163,13 @@
         wallpaper = VGA-1, ${/home/arun/arun-nix-config/media/wallpapers/main.png}
         splash = false
       '';
+      ".config/waybar/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css".text = builtins.readFile (
+        pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "waybar";
+          rev = "f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff";
+          sha256 = "1bs0g32h6z6v7wkb595yddz1p7d2abxn8d7q117lxl7ncl1lrcjq";
+        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css);
   };
 
   # Home Manager can also manage your environment variables through
@@ -274,6 +284,7 @@
       general = {
         allow_tearing = true;
         monitor = [ "VGA-1, 1920x1080, 1920x0, 1" "HDMI-A-1, 1920x1080, 0x0, 1" ];
+        gaps_out = 5;
       };
       input = {
         numlock_by_default = true;
@@ -282,7 +293,6 @@
         workspace = [ "1,monitor:HDMI-A-1,default:true" "2,monitor:VGA-1,default:true" ];
       };
       exec-once = [
-        "imv ${/home/arun/arun-nix-config/media/splash/main.png} -f -t 5 -x"
         "hyprpaper"
         "hypridle"
         "dunst -config ${/home/arun/.config/dunst/dunstrc_themed}"
@@ -290,6 +300,7 @@
         "wl-paste --type text --watch cliphist store #Stores only text data"
         "wl-paste --type text --watch cliphist store #Stores only text data"
         "wl-clip-persist --clipboard both"
+        "waybar"
         # "hyprlock"
       ];
       bindm = [
@@ -297,9 +308,13 @@
         "$mod, mouse:273, resizewindow"
         "$mod ALT, mouse:272, resizewindow"
       ];
+
       bind = let monocle = "dwindle:no_gaps_when_only"; in [
+        "$mod, F1, exec, killall -SIGUSR1 .waybar-wrapped"
+
         "$mod SHIFT, E, exec, pkill Hyprland"
         "$mod SHIFT, Q, killactive"
+        "$mod SHIFT, F, togglefloating"
         "$mod, F, fullscreen"
         "$mod, G, togglegroup"
         "$mod SHIFT, N, changegroupactive, f"
@@ -329,6 +344,15 @@
         "$mod, K, movefocus, u"
         "$mod, J, movefocus, d"
 
+        "$mod SHIFT, left, movewindow, l"
+        "$mod SHIFT, right, movewindow, r"
+        "$mod SHIFT, up, movewindow, u"
+        "$mod SHIFT, down, movewindow, d"
+        "$mod SHIFT, H, movewindow, l"
+        "$mod SHIFT, L, movewindow, r"
+        "$mod SHIFT, K, movewindow, u"
+        "$mod SHIFT, J, movewindow, d"
+
         "$mod SHIFT, grave, movetoworkspace, special"
         "$mod, grave, togglespecialworkspace, VGA-1"
 
@@ -357,6 +381,186 @@
         10)
       );
     };
+  };
+
+  # Bar: waybar
+  programs.waybar = {
+    enable = true;
+    settings = {
+      mainBar = {
+        start_hidden = false;
+        position = "bottom";
+        layer = "top";
+        height = 35;
+        spacing = 4;
+        modules-left = [
+          "hyprland/workspaces"
+          # "custom/media"
+        ];
+        modules-center = [
+          "hyprland/window"
+        ];
+        modules-right = [
+          "idle_inhibitor"
+          # "keyboard-state"
+          # "network"
+          "pulseaudio"
+          # "power-profiles-daemon"
+          "cpu"
+          "memory"
+          # "temperature"
+          # "backlight"
+          # "battery"
+          # "battery#bat2"
+          "clock"
+          "tray"
+        ];
+
+        keyboard-state = {
+          numlock = true;
+          capslock = true;
+          format = "{name} {icon}";
+          format-icons = {
+              locked = "";
+              unlocked = "";
+          };
+        };
+
+        idle_inhibitor = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
+
+        tray = {
+          spacing = 10;
+        };
+
+        clock = {
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format-alt = "{:%Y-%m-%d}";
+        };
+
+        cpu = {
+          format = "{usage}% ";
+          tooltip = false;
+        };
+
+        memory = {
+          format = "{}% ";
+        };
+
+        temperature = {
+          critical-threshold = 80;
+          format = "{temparatureC}°C {icon}";
+          format-icons =  ["" "" ""];
+        };
+
+        backlight = {
+          format = "{percent}% {icon}";
+          format-icons = ["" "" "" "" "" "" "" "" ""];
+        };
+
+        battery = {
+          states = {
+            # good = 95;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}% {icon}";
+          format-full = "{capacity}% {icon}";
+          format-charging = "{capacity}% ";
+          format-plugged = "{capacity}% ";
+          format-alt = "{time} {icon}";
+          # format-good = ""; # An empty format will hide the module
+          # format-full = "";
+          format-icons = ["" "" "" "" ""];
+        };
+
+        "battery#bat2" = {
+          bat = "BAT2";
+        };
+
+        power-profiles-daemon = {
+          format = "{icon}";
+          tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+          tooltip = true;
+          format-icons = {
+            default = "";
+            performance = "";
+            balanced = "";
+            power-saver = "";
+          };
+        };
+
+        network = {
+            # interface = "wlp2*"; # (Optional) To force the use of this interface
+            format-wifi = "{essid} ({signalStrength}%) ";
+            format-ethernet = "{ipaddr}/{cidr} ";
+            tooltip-format = "{ifname} via {gwaddr} ";
+            format-linked = "{ifname} (No IP) ";
+            format-disconnected = "Disconnected ⚠";
+            format-alt = "{ifname}: {ipaddr}/{cidr}";
+        };
+
+        pulseaudio = {
+            # "scroll-step": 1, # %, can be a float
+            format = "{volume}% {icon} {format_source}";
+            format-bluetooth = "{volume}% {icon} {format_source}";
+            format-bluetooth-muted = " {icon} {format_source}";
+            format-muted = " {format_source}";
+            format-source = "{volume}% ";
+            format-source-muted = "";
+            format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = ["" "" ""];
+            };
+            on-click = "pavucontrol";
+        };
+
+        "custom/media" = {
+            format = "{icon} {}";
+            return-type = "json";
+            max-length = 40;
+            format-icons = {
+                default = "🎜";
+            };
+            escape = true;
+            exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
+            # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
+        };
+
+      };
+    };
+    style = ''
+      @import "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css";
+
+      * {
+        color: @text;
+      }
+
+      window#waybar {
+        background-color: shade(@base, 0.9);
+        border: 2px solid alpha(@crust, 0.3);
+      }
+
+      label.module {
+        padding: 0px 10px;
+        border: 1px solid @${lib.toLower colorSchemeAccent};
+      }
+
+      box.module {
+        padding: 0px 10px;
+        border: 1px solid @overlay0;
+      }
+    '';
   };
 
   # Application launcher: rofi
