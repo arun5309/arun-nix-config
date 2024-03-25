@@ -57,6 +57,7 @@
     graphviz
     ctpv
     pavucontrol
+    lm_sensors
     libnotify
     wayland-pipewire-idle-inhibit
     wl-clipboard
@@ -137,7 +138,7 @@
 
       ".config/hypr/hypridle.conf".text = ''
         general {
-          lock_cmd = hyprlock"          # dbus/sysd lock command (loginctl lock-session)
+          lock_cmd = hyprlock          # dbus/sysd lock command (loginctl lock-session)
           unlock_cmd = notify-send "unlock!"      # same as above, but unlock
           before_sleep_cmd = notify-send "Zzz"    # command ran before sleep
           after_sleep_cmd = notify-send "Awake!"  # command ran after sleep
@@ -146,7 +147,7 @@
 
         listener {
             timeout = 500                            # in seconds
-            on-timeout = lock_cmd # command to run when timeout has passed
+            on-timeout = hyprlock # command to run when timeout has passed
             on-resume = notify-send "Welcome back!"  # command to run when activity is detected after timeout has fired.
         }
       '';
@@ -158,9 +159,9 @@
         }
       '';
       ".config/hypr/hyprpaper.conf".text = ''
-        preload = ${/home/arun/arun-nix-config/media/wallpapers/main.png}
-        wallpaper = HDMI-A-1, ${/home/arun/arun-nix-config/media/wallpapers/main.png}
-        wallpaper = VGA-1, ${/home/arun/arun-nix-config/media/wallpapers/main.png}
+        preload = ${/home/arun/arun-nix-config/media/splash/main.png}
+        wallpaper = HDMI-A-1, ${/home/arun/arun-nix-config/media/splash/main.png}
+        wallpaper = VGA-1, ${/home/arun/arun-nix-config/media/splash/main.png}
         splash = false
       '';
       ".config/waybar/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css".text = builtins.readFile (
@@ -170,6 +171,44 @@
           rev = "f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff";
           sha256 = "1bs0g32h6z6v7wkb595yddz1p7d2abxn8d7q117lxl7ncl1lrcjq";
         } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css);
+        ".config/wlogout/layout".text = ''
+            {
+                "label" : "lock",
+                "action" : "hyprlock",
+                "text" : "Lock",
+                "keybind" : "l"
+            }
+            {
+                "label" : "hibernate",
+                "action" : "systemctl hibernate",
+                "text" : "Hibernate",
+                "keybind" : "h"
+            }
+            {
+                "label" : "logout",
+                "action" : "logout",
+                "text" : "Logout",
+                "keybind" : "e"
+            }
+            {
+                "label" : "shutdown",
+                "action" : "poweroff",
+                "text" : "Shutdown",
+                "keybind" : "s"
+            }
+            {
+                "label" : "suspend",
+                "action" : "suspend",
+                "text" : "Suspend",
+                "keybind" : "u"
+            }
+            {
+                "label" : "reboot",
+                "action" : "reboot",
+                "text" : "Reboot",
+                "keybind" : "r"
+            }
+        '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -289,17 +328,25 @@
       input = {
         numlock_by_default = true;
       };
-      workspacerule = {
-        workspace = [ "1,monitor:HDMI-A-1,default:true" "2,monitor:VGA-1,default:true" ];
+      misc = {
+        force_default_wallpaper = 0;
+        disable_splash_rendering = true;
       };
+      windowrulev2 = [
+        "float,class:(waybar),title:(waybar)"
+      ];
+      workspace = [
+        "1,monitor:HDMI-A-1,default:true"
+        "2,monitor:VGA-1,default:true"
+      ];
       exec-once = [
         "hyprpaper"
         "hypridle"
         "dunst -config ${/home/arun/.config/dunst/dunstrc_themed}"
+        "wl-clip-persist --clipboard both"
         "copyq --start-server"
         "wl-paste --type text --watch cliphist store #Stores only text data"
         "wl-paste --type text --watch cliphist store #Stores only text data"
-        "wl-clip-persist --clipboard both"
         "waybar"
         # "hyprlock"
       ];
@@ -308,7 +355,6 @@
         "$mod, mouse:273, resizewindow"
         "$mod ALT, mouse:272, resizewindow"
       ];
-
       bind = let monocle = "dwindle:no_gaps_when_only"; in [
         "$mod, F1, exec, killall -SIGUSR1 .waybar-wrapped"
 
@@ -388,7 +434,7 @@
     enable = true;
     settings = {
       mainBar = {
-        start_hidden = false;
+        start_hidden = true;
         position = "bottom";
         layer = "top";
         height = 35;
@@ -403,12 +449,12 @@
         modules-right = [
           "idle_inhibitor"
           # "keyboard-state"
-          # "network"
+          "network"
           "pulseaudio"
-          # "power-profiles-daemon"
+          "power-profiles-daemon"
           "cpu"
           "memory"
-          # "temperature"
+          "temperature"
           # "backlight"
           # "battery"
           # "battery#bat2"
@@ -454,7 +500,7 @@
 
         temperature = {
           critical-threshold = 80;
-          format = "{temparatureC}°C {icon}";
+          format = "{temperatureC}°C {icon}";
           format-icons =  ["" "" ""];
         };
 
