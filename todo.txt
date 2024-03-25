@@ -85,3 +85,4 @@ configure hyprland portal to prefer qt over gtk, kde stuff in general
 loginctl stuff (wlogout check layout file)
 make waybar render over windows
 hyprland window rules (floating windows show title, master layout?, etc)
+optimize memory/cpu/disk usage
