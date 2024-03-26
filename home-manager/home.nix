@@ -194,13 +194,13 @@
                 "label" : "shutdown",
                 "action" : "poweroff",
                 "text" : "Shutdown",
-                "keybind" : "s"
+                "keybind" : "p"
             }
             {
                 "label" : "suspend",
                 "action" : "suspend",
                 "text" : "Suspend",
-                "keybind" : "u"
+                "keybind" : "s"
             }
             {
                 "label" : "reboot",
@@ -926,7 +926,7 @@
       "browser.startup.page" = 1;
       "browser.startup.homepage" = "about:home";
       "browser.newtabpage.enabled" = false;
-      "browser.newtab.preload" = false;
+      "browser.newtab.preload" = true; # Overrided
       "browser.newtabpage.activity-stream.feeds.telemetry" = false;
       "browser.newtabpage.activity-stream.telemetry" = false;
       "browser.newtabpage.activity-stream.feeds.snippets" = false;
@@ -1003,12 +1003,12 @@
       "browser.safebrowsing.allowOverride" = false;
 
       # Network: DNS, Proxy, IPv6
-      "network.prefetch-next" = false;
-      "network.dns.disablePrefetch" = true;
-      "network.predictor.enabled" = false;
-      "network.http.speculative-parallel-limit" = 0;
-      "browser.places.speculativeConnect.enabled" = false;
-      "network.dns.disableIPv6" = true;
+      "network.prefetch-next" = true;  # Overrided
+      "network.dns.disablePrefetch" = false;  # Overrided
+      "network.predictor.enabled" = true;  # Overrided
+      # "network.http.speculative-parallel-limit" = 0;  # Overrided
+      "browser.places.speculativeConnect.enabled" = true;  # Overrided
+      "network.dns.disableIPv6" = false;  # Overrided
       "network.gio.supported-protocols" = "";
       "network.file.disable_unc_paths" = true;
       "permissions.manager.defaultsUrl" = "";
@@ -1038,7 +1038,7 @@
       "network.auth.subresource-http-auth-allow" = 1;
 
       # Disk Cache/Memory
-      "browser.cache.disk.enable" = false;
+      "browser.cache.disk.enable" = true;  # Overrided
       "browser.sessionstore.privacy_level" = 2;
       "browser.sessionstore.resume_from_crash" = true; # Overrided
       "browser.pagethumbnails.capturing_disabled" = true;

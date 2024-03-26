@@ -143,12 +143,12 @@
         };
       };
 
-      home-manager.users.arun = {
-        dconf = {
-          enable = true;
-          settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-        };
-      };
+#       home-manager.users.arun = {
+#         dconf = {
+#           enable = true;
+#           settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+#         };
+#       };
 
       homeConfigurations = {
         arun_home_default = home-manager.lib.homeManagerConfiguration {

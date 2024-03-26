@@ -62,6 +62,7 @@ Issues:
 
 Fix gtk icon bug
 Fix gtk theming
+hyprcursor?
 Qt platform theme? (is it safe to ignore)
 sddm theme?
 Fix kitty cursor bug (related to zvm?)
@@ -70,19 +71,17 @@ remove additional spaces after zvm expansion
 zvm make ^k cut contents to the clipboard
 Make cupd redundant
 lf keybinds
-hyprland keybinds (config at the moment is extremely minimal)
 xremap buggy conf on kde
 SOPS?
-rofi more plugins and search options
+rofi more plugins and search options (eg. for hyprpicker, close all and shutdown)
 wlogout options
-configure the splash screen to work properly (try proper method instead of hacks)
-get waybar working
-configure hyprlock (lockscreen theming, other functionality)
-configure hypridle (proper commands instead of notify-send)
-configure hyprpaper?
+configure hyprpaper (choose good wallpaper)?
 configure polkit / authentication agent for hyprland
 configure hyprland portal to prefer qt over gtk, kde stuff in general
-loginctl stuff (wlogout check layout file)
 make waybar render over windows
-hyprland window rules (floating windows show title, master layout?, etc)
 optimize memory/cpu/disk usage
+hyprland window rules (floating windows show title, master layout?, etc)
+flameshot/grimblast screenshots
+copyq, cliphist (choose one or other. Better just optimize.)
+clipboard sync for terminal (emacs mode/insert mode)
+nixvim
