@@ -345,9 +345,10 @@
         "dunst -config ${/home/arun/.config/dunst/dunstrc_themed}"
         "wl-clip-persist --clipboard both"
         "copyq --start-server"
-        "wl-paste --type text --watch cliphist store #Stores only text data"
-        "wl-paste --type text --watch cliphist store #Stores only text data"
+        "wl-paste --type text --watch cliphist store"
+        "wl-paste --type image --watch cliphist store"
         "waybar"
+        "sleep 5 && hyprctl hyprpaper unload all"
         # "hyprlock"
       ];
       bindm = [
