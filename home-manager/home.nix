@@ -436,6 +436,7 @@
     settings = {
       mainBar = {
         start_hidden = true;
+        margin-bottom = 5;
         position = "bottom";
         layer = "top";
         height = 35;
