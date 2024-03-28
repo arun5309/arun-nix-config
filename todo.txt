@@ -78,7 +78,6 @@ wlogout options
 configure hyprpaper (choose good wallpaper)?
 configure polkit / authentication agent for hyprland
 configure hyprland portal to prefer qt over gtk, kde stuff in general
-make waybar render over windows
 optimize memory/cpu/disk usage
 hyprland window rules (floating windows show title, master layout?, etc)
 flameshot/grimblast screenshots
