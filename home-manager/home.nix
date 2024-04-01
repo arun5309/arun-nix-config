@@ -377,7 +377,7 @@
         "$mod, Comma, layoutmsg, swapwithmaster master"
 
         "$mod, Escape, exec, wlogout -p layer-shell"
-        "$mod SHIFT, L, exec, hyprlock"
+        # "$mod SHIFT, L, exec, hyprlock"
         # "$mod SHIFT, O, exec, run-as-service wl-ocr"
 
         "$mod, Return, exec, kitty"
