@@ -718,6 +718,8 @@
       upd = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default' && sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       fupd = "nix flake update";
       uchan  = "nix-channel --update";
+      niupd = "nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'";
+      ngc = "nix-collect-garbage --delete-older-than 15d";
       sui = "sudo -i ";
       cht = "curl https://cht.sh/";
       ginit = "git init";
