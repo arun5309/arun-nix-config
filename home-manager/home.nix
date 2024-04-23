@@ -289,7 +289,9 @@
 
   qt = {
     enable = true;
-    platformTheme = "kde";
+    platformTheme = {
+      name = "kde";
+    };
     /*style = {
       name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.catppuccin-gtk.override {
