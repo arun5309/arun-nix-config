@@ -68,6 +68,7 @@
     inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    texliveFull
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -1241,10 +1242,6 @@
       firefox-color
     ];
     };
-  };
-
-  programs.texlive = {
-    enable = true;
   };
 
   programs.pandoc = {
