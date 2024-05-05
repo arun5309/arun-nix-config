@@ -41,6 +41,10 @@
       # inputs.hyprland.follows = "hyprland";
     };
 
+    # Nix pre-built index
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
     # Firefox addons NUR package
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -48,7 +52,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -157,6 +161,8 @@
           pkgs = nixpkgs.legacyPackages.${system};
 
           modules = [
+            nix-index-database.hmModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             ./home-manager/home.nix
             #./home-manager/dummy_home.nix
           ];
