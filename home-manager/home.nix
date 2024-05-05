@@ -1242,4 +1242,12 @@
     ];
     };
   };
+
+  programs.texlive = {
+    enable = true;
+  };
+
+  programs.pandoc = {
+    enable = true;
+  };
 }
