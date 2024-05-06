@@ -70,6 +70,7 @@
     inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
     texliveFull
     hunspell
+    hunspellDicts.en_US-large
     libreoffice-qt-fresh
   ];
 
