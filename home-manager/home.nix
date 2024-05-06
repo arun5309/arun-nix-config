@@ -70,6 +70,7 @@
     inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
     texliveFull
     hunspell
+    libreoffice-qt-fresh
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
