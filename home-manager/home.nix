@@ -69,6 +69,7 @@
     inputs.hypridle.packages.${pkgs.system}.hypridle
     inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
     texliveFull
+    hunspell
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
