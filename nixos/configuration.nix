@@ -72,7 +72,7 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = "en_US";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_GB.UTF-8";
