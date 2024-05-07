@@ -71,6 +71,7 @@
     texliveFull
     hunspell
     hunspellDicts.en_US-large
+    vale
     libreoffice-qt-fresh
   ];
 
