@@ -73,6 +73,9 @@
     hunspellDicts.en_US-large
     vale
     libreoffice-qt-fresh
+    pdftk
+    pdf4qt
+    pdfsandwich
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
