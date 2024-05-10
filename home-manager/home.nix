@@ -76,6 +76,26 @@
     pdftk
     pdf4qt
     pdfsandwich
+    binutils
+    automake
+    autoconf
+    gnum4
+    gcc
+    gdb
+    meson
+    cmakeCurses
+    llvmPackages_18.clang-unwrapped
+    llvmPackages_18.bintools-unwrapped
+    llvmPackages_18.openmp
+    llvmPackages_18.libunwind
+    llvmPackages_18.libclc
+    lld_18
+    lldb_18
+    mold
+    ccache
+    boost185
+    python312
+    nodejs_22
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
