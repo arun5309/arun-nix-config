@@ -77,6 +77,7 @@
     pdf4qt
     pdfsandwich
     binutils
+    pkg-config
     automake
     autoconf
     gnum4
@@ -96,6 +97,7 @@
     boost185
     python312
     nodejs_22
+    tcpdump
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
