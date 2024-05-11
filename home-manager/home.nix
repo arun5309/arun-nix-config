@@ -793,6 +793,16 @@
         } + /palettes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.toml));
   };
 
+  ## Shell environment management: direnv
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+    };
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+  };
+
   # Shell Utilities
 
   ## Pager: bat
