@@ -98,12 +98,6 @@
     ccache
     boost185
     python312
-    haxe
-    hashlink
-    haxePackages.hxcpp
-    haxePackages.heaps
-    haxePackages.hlsdl
-    haxePackages.format
     nodejs_22
     tcpdump
     # Fun below
