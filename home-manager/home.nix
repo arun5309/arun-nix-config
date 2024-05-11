@@ -85,6 +85,8 @@
     gdb
     meson
     cmakeCurses
+    gnumake
+    ninja
     llvmPackages_18.clang-unwrapped
     llvmPackages_18.bintools-unwrapped
     llvmPackages_18.openmp
