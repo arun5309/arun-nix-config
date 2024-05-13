@@ -102,6 +102,7 @@
     python312
     nodejs_22
     tcpdump
+    lksctp-tools
     # Fun below
     sdlpop
   ];
