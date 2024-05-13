@@ -100,6 +100,7 @@
     ccache
     boost185
     python312
+    go
     nodejs_22
     tcpdump
     lksctp-tools
