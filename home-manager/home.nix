@@ -77,6 +77,7 @@
     pdf4qt
     pdfsandwich
     devbox
+    man-pages
     binutils
     pkg-config
     automake
