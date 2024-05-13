@@ -41,6 +41,12 @@
       # inputs.hyprland.follows = "hyprland";
     };
 
+    # Nix GL
+    nixGL = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Nix pre-built index
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
