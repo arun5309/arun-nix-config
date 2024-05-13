@@ -167,6 +167,7 @@
       xournalpp
       vlc
       brave
+      hyprland
     #  thunderbird
     ];
   };
@@ -192,7 +193,7 @@
 
   programs.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
   # List packages installed in system profile. To search, run:

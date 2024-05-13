@@ -15,10 +15,10 @@
     xremap-flake.url = "github:xremap/nix-flake";
 
     # Hyprland flake (makes installation of plugins more convenient)
-    hyprland.url = "github:hyprwm/Hyprland/62eadad20fe10ffaf13d9c65ee68608996d93df0";
+    # hyprland.url = "github:hyprwm/Hyprland/62eadad20fe10ffaf13d9c65ee68608996d93df0";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
+      # inputs.hyprland.follows = "hyprland";
     };
     hyprlock = {
       url = "github:hyprwm/hyprlock";
