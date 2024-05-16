@@ -164,9 +164,6 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-      xournalpp
-      vlc
-      brave
       hyprland
     #  thunderbird
     ];

@@ -57,6 +57,9 @@
     graphviz
     ctpv
     pavucontrol
+    xournalpp
+    vlc
+    brave
     lm_sensors
     libnotify
     wayland-pipewire-idle-inhibit
@@ -89,7 +92,9 @@
     cmakeCurses
     gnumake
     ninja
+    ltrace
     llvmPackages_18.clang-unwrapped
+    llvmPackages_18.stdenv
     llvmPackages_18.bintools-unwrapped
     llvmPackages_18.openmp
     llvmPackages_18.libunwind
