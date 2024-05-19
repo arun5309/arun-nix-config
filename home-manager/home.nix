@@ -58,6 +58,7 @@
     ctpv
     pavucontrol
     xournalpp
+    krita
     vlc
     brave
     lm_sensors
@@ -1220,6 +1221,7 @@
         urls = [{
           template = "https://search.nixos.org/packages";
           params = [
+            { name = "channel"; value = "unstable"; }
             { name = "type"; value = "packages"; }
             { name = "query"; value = "{searchTerms}"; }
           ];
@@ -1233,6 +1235,7 @@
         urls = [{
           template = "https://search.nixos.org/options";
           params = [
+            { name = "channel"; value = "unstable"; }
             { name = "type"; value = "options"; }
             { name = "query"; value = "{searchTerms}"; }
           ];
