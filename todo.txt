@@ -87,3 +87,4 @@ clipboard sync for terminal (emacs mode/insert mode)
 nixvim
 Fix wlogout logout
 zsh ignore space not working
+keyboard layout (possibly make it in userspace?). Also, swap right ctrl and right alt
