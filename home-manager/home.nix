@@ -782,6 +782,7 @@
       gdiff = "git diff HEAD";
       glog = "git log";
       tree = "ls --tree";
+      perr = "2>&1 >/dev/null |";
     };
   };
 
