@@ -370,6 +370,7 @@
         allow_tearing = true;
         monitor = [ "VGA-1, 1920x1080, 1920x0, 1" "HDMI-A-1, 1920x1080, 0x0, 1" ];
         gaps_out = 5;
+        gaps_in = 5;
       };
       input = {
         numlock_by_default = true;
