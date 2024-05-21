@@ -783,6 +783,7 @@
       glog = "git log";
       tree = "ls --tree";
       perr = "2>&1 >/dev/null |";
+      wclip = "| wl-copy";
     };
   };
 
