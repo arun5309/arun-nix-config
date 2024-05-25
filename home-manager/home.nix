@@ -60,6 +60,7 @@
     xournalpp
     krita
     vlc
+    qbittorrent
     brave
     lm_sensors
     libnotify
