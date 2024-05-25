@@ -42,6 +42,7 @@
     nerdfonts
     file
     silver-searcher
+    ncdu
     buku
     fastfetch
     unixtools.xxd
