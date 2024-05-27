@@ -111,6 +111,7 @@
     go
     nodejs_22
     tcpdump
+    nmap
     lksctp-tools
     # Fun below
     sdlpop
