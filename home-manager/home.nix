@@ -734,7 +734,7 @@
         bindkey -M isearch "^ " abbr-expand-and-insert
         bindkey -M isearch " " magic-space
         # enter key expands and accepts abbreviations
-        bindkey "^M" abbr-expand-and-accept
+        # bindkey "^M" abbr-expand-and-accept
       }
     '';
 
