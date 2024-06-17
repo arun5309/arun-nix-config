@@ -64,6 +64,7 @@
     qbittorrent
     brave
     wgcf
+    wireguard-tools
     lm_sensors
     libnotify
     wayland-pipewire-idle-inhibit
