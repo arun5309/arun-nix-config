@@ -63,6 +63,7 @@
     vlc
     qbittorrent
     brave
+    wgcf
     lm_sensors
     libnotify
     wayland-pipewire-idle-inhibit
