@@ -86,18 +86,25 @@
     pdfsandwich
     devbox
     man-pages
-    binutils
+    #binutils-unwrapped-all-targets
     pkg-config
     automake
     autoconf
     gnum4
-    gcc
     gdb
+    gef
     meson
     cmakeCurses
     gnumake
     ninja
     ltrace
+    go
+    mold
+    ccache
+    tcpdump
+    nmap
+    lksctp-tools
+    # Explicitly versioned stuff
     llvmPackages_18.clang-unwrapped
     llvmPackages_18.stdenv
     llvmPackages_18.bintools-unwrapped
@@ -106,15 +113,11 @@
     llvmPackages_18.libclc
     lld_18
     lldb_18
-    mold
-    ccache
     boost185
-    python312
-    go
+    python313Full
     nodejs_22
-    tcpdump
-    nmap
-    lksctp-tools
+    openssl_3_3
+    gcc14
     # Fun below
     sdlpop
   ];
