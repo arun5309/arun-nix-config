@@ -71,11 +71,16 @@
     wl-clipboard
     wl-clip-persist
     wlogout
-    inputs.hyprlock.packages.${pkgs.system}.hyprlock
-    inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
-    inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
-    inputs.hypridle.packages.${pkgs.system}.hypridle
-    inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    # inputs.hyprlock.packages.${pkgs.system}.hyprlock
+    # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
+    # inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
+    # inputs.hypridle.packages.${pkgs.system}.hypridle
+    # inputs.xdg-desktop-portal-hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland
+    hyprlock
+    hyprpicker
+    hyprpaper
+    hypridle
+    xdg-desktop-portal-hyprland
     texliveFull
     hunspell
     hunspellDicts.en_US-large
