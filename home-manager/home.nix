@@ -123,6 +123,9 @@
     nodejs_22
     openssl_3_3
     gcc14
+    # Libraries
+    gmp
+    gmpxx
     # Fun below
     sdlpop
   ];
