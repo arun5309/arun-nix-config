@@ -104,6 +104,7 @@
     ninja
     ltrace
     go
+    gopls
     mold
     ccache
     tcpdump
