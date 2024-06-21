@@ -165,6 +165,8 @@
     packages = with pkgs; [
       firefox
       hyprland
+      ntfs3g
+      fuse3
     #  thunderbird
     ];
   };

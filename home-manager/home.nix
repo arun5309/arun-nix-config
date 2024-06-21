@@ -102,6 +102,7 @@
     cmakeCurses
     gnumake
     ninja
+    bear
     ltrace
     go
     gopls
