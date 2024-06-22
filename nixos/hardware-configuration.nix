@@ -38,6 +38,6 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-  # Enable openGL stuff as hyprland doesn't enable it
-  hardware.opengl.enable = true;
+  # Enable openGL (and other related) stuff as hyprland doesn't enable it
+  hardware.graphics.enable = true;
 }
