@@ -125,6 +125,9 @@
     nodejs_22
     openssl_3_3
     gcc14
+    nil
+    hardinfo
+    inxi
     # Libraries
     gmp
     gmpxx
