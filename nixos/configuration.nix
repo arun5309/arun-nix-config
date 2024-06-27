@@ -188,12 +188,24 @@
 
   # Global programs (in addition to zsh, plasma desktop, sddm, print server, etc declared above)
 
-  programs.firejail.enable = true;
-
   programs.hyprland = {
     enable = true;
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
+
+  # Virtualisation and isolation related software
+
+  programs.firejail.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
+  users.extraGroups.docker.members = [ "arun" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
