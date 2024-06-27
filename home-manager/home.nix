@@ -108,6 +108,8 @@
     gopls
     mold
     ccache
+    just
+    earthly
     tcpdump
     nmap
     lksctp-tools
