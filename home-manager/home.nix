@@ -112,6 +112,7 @@
     earthly
     tcpdump
     nmap
+    inetutils
     lksctp-tools
     # Explicitly versioned stuff
     llvmPackages_18.clang-unwrapped
@@ -128,6 +129,7 @@
     openssl_3_3
     gcc14
     nil
+    nixfmt-rfc-style
     hardinfo
     inxi
     # Libraries
