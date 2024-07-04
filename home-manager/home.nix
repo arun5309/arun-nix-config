@@ -113,6 +113,7 @@
     tcpdump
     nmap
     inetutils
+    openconnect
     lksctp-tools
     # Explicitly versioned stuff
     llvmPackages_18.clang-unwrapped
