@@ -64,6 +64,8 @@
     pavucontrol
     xournalpp
     krita
+    krita-plugin-gmic
+    kdePackages.zanshin
     vlc
     qbittorrent
     brave
