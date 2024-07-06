@@ -65,6 +65,10 @@
     xournalpp
     krita
     krita-plugin-gmic
+    scribus
+    kdePackages.kdenlive
+    gimp-with-plugins
+    darktable
     kdePackages.zanshin
     vlc
     qbittorrent
