@@ -57,6 +57,9 @@
     espeak
     graphviz
     tikzit
+    qtikz
+    svg2tikz
+    inkscape-with-extensions
     ctpv
     pavucontrol
     xournalpp
@@ -100,6 +103,7 @@
     kdePackages.kdegraphics-thumbnailers
     kdePackages.ffmpegthumbs
     texliveFull
+    texlivePackages.svg-inkscape
     hunspell
     hunspellDicts.en_US-large
     vale
