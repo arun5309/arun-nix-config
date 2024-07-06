@@ -56,6 +56,7 @@
     pdfsandwich
     espeak
     graphviz
+    tikzit
     ctpv
     pavucontrol
     xournalpp
@@ -81,6 +82,23 @@
     hyprpaper
     hypridle
     xdg-desktop-portal-hyprland
+    kdePackages.dolphin-plugins
+    kdePackages.kio
+    kdePackages.kio-fuse
+    kdePackages.kio-admin
+    kdePackages.kio-extras
+    kdePackages.kio-zeroconf
+    kdePackages.svgpart
+    kdePackages.ksvg
+    kdePackages.markdownpart
+    kdePackages.kparts
+    kdePackages.kpackage
+    kdePackages.skanpage
+    kdePackages.kdenetwork-filesharing
+    kdePackages.kdeconnect-kde
+    kdePackages.kdeplasma-addons
+    kdePackages.kdegraphics-thumbnailers
+    kdePackages.ffmpegthumbs
     texliveFull
     hunspell
     hunspellDicts.en_US-large
