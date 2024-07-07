@@ -103,6 +103,8 @@
     kdePackages.kparts
     kdePackages.kpackage
     kdePackages.skanpage
+    kdePackages.filelight
+    kdePackages.kfind
     kdePackages.kdenetwork-filesharing
     kdePackages.kdeconnect-kde
     kdePackages.kdeplasma-addons
