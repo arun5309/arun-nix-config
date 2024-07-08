@@ -104,6 +104,7 @@
     kdePackages.kpackage
     kdePackages.krdc
     kdePackages.krdp
+    freerdp3
     kdePackages.skanpage
     kdePackages.filelight
     kdePackages.kfind
