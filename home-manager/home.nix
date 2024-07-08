@@ -389,9 +389,10 @@
 
   qt = {
     enable = true;
-    platformTheme = {
+    # Disabled below due to bug in home-manager option
+    /*platformTheme = {
       name = "kde";
-    };
+    };*/
     /*style = {
       name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.catppuccin-gtk.override {
