@@ -102,6 +102,8 @@
     kdePackages.markdownpart
     kdePackages.kparts
     kdePackages.kpackage
+    kdePackages.krdc
+    kdePackages.krdp
     kdePackages.skanpage
     kdePackages.filelight
     kdePackages.kfind
