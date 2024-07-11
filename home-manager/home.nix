@@ -130,7 +130,7 @@
     autoconf
     gnum4
     gdb
-    gef
+    # gef
     meson
     cmakeCurses
     gnumake
