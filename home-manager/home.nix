@@ -62,6 +62,7 @@
     inkscape-with-extensions
     ctpv
     pavucontrol
+    stirling-pdf
     xournalpp
     krita
     krita-plugin-gmic
