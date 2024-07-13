@@ -334,6 +334,7 @@
   #  /etc/profiles/per-user/arun/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    QT_QPA_PLATFORMTHEME="kde"; # Workaround as setting platform theme to KDE breaks system settings
     # EDITOR = "emacs";
     PAGER = "bat";
     VISUAL = "bat";
