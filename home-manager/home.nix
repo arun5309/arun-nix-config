@@ -63,6 +63,7 @@
     ctpv
     pavucontrol
     stirling-pdf
+    pdf4qt
     xournalpp
     krita
     krita-plugin-gmic
