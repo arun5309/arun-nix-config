@@ -83,6 +83,12 @@
     wl-clipboard
     wl-clip-persist
     wlogout
+    wvkbd
+    wlr-randr
+    wayout
+    wlrctl
+    wev
+    wayland-utils
     # inputs.hyprlock.packages.${pkgs.system}.hyprlock
     # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     # inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
@@ -108,6 +114,9 @@
     kdePackages.krdp
     freerdp3
     wayvnc
+    satty
+    grim
+    slurp
     kdePackages.skanpage
     kdePackages.filelight
     kdePackages.kfind
@@ -523,6 +532,7 @@
 
         "$mod, D, exec, rofi -show drun"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mod, Print, exec, ~/arun-nix-config/scripts/screenshot.sh"
       ] ++ (
         # Workspaces
         # binds $mod + [shift +] {1..0} to move to workspace {1..10}
@@ -548,7 +558,7 @@
     settings = {
       mainBar = {
         start_hidden = true;
-        mode = "overlay";
+        # mode = "overlay"; # Temporary workaround for waybar bug
         margin-bottom = 5;
         position = "bottom";
         layer = "top";
