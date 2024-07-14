@@ -279,6 +279,7 @@
 
         background {
           monitor =
+          path = /home/arun/arun-nix-config/media/splash/main.png # Workaround for now
           color = rgba(0, 0, 0, 1.0)
           brightness = 0.01
         }
