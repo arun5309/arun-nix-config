@@ -89,6 +89,8 @@
     wlrctl
     wev
     wayland-utils
+    wlr-protocols
+    hyprland-protocols
     # inputs.hyprlock.packages.${pkgs.system}.hyprlock
     # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     # inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
@@ -117,6 +119,8 @@
     satty
     grim
     slurp
+    kdePackages.wayland-protocols
+    kdePackages.plasma-wayland-protocols
     kdePackages.skanpage
     kdePackages.filelight
     kdePackages.kfind
