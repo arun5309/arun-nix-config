@@ -193,6 +193,9 @@
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  # Install wshowkeys (alternative to screenkey)
+  programs.wshowkeys.enable = true;
+
   # Virtualisation and isolation related software
 
   programs.firejail.enable = true;
