@@ -302,7 +302,7 @@
             }
             {
                 "label" : "logout",
-                "action" : "logout",
+                "action" : "hyprctl dispatch exit",
                 "text" : "Logout",
                 "keybind" : "e"
             }
