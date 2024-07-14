@@ -272,6 +272,11 @@
         }
       '';
       ".config/hypr/hyprlock.conf".text = ''
+        general {
+          disable_loading_bar = true
+          hide_cursor = true
+        }
+
         background {
           monitor =
           color = rgba(0, 0, 0, 1.0)
