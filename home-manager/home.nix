@@ -314,7 +314,7 @@
             }
             {
                 "label" : "suspend",
-                "action" : "suspend",
+                "action" : "systemctl suspend",
                 "text" : "Suspend",
                 "keybind" : "s"
             }
