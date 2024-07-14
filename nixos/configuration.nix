@@ -193,6 +193,9 @@
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
   };
 
+  # Use hyprlock pam
+  security.pam.services.hyprlock = {};
+
   # Install wshowkeys (alternative to screenkey)
   programs.wshowkeys.enable = true;
 
