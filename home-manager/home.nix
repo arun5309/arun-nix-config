@@ -115,6 +115,7 @@
     kdePackages.krdc
     kdePackages.krdp
     freerdp3
+    waypipe
     wayvnc
     satty
     grim
