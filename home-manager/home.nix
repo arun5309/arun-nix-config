@@ -165,6 +165,8 @@
     tcpdump
     nmap
     inetutils
+    sysstat
+    iotop
     openconnect
     lksctp-tools
     # Explicitly versioned stuff
