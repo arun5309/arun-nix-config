@@ -546,6 +546,7 @@
 
         "$mod, D, exec, rofi -show drun"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+        "$mod SHIFT, V, exec, copyq toggle"
         "$mod, Print, exec, ~/arun-nix-config/scripts/screenshot.sh"
         ", Print, exec, grim - | wl-copy"
       ] ++ (
