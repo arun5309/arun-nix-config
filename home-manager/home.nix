@@ -156,6 +156,7 @@
     ltrace
     go
     gopls
+    marksman
     dockerfile-language-server-nodejs
     mold
     ccache
