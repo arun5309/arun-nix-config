@@ -547,6 +547,7 @@
         "$mod, D, exec, rofi -show drun"
         "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
         "$mod, Print, exec, ~/arun-nix-config/scripts/screenshot.sh"
+        ", Print, exec, grim - | wl-copy"
       ] ++ (
         # Workspaces
         # binds $mod + [shift +] {1..0} to move to workspace {1..10}
