@@ -58,7 +58,7 @@
     graphviz
     tikzit
     qtikz
-    # svg2tikz
+    svg2tikz
     inkscape-with-extensions
     ctpv
     pavucontrol
