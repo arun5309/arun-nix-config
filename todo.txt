@@ -57,6 +57,9 @@ Explore:
 wtf are groups in hyprland
 hyprland cursor
 hyprland plugins
+OBS (and plugins)
+easyeffects for audio processing
+drawing on screen like: gromit-mpx
 
 Issues:
 
