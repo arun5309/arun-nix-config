@@ -469,10 +469,16 @@
       };
       windowrulev2 = [
         "float,class:(waybar),title:(waybar)"
+        "noblur, class:^(Gromit-mpx)$"
+        "opacity 1 override,1 override, class:^(Gromit-mpx)$"
+        "noshadow, class:^(Gromit-mpx)$"
+        "fakefullscreen, class:^(Gromit-mpx)$"
+        "size 100% 100%, class:^(Gromit-mpx)$"
       ];
       workspace = [
         "1,monitor:HDMI-A-1,default:true"
         "2,monitor:VGA-1,default:true"
+        "special:gromit,gapsin:0,gapsout:0,on-created-empty:gromit-mpx -a"
       ];
       exec-once = [
         "hyprpaper"
@@ -790,6 +796,55 @@
   # Audio effects: easyeffects
   services.easyeffects = {
     enable = true;
+  };
+
+  # Screen drawing: gromit-mpx
+  services.gromit-mpx = {
+    enable = true;
+    tools = [
+      {
+        color = "red";
+        device = "default";
+        size = 5;
+        type = "pen";
+      }
+      {
+        color = "blue";
+        device = "default";
+        modifiers = [
+          "SHIFT"
+        ];
+        size = 5;
+        type = "pen";
+      }
+      {
+        color = "yellow";
+        device = "default";
+        modifiers = [
+          "CONTROL"
+        ];
+        size = 5;
+        type = "pen";
+      }
+      {
+        arrowSize = 1;
+        color = "green";
+        device = "default";
+        modifiers = [
+          "2"
+        ];
+        size = 6;
+        type = "pen";
+      }
+      {
+        device = "default";
+        modifiers = [
+          "3"
+        ];
+        size = 75;
+        type = "eraser";
+      }
+    ];
   };
 
   # dconf for dark theme and other stuff
