@@ -30,6 +30,7 @@ Done:
 terminal emulator: kitty
 wtf are groups in hyprland
 easyeffects for audio processing
+drawing on screen like: gromit-mpx
 
 Config:
 
@@ -59,10 +60,10 @@ Explore:
 hyprland cursor
 hyprland plugins
 OBS (and plugins)
-drawing on screen like: gromit-mpx
 
 Issues:
 
+gromit-mpx sucks satty seems better for now so not configuring keybindings
 Fix gtk icon bug
 Fix gtk theming
 hyprcursor?
