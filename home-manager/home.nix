@@ -55,6 +55,7 @@
     pdftk
     pdfsandwich
     espeak
+    alsa-utils
     graphviz
     tikzit
     qtikz
