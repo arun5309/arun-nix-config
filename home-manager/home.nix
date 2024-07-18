@@ -792,6 +792,11 @@
     enable = true;
   };
 
+  # dconf for dark theme and other stuff
+  dconf.settings = {
+    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
+
   # Shell and shell utilities
 
   ## Default shell: zsh
