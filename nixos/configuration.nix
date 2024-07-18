@@ -127,6 +127,11 @@
     openFirewall = true; 
   };
 
+  # Enable dconf for easyeffects and possibly other uses
+  programs.dconf = {
+    enable = true;
+  };
+
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

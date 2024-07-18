@@ -787,6 +787,11 @@
   services.copyq.enable = true;
   services.cliphist.enable = true;
 
+  # Audio effects: easyeffects
+  services.easyeffects = {
+    enable = true;
+  };
+
   # Shell and shell utilities
 
   ## Default shell: zsh
