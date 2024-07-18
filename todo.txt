@@ -28,6 +28,8 @@ misc: screenkey, stow
 Done:
 
 terminal emulator: kitty
+wtf are groups in hyprland
+easyeffects for audio processing
 
 Config:
 
@@ -54,11 +56,9 @@ tools, unixtools in nixpkgs
 
 Explore:
 
-wtf are groups in hyprland
 hyprland cursor
 hyprland plugins
 OBS (and plugins)
-easyeffects for audio processing
 drawing on screen like: gromit-mpx
 
 Issues:
