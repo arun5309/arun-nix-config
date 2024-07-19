@@ -72,6 +72,11 @@
     scribus
     kdePackages.kdenlive
     gimp-with-plugins
+    glaxnimate
+    # opentoonz # Workaround as having security issue
+    synfigstudio
+    # qstopmotion # Not needed for now
+    # linuxstopmotion # Not needed for now
     darktable
     kdePackages.zanshin
     tenacity
