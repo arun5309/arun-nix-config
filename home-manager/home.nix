@@ -73,6 +73,29 @@
     gimp-with-plugins
     darktable
     kdePackages.zanshin
+    tenacity
+    ardour
+    zynaddsubfx
+    odin2
+    surge
+    fluidsynth
+    helm
+    oxefmsynth
+    # fmsynth # Workaround as one of its dependencies is not building
+    geonkick
+    calf
+    lsp-plugins
+    tap-plugins
+    zam-plugins
+    # infamousPlugins # Workaround as one of its dependencies is not building
+    caps
+    speech-denoiser
+    eq10q
+    vamp-plugin-sdk
+    ladspaPlugins
+    lv2
+    metersLv2
+    carla
     vlc
     qbittorrent
     brave
