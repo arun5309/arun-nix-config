@@ -1144,6 +1144,49 @@
     enable = true;
   };
 
+  ## Screen recording (also broadcasting, etc.): OBS Studio
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-vkcapture
+      obs-multi-rtmp
+      obs-gstreamer
+      obs-vaapi
+      waveform
+      input-overlay
+      obs-replay-source
+      obs-pipewire-audio-capture
+      advanced-scene-switcher
+      obs-livesplit-one
+      obs-command-source
+      obs-backgroundremoval
+      obs-3d-effect
+      obs-mute-filter
+      obs-text-pthread
+      obs-shaderfilter
+      obs-freeze-filter
+      looking-glass-obs
+      obs-vintage-filter
+      obs-scale-to-sound
+      obs-composite-blur
+      obs-vertical-canvas
+      obs-source-switcher
+      obs-move-transition
+      obs-gradient-source
+      obs-transition-table
+      obs-rgb-levels-filter
+      # obs-ndi
+      # obs-tuna
+      # obs-nvfbc
+      obs-teleport
+      # obs-hyperion
+      # droidcam-obs
+      obs-websocket
+      obs-webkitgtk
+    ];
+  };
+
   ## Browser: firefox
   programs.firefox = {
     enable = true;
