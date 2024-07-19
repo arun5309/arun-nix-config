@@ -59,6 +59,11 @@ Explore:
 
 hyprland cursor
 hyprland plugins
+cryptographic packages
+anonymization packages
+steaganography packages
+ossia
+
 
 Issues:
 
