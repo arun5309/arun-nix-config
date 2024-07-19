@@ -156,6 +156,12 @@
     kdePackages.ffmpegthumbs
     blender
     # natron # Workaround as one of its dependencies is broken
+    libresprite
+    pixelorama
+    godot_4
+    godot_4-export-templates
+    ldtk
+    tiled
     texliveFull
     texlivePackages.svg-inkscape
     hunspell
