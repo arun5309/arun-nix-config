@@ -97,3 +97,4 @@ keyboard layout (possibly make it in userspace?). Also, swap right ctrl and righ
 Missing packages:
 
 zuluCrypt
+SpeechNote

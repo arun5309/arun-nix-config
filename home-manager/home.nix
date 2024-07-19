@@ -55,6 +55,7 @@
     pdftk
     pdfsandwich
     espeak
+    livecaptions
     alsa-utils
     graphviz
     tikzit
