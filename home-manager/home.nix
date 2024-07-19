@@ -154,6 +154,8 @@
     kdePackages.kdeplasma-addons
     kdePackages.kdegraphics-thumbnailers
     kdePackages.ffmpegthumbs
+    blender
+    # natron # Workaround as one of its dependencies is broken
     texliveFull
     texlivePackages.svg-inkscape
     hunspell
