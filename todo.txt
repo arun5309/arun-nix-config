@@ -63,6 +63,8 @@ OBS (and plugins)
 
 Issues:
 
+audio plugins not showing up on ardour
+carla is segfaulting
 gromit-mpx sucks satty seems better for now so not configuring keybindings
 Fix gtk icon bug
 Fix gtk theming
