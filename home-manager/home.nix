@@ -160,6 +160,8 @@
     kdePackages.kdeplasma-addons
     kdePackages.kdegraphics-thumbnailers
     kdePackages.ffmpegthumbs
+    librecad
+    # freecad # Workaround as one of its dependencies is broken
     blender
     # natron # Workaround as one of its dependencies is broken
     libresprite
