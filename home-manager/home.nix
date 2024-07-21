@@ -98,6 +98,7 @@
     zam-plugins
     # infamousPlugins # Workaround as one of its dependencies is not building
     caps
+    noise-repellent
     speech-denoiser
     eq10q
     vamp-plugin-sdk
