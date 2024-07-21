@@ -90,6 +90,8 @@
     # fmsynth # Workaround as one of its dependencies is not building
     geonkick
     calf
+    talentedhack
+    # x42-plugins # Workaround as the package has hash collisions
     lsp-plugins
     tap-plugins
     zam-plugins
