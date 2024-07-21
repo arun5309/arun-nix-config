@@ -84,6 +84,7 @@
     zynaddsubfx
     odin2
     surge
+    surge-XT
     fluidsynth
     helm
     oxefmsynth
