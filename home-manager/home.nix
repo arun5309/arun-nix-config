@@ -106,6 +106,9 @@
     lv2
     metersLv2
     carla
+    sonic-visualiser
+    sonic-lineup
+    tony
     vlc
     qbittorrent
     brave
