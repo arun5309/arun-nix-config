@@ -223,6 +223,7 @@
     llvmPackages_18.openmp
     llvmPackages_18.libunwind
     llvmPackages_18.libclc
+    llvmPackages_18.libcxx
     lld_18
     lldb_18
     boost185
