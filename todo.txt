@@ -104,3 +104,4 @@ Missing packages:
 zuluCrypt
 SpeechNote
 qprompt-teleprompter
+pencil2d
