@@ -155,6 +155,8 @@
   services.locate = {
     enable = true;
     interval = "hourly";
+    localuser = null;
+    package = pkgs.plocate;
   };
 
   # Enable zsh so that it can be arun's default shell
