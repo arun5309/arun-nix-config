@@ -407,6 +407,7 @@
   #
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME="kde"; # Workaround as setting platform theme to KDE breaks system settings
+    GTK_THEME="Breeze-Dark"; # Workaround as Breeze-Dark theme is not being set properly
     # EDITOR = "emacs";
     PAGER = "bat";
     VISUAL = "bat";
