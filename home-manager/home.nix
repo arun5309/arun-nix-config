@@ -112,6 +112,8 @@
     vlc
     qbittorrent
     brave
+    virtualbox
+    qemu_full
     wgcf
     wireguard-tools
     lm_sensors
