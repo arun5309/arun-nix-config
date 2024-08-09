@@ -207,7 +207,36 @@
 
   # Virtualisation and isolation related software
 
+  virtualisation.virtualbox = {
+    host = {
+      enable = true;
+    };
+  };
+
+  users.extraGroups.vboxusers.members = [ "arun" ];
+
   programs.firejail.enable = true;
+
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      package = pkgs.qemu_full;
+      runAsRoot = true;
+      swtpm.enable = true;
+      ovmf = {
+        enable = true;
+        packages = [
+          (pkgs.OVMF.override {
+            secureBoot = true;
+            tpmSupport = true;
+          }).fd
+        ];
+      };
+    };
+  };
+
+  users.extraGroups.libvirtd.members = [ "arun" ];
+  users.extraGroups.qemu-libvirtd.members = [ "arun" ];
 
   virtualisation.docker = {
     enable = true;
