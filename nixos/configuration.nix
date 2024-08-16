@@ -218,7 +218,7 @@
   programs.firejail.enable = true;
 
   virtualisation.libvirtd = {
-    enable = true;
+    enable = false; # Disabled as workaround as ceph is not building
     qemu = {
       package = pkgs.qemu_full;
       runAsRoot = true;
