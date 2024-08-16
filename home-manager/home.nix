@@ -217,15 +217,15 @@
     openconnect
     lksctp-tools
     # Explicitly versioned stuff
-    llvmPackages_18.clang-unwrapped
-    llvmPackages_18.stdenv
-    llvmPackages_18.bintools-unwrapped
-    llvmPackages_18.openmp
-    llvmPackages_18.libunwind
-    llvmPackages_18.libclc
-    llvmPackages_18.libcxx
-    lld_18
-    lldb_18
+    llvmPackages_19.clang-unwrapped
+    llvmPackages_19.stdenv
+    llvmPackages_19.bintools-unwrapped
+    llvmPackages_19.openmp
+    llvmPackages_19.libunwind
+    llvmPackages_19.libclc
+    llvmPackages_19.libcxx
+    lld_19
+    lldb_19
     boost185
     python313Full
     nodejs_22
@@ -240,6 +240,8 @@
     gmpxx
     # Fun below
     sdlpop
+    # Temporary dependencies
+    python311Packages.cryptography
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
