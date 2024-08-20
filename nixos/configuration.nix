@@ -186,6 +186,9 @@
     dates = "weekly";
   };
 
+  nix.optimise.automatic = true;
+  nix.optimise.dates = [ "12:30" ];
+
   # Enable flakes and other experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
