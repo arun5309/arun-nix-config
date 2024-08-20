@@ -39,7 +39,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    nerdfonts
     file
     silver-searcher
     ncdu

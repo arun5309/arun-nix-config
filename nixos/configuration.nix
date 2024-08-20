@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ /*config,*/ pkgs, inputs, ... }:
 
 {
   imports =
@@ -253,7 +253,12 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    pkgs.home-manager
+    home-manager
+  ];
+
+  # Fonts installation
+  fonts.packages = with pkgs; [
+    nerdfonts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
