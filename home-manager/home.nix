@@ -525,16 +525,16 @@
       };
       windowrulev2 = [
         "float,class:(waybar),title:(waybar)"
-        "noblur, class:^(Gromit-mpx)$"
-        "opacity 1 override,1 override, class:^(Gromit-mpx)$"
-        "noshadow, class:^(Gromit-mpx)$"
-        "fakefullscreen, class:^(Gromit-mpx)$"
-        "size 100% 100%, class:^(Gromit-mpx)$"
+#         "noblur, class:^(Gromit-mpx)$"
+#         "opacity 1 override,1 override, class:^(Gromit-mpx)$"
+#         "noshadow, class:^(Gromit-mpx)$"
+#         "fakefullscreen, class:^(Gromit-mpx)$"
+#         "size 100% 100%, class:^(Gromit-mpx)$"
       ];
       workspace = [
         "1,monitor:HDMI-A-1,default:true"
         "2,monitor:VGA-1,default:true"
-        "special:gromit,gapsin:0,gapsout:0,on-created-empty:gromit-mpx -a"
+#         "special:gromit,gapsin:0,gapsout:0,on-created-empty:gromit-mpx -a"
       ];
       exec-once = [
         "hyprpaper"
@@ -856,7 +856,7 @@
 
   # Screen drawing: gromit-mpx
   services.gromit-mpx = {
-    enable = true;
+    enable = false; # true; # As this sucks
     tools = [
       {
         color = "red";
