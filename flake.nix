@@ -72,6 +72,8 @@
 
       allowed-unfree-packages = [
         "zsh-abbr"
+        "p7zip"
+        "p7zip-rar"
       ];
 
       colorSchemeMode = "Dark"; # Light

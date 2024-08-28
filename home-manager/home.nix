@@ -127,6 +127,7 @@
     wayland-utils
     wlr-protocols
     hyprland-protocols
+    p7zip-rar
     # inputs.hyprlock.packages.${pkgs.system}.hyprlock
     # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
     # inputs.hyprpaper.packages.${pkgs.system}.hyprpaper
