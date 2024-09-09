@@ -163,7 +163,6 @@
     kdePackages.filelight
     kdePackages.kfind
     kdePackages.kdenetwork-filesharing
-    kdePackages.kdeconnect-kde
     kdePackages.kdeplasma-addons
     kdePackages.kdegraphics-thumbnailers
     kdePackages.ffmpegthumbs
@@ -853,6 +852,12 @@
   # Audio effects: easyeffects
   services.easyeffects = {
     enable = true;
+  };
+
+  # Multi-device integration: kdeconnect
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
   };
 
   # Screen drawing: gromit-mpx
