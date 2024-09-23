@@ -204,6 +204,7 @@
     gopls
     marksman
     dockerfile-language-server-nodejs
+    docker-compose-language-service
     mold
     ccache
     just
