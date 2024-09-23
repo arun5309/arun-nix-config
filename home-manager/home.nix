@@ -1169,7 +1169,7 @@
       enableZshIntegration = true;
       mode = "no-cursor";
     };
-    theme = colorSchemeString;
+    themeFile = colorSchemeString;
   };
 
   ## Video player (minimalistic): mpv
@@ -1195,7 +1195,7 @@
       input-overlay
       obs-replay-source
       obs-pipewire-audio-capture
-      advanced-scene-switcher
+      # advanced-scene-switcher
       obs-livesplit-one
       obs-command-source
       obs-backgroundremoval
