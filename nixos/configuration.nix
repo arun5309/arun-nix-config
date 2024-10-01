@@ -279,7 +279,17 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = true;
+      AllowUsers = [ "arun" ];
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "no";
+    };
+  };
 
   programs.mosh = {
     enable = true;
