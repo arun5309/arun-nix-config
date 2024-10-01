@@ -282,6 +282,7 @@
   services.openssh = {
     enable = true;
     ports = [ 22 ];
+    openFirewall = false;
     settings = {
       PasswordAuthentication = true;
       AllowUsers = [ "arun" ];
