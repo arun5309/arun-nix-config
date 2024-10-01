@@ -49,6 +49,7 @@
     ffmpeg-full
     imagemagick
     w3m
+    autossh
     sloccount
     rlwrap
     pdftk
@@ -1034,6 +1035,13 @@
     enableZshIntegration = true;
   };
 
+  ## Terminal multiplexer: tmux
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    mouse = true;
+  };
+
   # Shell Utilities
 
   ## Pager: bat
@@ -1099,6 +1107,7 @@
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
+    tmux.enableShellIntegration = true;
     colors = fzf_color_scheme.${colorSchemeString};
   };
 
