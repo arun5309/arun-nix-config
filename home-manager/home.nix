@@ -217,6 +217,13 @@
     iotop
     openconnect
     lksctp-tools
+    nil
+    nixfmt-rfc-style
+    hardinfo
+    inxi
+    # Libraries
+    gmp
+    gmpxx
     # Explicitly versioned stuff
     llvmPackages_18.clang-unwrapped
     llvmPackages_18.stdenv
@@ -227,18 +234,11 @@
     llvmPackages_18.libcxx
     lld_18
     lldb_18
-    boost185
+    boost186
     python313Full
     nodejs_22
     openssl_3_3
     gcc14
-    nil
-    nixfmt-rfc-style
-    hardinfo
-    inxi
-    # Libraries
-    gmp
-    gmpxx
     # Fun below
     sdlpop
     # Temporary dependencies
