@@ -98,7 +98,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = [ pkgs.libsForQt5.systemsettings ];
+  environment.plasma6.excludePackages = [ ];
 
   # Configure keymap in X11
   services.xserver.xkb = {

@@ -168,6 +168,13 @@
     kdePackages.kdeplasma-addons
     kdePackages.kdegraphics-thumbnailers
     kdePackages.ffmpegthumbs
+    kdePackages.knewstuff
+    kdePackages.kcmutils
+    kdePackages.kscreen
+    kdePackages.kirigami-addons
+    kdePackages.kirigami
+    kdePackages.kquickimageedit
+    kdePackages.kquickcharts
     librecad
     # freecad # Workaround as one of its dependencies is broken
     blender
@@ -477,8 +484,18 @@
 
   # Qt theming
 
+  # Refer https://github.com/nix-community/home-manager/issues/5098 # Temporary workaround
+
+  xdg.configFile."menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+
+  systemd.user.sessionVariables = { QT_QPA_PLATFORMTHEME = "kde"; };
+
   qt = {
     enable = true;
+    platformTheme.package = with pkgs.kdePackages; [
+      plasma-integration
+      systemsettings
+    ];
     # Disabled below due to bug in home-manager option
     /*platformTheme = {
       name = "kde";
