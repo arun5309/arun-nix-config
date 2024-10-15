@@ -152,6 +152,7 @@
     kdePackages.kpackage
     kdePackages.krdc
     kdePackages.krdp
+    kdePackages.krfb
     freerdp3
     waypipe
     wayvnc
