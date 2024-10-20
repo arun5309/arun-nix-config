@@ -86,7 +86,7 @@
     surge
     surge-XT
     fluidsynth
-    helm
+    # helm
     oxefmsynth
     # fmsynth # Workaround as one of its dependencies is not building
     geonkick
