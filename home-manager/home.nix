@@ -1216,7 +1216,7 @@
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
       obs-vkcapture
-      obs-multi-rtmp
+      # obs-multi-rtmp
       obs-gstreamer
       obs-vaapi
       waveform
@@ -1236,11 +1236,11 @@
       obs-vintage-filter
       obs-scale-to-sound
       obs-composite-blur
-      obs-vertical-canvas
+      # obs-vertical-canvas
       obs-source-switcher
       obs-move-transition
       obs-gradient-source
-      obs-transition-table
+      # obs-transition-table
       obs-rgb-levels-filter
       # obs-ndi
       # obs-tuna
