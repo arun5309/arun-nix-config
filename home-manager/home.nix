@@ -417,7 +417,7 @@
   #  /etc/profiles/per-user/arun/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME="kde"; # Workaround as setting platform theme to KDE breaks system settings
+    # QT_QPA_PLATFORMTHEME="kde"; # Workaround as setting platform theme to KDE breaks system settings
     GTK_THEME="Breeze-Dark"; # Workaround as Breeze-Dark theme is not being set properly
     # EDITOR = "emacs";
     PAGER = "bat";
@@ -488,7 +488,7 @@
 
   xdg.configFile."menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
-  systemd.user.sessionVariables = { QT_QPA_PLATFORMTHEME = "kde"; };
+  # systemd.user.sessionVariables = { QT_QPA_PLATFORMTHEME = "kde"; };
 
   qt = {
     enable = true;
