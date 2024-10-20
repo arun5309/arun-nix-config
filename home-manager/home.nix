@@ -348,9 +348,9 @@
         }
       '';
       ".config/hypr/hyprpaper.conf".text = ''
-        preload = ${/home/arun/arun-nix-config/media/splash/main.png}
-        wallpaper = HDMI-A-1, ${/home/arun/arun-nix-config/media/splash/main.png}
-        wallpaper = VGA-1, ${/home/arun/arun-nix-config/media/splash/main.png}
+        preload = $HOME/arun-nix-config/media/splash/main.png
+        wallpaper = HDMI-A-1, $HOME/arun-nix-config/media/splash/main.png
+        wallpaper = VGA-1, $HOME/arun-nix-config/media/splash/main.png
         splash = false
       '';
       ".config/waybar/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css".text = builtins.readFile (
@@ -559,7 +559,7 @@
       exec-once = [
         "hyprpaper"
         "hypridle"
-        "dunst -config ${/home/arun/.config/dunst/dunstrc_themed}"
+        "dunst -config $HOME/.config/dunst/dunstrc_themed"
         "wl-clip-persist --clipboard both"
         "copyq --start-server"
         "wl-paste --type text --watch cliphist store"
@@ -861,7 +861,7 @@
   # Notification daemon: dunst
   services.dunst = {
     enable = true;
-    configFile = /home/arun/.config/dunst/dunstrc_themed; # May have to disable this and re-enable to get the desired effect. Due ordering issues.
+    configFile = "$HOME/.config/dunst/dunstrc_themed"; # May have to disable this and re-enable to get the desired effect. Due ordering issues.
     waylandDisplay = "wayland-1";
   };
 
