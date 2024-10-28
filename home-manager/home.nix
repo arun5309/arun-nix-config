@@ -45,6 +45,7 @@
     buku
     fastfetch
     unixtools.xxd
+    usbutils
     psmisc
     ffmpeg-full
     imagemagick
