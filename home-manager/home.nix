@@ -246,7 +246,7 @@
     lldb_18
     boost186
     python313Full
-    nodejs_22
+    nodejs_23
     openssl_3_3
     gcc14
     # Fun below
