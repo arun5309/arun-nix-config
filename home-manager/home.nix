@@ -234,6 +234,7 @@
     # Libraries
     gmp
     gmpxx
+    openssl
     # Explicitly versioned stuff
     llvmPackages_19.clang-unwrapped
     llvmPackages_19.stdenv
@@ -247,7 +248,6 @@
     boost186
     python313Full
     nodejs_23
-    openssl_3_3
     gcc14
     # Fun below
     sdlpop
