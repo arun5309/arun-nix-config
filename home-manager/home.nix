@@ -156,7 +156,7 @@
     kdePackages.krfb
     freerdp3
     waypipe
-    wayvnc
+    # wayvnc
     satty
     grim
     slurp
