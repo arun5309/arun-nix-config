@@ -223,6 +223,7 @@
     nmap
     inetutils
     sysstat
+    reptyr
     iotop
     openconnect
     lksctp-tools
