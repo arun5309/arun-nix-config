@@ -223,6 +223,9 @@
     gdbgui
     kdePackages.kcachegrind
     hotspot
+    radare2
+    iaito
+    pv
     just
     earthly
     tcpdump
