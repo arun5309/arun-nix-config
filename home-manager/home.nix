@@ -217,6 +217,12 @@
     docker-compose-language-service
     mold
     ccache
+    valgrind
+    perf-tools
+    rr
+    gdbgui
+    kdePackages.kcachegrind
+    hotspot
     just
     earthly
     tcpdump
