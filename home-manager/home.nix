@@ -240,6 +240,7 @@
     nixfmt-rfc-style
     hardinfo
     inxi
+    zfs
     # Libraries
     gmp
     gmpxx

@@ -58,6 +58,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Kernel
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -173,7 +176,10 @@
       hyprland
       ntfs3g
       fuse3
-    #  thunderbird
+#  thunderbird
+      # Kernel packages
+      linuxKernel.packages.linux_xanmod_latest.perf
+      # linuxKernel.packages.linux_xanmod_latest.zfs
     ];
   };
 
