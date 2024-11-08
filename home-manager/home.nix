@@ -125,6 +125,7 @@
     wlr-randr
     wayout
     wlrctl
+    brightnessctl
     wev
     wayland-utils
     wlr-protocols
