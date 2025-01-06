@@ -61,7 +61,7 @@
     graphviz
     tikzit
     qtikz
-    svg2tikz
+    # svg2tikz
     inkscape-with-extensions
     ctpv
     pavucontrol
@@ -72,7 +72,7 @@
     krita-plugin-gmic
     scribus
     kdePackages.kdenlive
-    gimp-with-plugins
+    # gimp-with-plugins
     glaxnimate
     # opentoonz # Workaround as having security issue
     synfigstudio
@@ -106,10 +106,10 @@
     ladspaPlugins
     lv2
     metersLv2
-    carla
-    sonic-visualiser
-    sonic-lineup
-    tony
+    # carla
+    # sonic-visualiser
+    # sonic-lineup
+    # tony
     vlc
     qbittorrent
     brave
