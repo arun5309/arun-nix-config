@@ -81,7 +81,7 @@
     darktable
     kdePackages.zanshin
     tenacity
-    ardour
+#     ardour
     zynaddsubfx
     odin2
     surge
