@@ -552,6 +552,11 @@
       input = {
         numlock_by_default = true;
       };
+      device = {
+        name = "wacom-intuos-s-pen";
+        # transform = 0;
+        output = "VGA-1";
+      };
       misc = {
         force_default_wallpaper = 0;
         disable_splash_rendering = true;
