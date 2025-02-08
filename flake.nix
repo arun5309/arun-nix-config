@@ -74,6 +74,7 @@
         "zsh-abbr"
         "p7zip"
         "p7zip-rar"
+        "vst2-sdk"
       ];
 
       colorSchemeMode = "Dark"; # Light
