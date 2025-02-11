@@ -246,6 +246,7 @@
     gmp
     gmpxx
     openssl
+    boost
     # Explicitly versioned stuff
     llvmPackages_19.clang-unwrapped
     llvmPackages_19.stdenv
@@ -256,7 +257,6 @@
     llvmPackages_19.libcxx
     lld_19
     lldb_19
-    boost186
     python313Full
     nodejs_23
     gcc14
