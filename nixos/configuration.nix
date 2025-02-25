@@ -155,12 +155,11 @@
   # services.xserver.libinput.enable = true;
 
   # Enable locate service
-#   services.locate = {
-#     enable = true;
-#     interval = "hourly";
-#     localuser = null;
-#     package = pkgs.plocate;
-#   };
+  services.locate = {
+    enable = true;
+    interval = "hourly";
+    package = pkgs.plocate;
+  };
 
   # Enable zsh so that it can be arun's default shell
   programs.zsh.enable = true;
