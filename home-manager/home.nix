@@ -129,7 +129,7 @@
     wev
     wayland-utils
     wlr-protocols
-    hyprland-protocols
+    # hyprland-protocols # Disabling as it conflicts with hyprland uwsm
     p7zip-rar
     # inputs.hyprlock.packages.${pkgs.system}.hyprlock
     # inputs.hyprpicker.packages.${pkgs.system}.hyprpicker
@@ -1240,7 +1240,7 @@
       obs-vaapi
       waveform
       input-overlay
-      obs-replay-source
+      # obs-replay-source
       obs-pipewire-audio-capture
       # advanced-scene-switcher
       obs-livesplit-one
