@@ -1600,7 +1600,7 @@
     search.default = "Brave search";
     search.privateDefault = "Brave search";
 
-    extensions = with inputs.firefox-addons.packages.${system}; [
+    extensions.packages = with inputs.firefox-addons.packages.${system}; [
       ublock-origin
       sponsorblock
       tridactyl
