@@ -536,6 +536,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = false; # Disabling as it conflicts with uwsm
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       source = [ "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf" ];
