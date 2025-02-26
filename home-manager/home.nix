@@ -88,7 +88,7 @@
     surge-XT
     fluidsynth
     # helm
-    oxefmsynth
+    # oxefmsynth # Workaround as causing build issues
     # fmsynth # Workaround as one of its dependencies is not building
     geonkick
     calf
