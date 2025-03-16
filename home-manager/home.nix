@@ -183,8 +183,6 @@
     # natron # Workaround as one of its dependencies is broken
     libresprite
     pixelorama
-    godot_4
-    godot_4-export-templates
     ldtk
     tiled
     texliveFull
@@ -248,15 +246,17 @@
     openssl
     boost
     # Explicitly versioned stuff
-    llvmPackages_19.clang-unwrapped
-    llvmPackages_19.stdenv
-    llvmPackages_19.bintools-unwrapped
-    llvmPackages_19.openmp
-    llvmPackages_19.libunwind
-    llvmPackages_19.libclc
-    llvmPackages_19.libcxx
-    lld_19
-    lldb_19
+    llvmPackages_20.clang-unwrapped
+    llvmPackages_20.stdenv
+    llvmPackages_20.bintools-unwrapped
+    llvmPackages_20.openmp
+    llvmPackages_20.libunwind
+    llvmPackages_20.libclc
+    llvmPackages_20.libcxx
+    lld_20
+    lldb_20
+    godot_4
+    godot_4-export-templates
     python313Full
     nodejs_23
     gcc14
