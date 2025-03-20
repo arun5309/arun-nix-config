@@ -323,9 +323,9 @@
         pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "dunst";
-          rev = "a72991e56338289a9fce941b5df9f0509d2cba09";
-          sha256 = "12gidkxw7kkalhn9rflki2f4wcd2flmrz2m9rzynmfawwqm95dyl";
-        } + /src/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf) +
+          rev = "5955cf0213d14a3494ec63580a81818b6f7caa66";
+          sha256 = "1rpxrnhphcxm93s2wc7wbd9cxjmv79r2m6ip0a6rj7lh9v0ps6mc";
+        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf) +
         ''
         [global]
         icon_position=off
