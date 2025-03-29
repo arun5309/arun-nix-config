@@ -1580,7 +1580,7 @@
           ];
         }];
 
-        iconUpdateURL = "https://home-manager-options.extranix.com/images/favicon.png";
+        icon = "https://home-manager-options.extranix.com/images/favicon.png";
         updateInterval = 24 * 60 * 60 * 1000;
         definedAliases = [ "@ho" ];
       };
@@ -1594,7 +1594,7 @@
           ];
         }];
 
-        iconUpdateURL = "https://brave.com/favicon.ico";
+        icon = "https://brave.com/favicon.ico";
         updateInterval = 24 * 60 * 60 * 1000;
         definedAliases = [ "@bs" ];
       };
