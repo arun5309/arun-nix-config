@@ -220,6 +220,7 @@
     perf-tools
     rr
     gdbgui
+    seer
     kdePackages.kcachegrind
     hotspot
     radare2
