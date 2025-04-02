@@ -1083,6 +1083,33 @@
     mouse = true;
   };
 
+  ## Search utility: ripgrep (primarily used for helix, otherwise helix suffices)
+  programs.ripgrep = {
+    enable = true;
+  };
+
+  ## Text editor: helix
+  programs.helix = {
+    enable = true;
+    settings = {
+      theme = "catppuccin_mocha";
+      editor = {
+        line-number = "relative";
+        # mouse = false;
+
+        cursor-shape = {
+          insert = "bar";
+          normal = "block";
+          select = "underline";
+        };
+
+        soft-wrap = {
+          enable = true;
+        };
+      };
+    };
+  };
+
   # Shell Utilities
 
   ## Pager: bat
