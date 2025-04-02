@@ -40,7 +40,6 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     file
-    silver-searcher
     ncdu
     buku
     fastfetch
@@ -1083,7 +1082,7 @@
     mouse = true;
   };
 
-  ## Search utility: ripgrep (primarily used for helix, otherwise helix suffices)
+  ## Search utility: ripgrep
   programs.ripgrep = {
     enable = true;
   };
