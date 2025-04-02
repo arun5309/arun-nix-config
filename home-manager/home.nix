@@ -981,6 +981,16 @@
     # Source session variables
     initExtra = ''
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+      ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+      ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+      ZVM_TERM=alacritty-256color
+      zvm_config() {
+        ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM
+        ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+        ZVM_OPPEND_MODE_CURSOR=$ZVM_CURSOR_UNDERLINE
+      }
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       function zvm_after_init() {
         emulate -LR zsh
         # spacebar expands abbreviations
@@ -1009,11 +1019,11 @@
 
     ## Plugins
     plugins = [
-      {
-        name = "vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      }
+#       {
+#         name = "vi-mode";
+#         src = pkgs.zsh-vi-mode;
+#         file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+#       }
     ];
 
     ## Abbreviations: zsh-abbr
