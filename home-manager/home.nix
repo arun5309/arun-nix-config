@@ -237,7 +237,7 @@
     lksctp-tools
     nil
     nixfmt-rfc-style
-    hardinfo
+    hardinfo2
     inxi
     zfs
     # Libraries
