@@ -978,7 +978,7 @@
       ignoreSpace = true;
     };
     # Source session variables
-    initExtra = ''
+    initContent = ''
       . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
       function zvm_after_init() {
         emulate -LR zsh
@@ -1281,7 +1281,7 @@
       obs-text-pthread
       obs-shaderfilter
       obs-freeze-filter
-      looking-glass-obs
+      # looking-glass-obs
       obs-vintage-filter
       obs-scale-to-sound
       obs-composite-blur
