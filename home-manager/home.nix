@@ -262,7 +262,7 @@
     godot_4
     godot_4-export-templates
     python313Full
-    nodejs_23
+    nodejs_24
     # Fun below
     sdlpop
     # Temporary dependencies
