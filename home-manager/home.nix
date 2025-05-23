@@ -50,7 +50,7 @@
     imagemagick
     w3m
     autossh
-    sloccount
+    loccount
     rlwrap
     pdftk
     pdfsandwich
