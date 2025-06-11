@@ -260,7 +260,7 @@
     lld_20
     lldb_20
     godot_4
-    godot_4-export-templates
+    godot_4-export-templates-bin
     python313Full
     nodejs_24
     # Fun below
@@ -1290,7 +1290,7 @@
       obs-move-transition
       obs-gradient-source
       # obs-transition-table
-      obs-rgb-levels-filter
+      # obs-rgb-levels-filter
       # obs-ndi
       # obs-tuna
       # obs-nvfbc
