@@ -195,6 +195,7 @@
     pdfsandwich
     devbox
     man-pages
+    tldr
     #binutils-unwrapped-all-targets
     pkg-config
     automake
@@ -905,6 +906,7 @@
   # CLI cheatsheet: tldr (with auto-update)
   services.tldr-update = {
     enable = true;
+    package = pkgs.tldr;
   };
   
 
