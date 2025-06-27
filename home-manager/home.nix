@@ -121,10 +121,10 @@
     wl-clip-persist
     wlogout
     wvkbd
+    light
     wlr-randr
     wayout
     wlrctl
-    brightnessctl
     wev
     wayland-utils
     wlr-protocols
@@ -901,6 +901,12 @@
     enable = true;
     indicator = true;
   };
+
+  # CLI cheatsheet: tldr (with auto-update)
+  services.tldr-update = {
+    enable = true;
+  };
+  
 
   # Screen drawing: gromit-mpx
   services.gromit-mpx = {
