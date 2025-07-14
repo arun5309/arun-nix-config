@@ -566,6 +566,7 @@
       misc = {
         force_default_wallpaper = 0;
         disable_splash_rendering = true;
+        enable_anr_dialog = false; # Disables annoying application has stopped responding dialogue.
       };
       windowrulev2 = [
         "float,class:(waybar),title:(waybar)"
