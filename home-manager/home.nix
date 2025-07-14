@@ -155,6 +155,7 @@
     kdePackages.krdp
     kdePackages.krfb
     freerdp3
+    cage
     waypipe
     # wayvnc
     satty
