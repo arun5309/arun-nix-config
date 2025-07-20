@@ -122,6 +122,7 @@
     wlogout
     wvkbd
     light
+    avizo
     wlr-randr
     wayout
     wlrctl
