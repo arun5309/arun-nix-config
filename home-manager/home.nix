@@ -682,7 +682,7 @@
     settings = {
       mainBar = {
         start_hidden = true;
-        mode = "overlay"; # Temporary workaround for waybar bug
+        # mode = "overlay"; # Temporary workaround for waybar bug
         margin-bottom = 5;
         position = "bottom";
         layer = "top";
