@@ -194,8 +194,16 @@
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "12:30" ];
 
-  # Enable flakes and other experimental features
+  # Nix settings
+
+  ## Enable flakes and other experimental features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  ## Auto optimize store
+  nix.settings.auto-optimise-store = true;
+
+  ## Set download buffer size
+  nix.settings.download-buffer-size = 524288000; # 500MB
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
