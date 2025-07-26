@@ -170,7 +170,7 @@
           pkgs = nixpkgs.legacyPackages.${system};
 
           modules = [
-            nix-index-database.hmModules.nix-index
+            nix-index-database.homeModules.nix-index
             { programs.nix-index-database.comma.enable = true; }
             ./home-manager/home.nix
             #./home-manager/dummy_home.nix
