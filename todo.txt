@@ -63,7 +63,7 @@ cryptographic packages
 anonymization packages
 steaganography packages
 ossia
-
+tor, tor browser, torsocks, obfs4, webtunnel, etc.
 
 Issues:
 
