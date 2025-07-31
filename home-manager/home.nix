@@ -77,7 +77,7 @@
     synfigstudio
     # qstopmotion # Not needed for now
     # linuxstopmotion # Not needed for now
-    darktable
+    # darktable # Disabled temporarily as it has depends on a vulnerable libsoup package
     kdePackages.zanshin
     tenacity
 #     ardour
