@@ -114,6 +114,7 @@
     brave
     wgcf
     wireguard-tools
+    linux-wifi-hotspot
     lm_sensors
     libnotify
     wayland-pipewire-idle-inhibit
