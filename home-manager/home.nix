@@ -50,6 +50,7 @@
     imagemagick
     w3m
     autossh
+    ugrep
     loccount
     rlwrap
     pdftk
