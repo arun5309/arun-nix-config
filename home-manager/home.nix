@@ -199,7 +199,7 @@
     pdfsandwich
     devbox
     man-pages
-    tldr
+    tealdeer
     #binutils-unwrapped-all-targets
     pkg-config
     automake
