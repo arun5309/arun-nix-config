@@ -157,7 +157,7 @@
     kdePackages.krdc
     kdePackages.krdp
     kdePackages.krfb
-    freerdp3
+    freerdp
     remmina
     cage
     waypipe
