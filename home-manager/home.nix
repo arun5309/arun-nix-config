@@ -157,6 +157,7 @@
     kdePackages.krdc
     kdePackages.krdp
     kdePackages.krfb
+    moonlight-qt
     freerdp
     remmina
     cage
