@@ -1,0 +1,2 @@
+/usr/lib/polkit-kde-authentication-agent-1 >/dev/null 2>&1 &
+mako >/dev/null 2>&1 &
