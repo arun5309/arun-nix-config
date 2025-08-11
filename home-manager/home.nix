@@ -236,6 +236,7 @@
     tcpdump
     nmap
     inetutils
+    lsof
     sysstat
     reptyr
     iotop
