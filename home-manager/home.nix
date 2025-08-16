@@ -912,6 +912,11 @@
     indicator = true;
   };
 
+  # Remote desktop: Remmina (Others like sunshine/moonlight, krfb, krdp, freerdp, and waypipe are also used)
+  services.remmina = {
+    enable = false;
+  };
+
   # CLI cheatsheet: tldr (with auto-update)
   services.tldr-update = {
     enable = true;
