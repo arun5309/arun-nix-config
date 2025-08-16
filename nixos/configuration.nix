@@ -58,9 +58,15 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Boot options
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
+
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
+  # Networking
+  networking.hostId = "23ba0f43"; # Automatically generated using: 'head -c4 /dev/urandom | od -A none -t x4'
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
