@@ -1195,6 +1195,11 @@
     colors = fzf_color_scheme.${colorSchemeString};
   };
 
+  ## File search: fd
+  programs.fd = {
+    enable = true;
+  };
+
   ## Improved cd: zoxide
   programs.zoxide = {
     enable = true;
