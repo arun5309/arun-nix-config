@@ -317,6 +317,11 @@
     openFirewall = false;
   };
 
+  # Enable cockpit for easy administration
+  services.cockpit = {
+    enable = true;
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
