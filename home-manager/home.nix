@@ -248,6 +248,7 @@
     hardinfo2
     inxi
     zfs
+    bcachefs-tools
     # Libraries
     gmp
     gmpxx
