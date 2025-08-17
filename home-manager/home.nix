@@ -1053,6 +1053,7 @@
       ngc = "nix-collect-garbage --delete-older-than 15d";
       sui = "sudo -i ";
       cht = "curl https://cht.sh/";
+      lg = "lazygit";
       ginit = "git init";
       gadd = "git add -A";
       gcom = "git commit -m \"";
