@@ -341,8 +341,9 @@
         } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf) +
         ''
         [global]
-        icon_position=off
-        origin = "bottom-right"
+        icon_position = off
+        origin = bottom-right
+        follow = mouse
         '';
 
       ".config/hypr/hypridle.conf".text = ''
