@@ -249,6 +249,7 @@
     inxi
     zfs
     bcachefs-tools
+    cryptsetup
     # Libraries
     gmp
     gmpxx
