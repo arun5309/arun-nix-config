@@ -237,6 +237,7 @@
     tcpdump
     nmap
     inetutils
+    dnsutils
     lsof
     sysstat
     reptyr
