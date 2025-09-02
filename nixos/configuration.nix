@@ -344,6 +344,8 @@
     allowedUDPPortRanges = [
       { from = 1714; to = 1764; } # KDE connect
     ];
+
+    interfaces."wt0".allowedTCPPorts = [ 22 ];
   };
   networking.nftables.enable = true;
 
