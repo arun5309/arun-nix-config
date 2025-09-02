@@ -309,6 +309,7 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    startWhenNeeded = true; # New instance per connection though
     ports = [ 22 ];
     openFirewall = false;
     settings = {
