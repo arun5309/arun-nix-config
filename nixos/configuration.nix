@@ -77,6 +77,13 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  services.netbird = {
+    enable = true;
+    clients.default = {
+      hardened = true;
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
@@ -174,7 +181,7 @@
   users.users.arun = {
     isNormalUser = true;
     description = "Arunachalaeshwaran V R";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "netbird" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
