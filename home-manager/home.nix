@@ -1111,7 +1111,7 @@
 
   programs.zellij = {
     enable = true;
-    enableZshIntegration = true;
+    # enableZshIntegration = true; # Disabled as it auto-starts zellij. Screwing up rendering and stuff.
     settings = {
       theme = "catppuccin-mocha";
       default_mode = "locked";
