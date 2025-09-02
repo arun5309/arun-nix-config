@@ -321,6 +321,9 @@
     };
   };
 
+  # Enable sshguard
+  services.sshguard.enable = true;
+
   programs.mosh = {
     enable = true;
     openFirewall = false;
