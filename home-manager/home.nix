@@ -1102,11 +1102,20 @@
     enableZshIntegration = true;
   };
 
-  ## Terminal multiplexer: tmux
+  ## Terminal multiplexer: tmux, zellij
   programs.tmux = {
     enable = true;
     clock24 = true;
     mouse = true;
+  };
+
+  programs.zellij = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      theme = "catppuccin-mocha";
+      default_mode = "locked";
+    };
   };
 
   ## Search utility: ripgrep
