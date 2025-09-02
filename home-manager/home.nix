@@ -1115,6 +1115,7 @@
     settings = {
       theme = "catppuccin-mocha";
       default_mode = "locked";
+      show_startup_tips = false;
     };
   };
 
