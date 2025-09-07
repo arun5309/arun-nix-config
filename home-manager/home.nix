@@ -1138,8 +1138,8 @@
       lg = "lazygit";
       ginit = "git init";
       gadd = "git add -A";
-      gcom = "git commit -m \"";
-      game = "git commit --amend -m \"";
+      gcom = "git commit -m \"%\"";
+      game = "git commit --amend -m \"%\"";
       gamne = "git commit --amend --no-edit";
       gpush = "git push";
       gpull = "git pull";
