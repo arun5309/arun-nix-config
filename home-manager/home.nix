@@ -1238,7 +1238,7 @@
     enable = true;
   };
 
-  ## Terminal file manager: lf
+  ## Terminal file manager: lf, yazi
   programs.lf = {
     enable = true;
     settings = {
@@ -1257,6 +1257,12 @@
       cmd on-quit %${pkgs.ctpv}/bin/ctpv -e $id
       set cleaner ${pkgs.ctpv}/bin/ctpvclear
     '';
+  };
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    # TODO: configure theming, plugins, keybindings
   };
 
   ## VCS: git
