@@ -18,7 +18,8 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -26,7 +27,8 @@
       allowed-unfree-packages = [
         "zsh-abbr"
       ];
-    in {
+    in
+    {
       homeConfigurations."arun" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 

@@ -2,14 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ /*config,*/ pkgs, lib, inputs, ... }:
+# config,
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.xremap-flake.nixosModules.default
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.xremap-flake.nixosModules.default
+  ];
 
   services.xremap = {
     withWlroots = true;
@@ -130,17 +136,17 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [ 
+    drivers = [
       pkgs.gutenprint
-      pkgs.hplip 
+      pkgs.hplip
     ];
   };
 
   # Enable avahi to discover services
-  services.avahi = { 
+  services.avahi = {
     enable = true;
     nssmdns4 = true;
-    openFirewall = true; 
+    openFirewall = true;
   };
 
   # Enable dconf for easyeffects and possibly other uses
@@ -181,14 +187,18 @@
   users.users.arun = {
     isNormalUser = true;
     description = "Arunachalaeshwaran V R";
-    extraGroups = [ "networkmanager" "wheel" "netbird" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "netbird"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
       hyprland
       ntfs3g
       fuse3
-#  thunderbird
+      #  thunderbird
       # Kernel packages
       linuxKernel.packages.linux_xanmod_latest.perf
       # linuxKernel.packages.linux_xanmod_latest.zfs
@@ -211,7 +221,10 @@
   # Nix settings
 
   ## Enable flakes and other experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   ## Auto optimize store
   nix.settings.auto-optimise-store = true;
@@ -231,7 +244,7 @@
   };
 
   # Use hyprlock pam
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   # Install kdeconnect
   programs.kdeconnect.enable = true;
@@ -285,8 +298,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     home-manager
     docker-compose
   ];
@@ -294,7 +307,8 @@
   # Fonts installation
   fonts.packages = [
 
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  ]
+  ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -342,10 +356,16 @@
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [
-      { from = 1714; to = 1764; } # KDE connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE connect
     ];
     allowedUDPPortRanges = [
-      { from = 1714; to = 1764; } # KDE connect
+      {
+        from = 1714;
+        to = 1764;
+      } # KDE connect
     ];
 
     interfaces."wt0".allowedTCPPorts = [ 22 ];
@@ -358,7 +378,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  
+
   system.stateVersion = "23.11"; # Did you read the comment?
   # system.stateVersion = "unstable";
 }

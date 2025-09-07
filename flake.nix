@@ -58,7 +58,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-index-database, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-index-database,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
 
@@ -156,16 +163,26 @@
         };
       };
 
-#       home-manager.users.arun = {
-#         dconf = {
-#           enable = true;
-#           settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
-#         };
-#       };
+      #       home-manager.users.arun = {
+      #         dconf = {
+      #           enable = true;
+      #           settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      #         };
+      #       };
 
       homeConfigurations = {
         arun_home_default = home-manager.lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit system allowed-unfree-packages colorSchemeMode colorSchemeString colorSchemeAccent fzf_color_scheme inputs; };
+          extraSpecialArgs = {
+            inherit
+              system
+              allowed-unfree-packages
+              colorSchemeMode
+              colorSchemeString
+              colorSchemeAccent
+              fzf_color_scheme
+              inputs
+              ;
+          };
 
           pkgs = nixpkgs.legacyPackages.${system};
 

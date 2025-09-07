@@ -1,4 +1,16 @@
-{ config, pkgs, lib, system, allowed-unfree-packages, colorSchemeMode, colorSchemeString, colorSchemeAccent, fzf_color_scheme, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  system,
+  allowed-unfree-packages,
+  colorSchemeMode,
+  colorSchemeString,
+  colorSchemeAccent,
+  fzf_color_scheme,
+  inputs,
+  ...
+}:
 
 {
   # Allow unfree packages
@@ -81,7 +93,7 @@
     # darktable # Disabled temporarily as it has depends on a vulnerable libsoup package
     kdePackages.zanshin
     tenacity
-#     ardour
+    #     ardour
     zynaddsubfx
     odin2
     surge
@@ -294,36 +306,44 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
 
-    ".config/btop/themes/${lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)}.theme".text = builtins.readFile
-      (pkgs.fetchFromGitHub
-        {
+    ".config/btop/themes/${
+      lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)
+    }.theme".text =
+      builtins.readFile (
+        pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "btop";
           rev = "c646919";
           sha256 = "jodJl4f2T9ViNqsY9fk8IV62CrpC5hy7WK3aRpu70Cs=";
-        } + /themes/${lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)}.theme);
+        }
+        + /themes/${lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString)}.theme
+      );
 
-    ".config/lazygit/config.yml".text = builtins.readFile
-      (pkgs.fetchFromGitHub
-        {
-          owner = "catppuccin";
-          repo = "lazygit";
-          rev = "a544cef";
-          sha256 = "gM0HplHhcpvtpmIVdlX/p59h0v+ihKEidS1imqPYlBg=";
-        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}/${lib.toLower colorSchemeAccent}.yml);
+    ".config/lazygit/config.yml".text = builtins.readFile (
+      pkgs.fetchFromGitHub {
+        owner = "catppuccin";
+        repo = "lazygit";
+        rev = "a544cef";
+        sha256 = "gM0HplHhcpvtpmIVdlX/p59h0v+ihKEidS1imqPYlBg=";
+      }
+      + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}/${lib.toLower colorSchemeAccent}.yml
+    );
 
     ".config/lf/icons".source = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
       sha256 = "0141nzyjr3mybkbn9p0wwv5l0d0scdc2r7pl8s1lgh11wi2l771x";
     };
 
-    ".config/hypr/${(lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2))}.conf".text = builtins.readFile (
-      pkgs.fetchFromGitHub {
-        owner = "catppuccin";
-        repo = "hyprland";
-        rev = "fc228737d3d0c12e34a7fa155a0fc3192e5e4017";
-        sha256 = "0ynyapg6nrpgm6rmwqdy6h9q063jp2z3lsph03gn2bkmsammj67l";
-      } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf);
+    ".config/hypr/${(lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2))}.conf".text =
+      builtins.readFile (
+        pkgs.fetchFromGitHub {
+          owner = "catppuccin";
+          repo = "hyprland";
+          rev = "fc228737d3d0c12e34a7fa155a0fc3192e5e4017";
+          sha256 = "0ynyapg6nrpgm6rmwqdy6h9q063jp2z3lsph03gn2bkmsammj67l";
+        }
+        + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf
+      );
 
     ".local/share/rofi/themes/${lib.toLower colorSchemeString}.rasi".text = builtins.readFile (
       pkgs.fetchFromGitHub {
@@ -331,101 +351,109 @@
         repo = "rofi";
         rev = "5350da41a11814f950c3354f090b90d4674a95ce";
         sha256 = "15phrl9qlbzjxmp29hak3a5k015x60w2hxjif90q82vp55zjpnhc";
-      } + "/basic/.local/share/rofi/themes/${lib.toLower colorSchemeString}.rasi");
+      }
+      + "/basic/.local/share/rofi/themes/${lib.toLower colorSchemeString}.rasi"
+    );
 
-    ".config/dunst/dunstrc_themed".text = builtins.readFile (
+    ".config/dunst/dunstrc_themed".text =
+      builtins.readFile (
         pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "dunst";
           rev = "5955cf0213d14a3494ec63580a81818b6f7caa66";
           sha256 = "1rpxrnhphcxm93s2wc7wbd9cxjmv79r2m6ip0a6rj7lh9v0ps6mc";
-        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf) +
-        ''
+        }
+        + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf
+      )
+      + ''
         [global]
         icon_position = off
         origin = bottom-right
         follow = mouse
-        '';
-
-      ".config/hypr/hypridle.conf".text = ''
-        general {
-          lock_cmd = hyprlock          # dbus/sysd lock command (loginctl lock-session)
-          unlock_cmd = notify-send "unlock!"      # same as above, but unlock
-          before_sleep_cmd = notify-send "Zzz"    # command ran before sleep
-          after_sleep_cmd = notify-send "Awake!"  # command ran after sleep
-          ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
-        }
-
-        listener {
-            timeout = 500                            # in seconds
-            on-timeout = hyprlock # command to run when timeout has passed
-            on-resume = notify-send "Welcome back!"  # command to run when activity is detected after timeout has fired.
-        }
       '';
-      ".config/hypr/hyprlock.conf".text = ''
-        general {
-          disable_loading_bar = true
-          hide_cursor = true
-        }
 
-        background {
-          monitor =
-          path = /home/arun/arun-nix-config/media/splash/main.png # Workaround for now
-          color = rgba(0, 0, 0, 1.0)
-          brightness = 0.01
-        }
-      '';
-      ".config/hypr/hyprpaper.conf".text = ''
-        preload = $HOME/arun-nix-config/media/splash/main.png
-        wallpaper = HDMI-A-1, $HOME/arun-nix-config/media/splash/main.png
-        wallpaper = VGA-1, $HOME/arun-nix-config/media/splash/main.png
-        splash = false
-      '';
-      ".config/waybar/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css".text = builtins.readFile (
+    ".config/hypr/hypridle.conf".text = ''
+      general {
+        lock_cmd = hyprlock          # dbus/sysd lock command (loginctl lock-session)
+        unlock_cmd = notify-send "unlock!"      # same as above, but unlock
+        before_sleep_cmd = notify-send "Zzz"    # command ran before sleep
+        after_sleep_cmd = notify-send "Awake!"  # command ran after sleep
+        ignore_dbus_inhibit = false             # whether to ignore dbus-sent idle-inhibit requests (used by e.g. firefox or steam)
+      }
+
+      listener {
+          timeout = 500                            # in seconds
+          on-timeout = hyprlock # command to run when timeout has passed
+          on-resume = notify-send "Welcome back!"  # command to run when activity is detected after timeout has fired.
+      }
+    '';
+    ".config/hypr/hyprlock.conf".text = ''
+      general {
+        disable_loading_bar = true
+        hide_cursor = true
+      }
+
+      background {
+        monitor =
+        path = /home/arun/arun-nix-config/media/splash/main.png # Workaround for now
+        color = rgba(0, 0, 0, 1.0)
+        brightness = 0.01
+      }
+    '';
+    ".config/hypr/hyprpaper.conf".text = ''
+      preload = $HOME/arun-nix-config/media/splash/main.png
+      wallpaper = HDMI-A-1, $HOME/arun-nix-config/media/splash/main.png
+      wallpaper = VGA-1, $HOME/arun-nix-config/media/splash/main.png
+      splash = false
+    '';
+    ".config/waybar/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css".text =
+      builtins.readFile (
         pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "waybar";
           rev = "f74ab1eecf2dcaf22569b396eed53b2b2fbe8aff";
           sha256 = "1bs0g32h6z6v7wkb595yddz1p7d2abxn8d7q117lxl7ncl1lrcjq";
-        } + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css);
-        ".config/wlogout/layout".text = ''
-            {
-                "label" : "lock",
-                "action" : "hyprlock",
-                "text" : "Lock",
-                "keybind" : "l"
-            }
-            {
-                "label" : "hibernate",
-                "action" : "systemctl hibernate",
-                "text" : "Hibernate",
-                "keybind" : "h"
-            }
-            {
-                "label" : "logout",
-                "action" : "hyprctl dispatch exit",
-                "text" : "Logout",
-                "keybind" : "e"
-            }
-            {
-                "label" : "shutdown",
-                "action" : "poweroff",
-                "text" : "Shutdown",
-                "keybind" : "p"
-            }
-            {
-                "label" : "suspend",
-                "action" : "systemctl suspend",
-                "text" : "Suspend",
-                "keybind" : "s"
-            }
-            {
-                "label" : "reboot",
-                "action" : "reboot",
-                "text" : "Reboot",
-                "keybind" : "r"
-            }
-        '';
+        }
+        + /themes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css
+      );
+    ".config/wlogout/layout".text = ''
+      {
+          "label" : "lock",
+          "action" : "hyprlock",
+          "text" : "Lock",
+          "keybind" : "l"
+      }
+      {
+          "label" : "hibernate",
+          "action" : "systemctl hibernate",
+          "text" : "Hibernate",
+          "keybind" : "h"
+      }
+      {
+          "label" : "logout",
+          "action" : "hyprctl dispatch exit",
+          "text" : "Logout",
+          "keybind" : "e"
+      }
+      {
+          "label" : "shutdown",
+          "action" : "poweroff",
+          "text" : "Shutdown",
+          "keybind" : "p"
+      }
+      {
+          "label" : "suspend",
+          "action" : "systemctl suspend",
+          "text" : "Suspend",
+          "keybind" : "s"
+      }
+      {
+          "label" : "reboot",
+          "action" : "reboot",
+          "text" : "Reboot",
+          "keybind" : "r"
+      }
+    '';
   };
 
   # Home Manager can also manage your environment variables through
@@ -445,17 +473,17 @@
   #  /etc/profiles/per-user/arun/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    QT_QPA_PLATFORMTHEME="kde"; # Workaround as setting platform theme to KDE breaks system settings
-    GTK_THEME="Breeze-Dark"; # Workaround as Breeze-Dark theme is not being set properly
+    QT_QPA_PLATFORMTHEME = "kde"; # Workaround as setting platform theme to KDE breaks system settings
+    GTK_THEME = "Breeze-Dark"; # Workaround as Breeze-Dark theme is not being set properly
     # EDITOR = "emacs";
     PAGER = "bat";
     VISUAL = "bat";
     # Audio plugin paths
-    DSSI_PATH   = "$HOME/.dssi:$HOME/.nix-profile/lib/dssi:/run/current-system/sw/lib/dssi";
+    DSSI_PATH = "$HOME/.dssi:$HOME/.nix-profile/lib/dssi:/run/current-system/sw/lib/dssi";
     LADSPA_PATH = "$HOME/.ladspa:$HOME/.nix-profile/lib/ladspa:/run/current-system/sw/lib/ladspa";
-    LV2_PATH    = "$HOME/.lv2:$HOME/.nix-profile/lib/lv2:/run/current-system/sw/lib/lv2";
-    LXVST_PATH  = "$HOME/.lxvst:$HOME/.nix-profile/lib/lxvst:/run/current-system/sw/lib/lxvst";
-    VST_PATH    = "$HOME/.vst:$HOME/.nix-profile/lib/vst:/run/current-system/sw/lib/vst";
+    LV2_PATH = "$HOME/.lv2:$HOME/.nix-profile/lib/lv2:/run/current-system/sw/lib/lv2";
+    LXVST_PATH = "$HOME/.lxvst:$HOME/.nix-profile/lib/lxvst:/run/current-system/sw/lib/lxvst";
+    VST_PATH = "$HOME/.vst:$HOME/.nix-profile/lib/vst:/run/current-system/sw/lib/vst";
   };
 
   # Let Home Manager install and manage itself.
@@ -484,17 +512,20 @@
     theme = {
       name = "Breeze"; # "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
       package = pkgs.adw-gtk3;
-#       pkgs.catppuccin-gtk.override {
-#         accents = [ (lib.toLower colorSchemeAccent) ];
-#         size = "compact";
-#         tweaks = [ "rimless" "black" ];
-#         variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
-#       };
+      #       pkgs.catppuccin-gtk.override {
+      #         accents = [ (lib.toLower colorSchemeAccent) ];
+      #         size = "compact";
+      #         tweaks = [ "rimless" "black" ];
+      #         variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
+      #       };
     };
-    /*cursorTheme = {
-      name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
-      package = pkgs.catppuccin-cursors;
-    };*/ # Use breeze cursor instead of gtk cursor
+    /*
+      cursorTheme = {
+        name = "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}${colorSchemeAccent}";
+        package = pkgs.catppuccin-cursors;
+      };
+    */
+    # Use breeze cursor instead of gtk cursor
     iconTheme = {
       name = "Papirus-${colorSchemeMode}";
       package = pkgs.catppuccin-papirus-folders.override {
@@ -505,18 +536,24 @@
   };
 
   xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
+    "gtk-4.0/assets".source =
+      "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
+    "gtk-4.0/gtk.css".source =
+      "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
+    "gtk-4.0/gtk-dark.css".source =
+      "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
   };
 
   # Qt theming
 
   # Refer https://github.com/nix-community/home-manager/issues/5098 # Temporary workaround
 
-  xdg.configFile."menus/applications.menu".source = "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
+  xdg.configFile."menus/applications.menu".source =
+    "${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu";
 
-  systemd.user.sessionVariables = { QT_QPA_PLATFORMTHEME = "kde"; };
+  systemd.user.sessionVariables = {
+    QT_QPA_PLATFORMTHEME = "kde";
+  };
 
   qt = {
     enable = true;
@@ -525,18 +562,22 @@
       systemsettings
     ];
     # Disabled below due to bug in home-manager option
-    /*platformTheme = {
-      name = "kde";
-    };*/
-    /*style = {
-      name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ (lib.toLower colorSchemeAccent) ];
-        size = "compact";
-        tweaks = [ "rimless" "black" ];
-        variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
+    /*
+      platformTheme = {
+        name = "kde";
       };
-    };*/
+    */
+    /*
+      style = {
+        name = "${colorSchemeString}-Compact-${colorSchemeAccent}-${colorSchemeMode}";
+        package = pkgs.catppuccin-gtk.override {
+          accents = [ (lib.toLower colorSchemeAccent) ];
+          size = "compact";
+          tweaks = [ "rimless" "black" ];
+          variant = lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2);
+        };
+      };
+    */
     style = {
       name = "Breeze"; # "cat-${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}-${lib.toLower colorSchemeAccent}";
       package = pkgs.catppuccin-kde.override {
@@ -554,14 +595,19 @@
     systemd.enable = false; # Disabling as it conflicts with uwsm
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
-      source = [ "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf" ];
+      source = [
+        "~/.config/hypr/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.conf"
+      ];
       "$mod" = "SUPER";
       env = [
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
       ];
       general = {
         allow_tearing = true;
-        monitor = [ "VGA-1, 1920x1080, 1920x0, 1" "HDMI-A-1, 1920x1080, 0x0, 1" ];
+        monitor = [
+          "VGA-1, 1920x1080, 1920x0, 1"
+          "HDMI-A-1, 1920x1080, 0x0, 1"
+        ];
         gaps_out = 0;
         gaps_in = 0;
       };
@@ -580,16 +626,16 @@
       };
       windowrulev2 = [
         "float,class:(waybar),title:(waybar)"
-#         "noblur, class:^(Gromit-mpx)$"
-#         "opacity 1 override,1 override, class:^(Gromit-mpx)$"
-#         "noshadow, class:^(Gromit-mpx)$"
-#         "fakefullscreen, class:^(Gromit-mpx)$"
-#         "size 100% 100%, class:^(Gromit-mpx)$"
+        #         "noblur, class:^(Gromit-mpx)$"
+        #         "opacity 1 override,1 override, class:^(Gromit-mpx)$"
+        #         "noshadow, class:^(Gromit-mpx)$"
+        #         "fakefullscreen, class:^(Gromit-mpx)$"
+        #         "size 100% 100%, class:^(Gromit-mpx)$"
       ];
       workspace = [
         "1,monitor:HDMI-A-1,default:true"
         "2,monitor:VGA-1,default:true"
-#         "special:gromit,gapsin:0,gapsout:0,on-created-empty:gromit-mpx -a"
+        #         "special:gromit,gapsin:0,gapsout:0,on-created-empty:gromit-mpx -a"
       ];
       exec-once = [
         "hyprpaper"
@@ -608,80 +654,89 @@
         "$mod, mouse:273, resizewindow"
         "$mod ALT, mouse:272, resizewindow"
       ];
-      bind = let monocle = "dwindle:no_gaps_when_only"; in [
-        "$mod, F1, exec, killall -SIGUSR1 .waybar-wrapped"
+      bind =
+        let
+          monocle = "dwindle:no_gaps_when_only";
+        in
+        [
+          "$mod, F1, exec, killall -SIGUSR1 .waybar-wrapped"
 
-        "$mod SHIFT, E, exec, pkill Hyprland"
-        "$mod SHIFT, Q, killactive"
-        "$mod SHIFT, F, togglefloating"
-        "$mod, F, fullscreen"
-        "$mod, G, togglegroup"
-        "$mod SHIFT, N, changegroupactive, f"
-        "$mod SHIFT, P, changegroupactive, b"
-        "$mod, R, togglesplit"
-        "$mod, T, togglefloating"
-        "$mod, P, pseudo"
-        "$mod ALT, ,resizeactive,"
+          "$mod SHIFT, E, exec, pkill Hyprland"
+          "$mod SHIFT, Q, killactive"
+          "$mod SHIFT, F, togglefloating"
+          "$mod, F, fullscreen"
+          "$mod, G, togglegroup"
+          "$mod SHIFT, N, changegroupactive, f"
+          "$mod SHIFT, P, changegroupactive, b"
+          "$mod, R, togglesplit"
+          "$mod, T, togglefloating"
+          "$mod, P, pseudo"
+          "$mod ALT, ,resizeactive,"
 
-        "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | ${pkgs.json2tsv}/bin/jaq -r '.int') ^ 1))"
+          "$mod, M, exec, hyprctl keyword ${monocle} $(($(hyprctl getoption ${monocle} -j | ${pkgs.json2tsv}/bin/jaq -r '.int') ^ 1))"
 
-        "$mod, Period, layoutmsg, cyclenext"
-        "$mod, Comma, layoutmsg, swapwithmaster master"
+          "$mod, Period, layoutmsg, cyclenext"
+          "$mod, Comma, layoutmsg, swapwithmaster master"
 
-        "$mod, Escape, exec, wlogout -p layer-shell"
-        # "$mod SHIFT, L, exec, hyprlock"
-        # "$mod SHIFT, O, exec, run-as-service wl-ocr"
+          "$mod, Escape, exec, wlogout -p layer-shell"
+          # "$mod SHIFT, L, exec, hyprlock"
+          # "$mod SHIFT, O, exec, run-as-service wl-ocr"
 
-        "$mod, Return, exec, kitty"
+          "$mod, Return, exec, kitty"
 
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
+          "$mod, left, movefocus, l"
+          "$mod, right, movefocus, r"
+          "$mod, up, movefocus, u"
+          "$mod, down, movefocus, d"
+          "$mod, H, movefocus, l"
+          "$mod, L, movefocus, r"
+          "$mod, K, movefocus, u"
+          "$mod, J, movefocus, d"
 
-        "$mod SHIFT, left, movewindow, l"
-        "$mod SHIFT, right, movewindow, r"
-        "$mod SHIFT, up, movewindow, u"
-        "$mod SHIFT, down, movewindow, d"
-        "$mod SHIFT, H, movewindow, l"
-        "$mod SHIFT, L, movewindow, r"
-        "$mod SHIFT, K, movewindow, u"
-        "$mod SHIFT, J, movewindow, d"
+          "$mod SHIFT, left, movewindow, l"
+          "$mod SHIFT, right, movewindow, r"
+          "$mod SHIFT, up, movewindow, u"
+          "$mod SHIFT, down, movewindow, d"
+          "$mod SHIFT, H, movewindow, l"
+          "$mod SHIFT, L, movewindow, r"
+          "$mod SHIFT, K, movewindow, u"
+          "$mod SHIFT, J, movewindow, d"
 
-        "$mod SHIFT, grave, movetoworkspace, special"
-        "$mod, grave, togglespecialworkspace, VGA-1"
+          "$mod SHIFT, grave, movetoworkspace, special"
+          "$mod, grave, togglespecialworkspace, VGA-1"
 
-        "$mod, bracketleft, workspace, m-1"
-        "$mod, bracketright, workspace, m+1"
+          "$mod, bracketleft, workspace, m-1"
+          "$mod, bracketright, workspace, m+1"
 
-        "$mod SHIFT, bracketleft, movecurrentworkspacetomonitor, l"
-        "$mod SHIFT, bracketright, movecurrentworkspacetomonitor, r"
+          "$mod SHIFT, bracketleft, movecurrentworkspacetomonitor, l"
+          "$mod SHIFT, bracketright, movecurrentworkspacetomonitor, r"
 
-        "$mod, D, exec, rofi -show drun"
-        "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-        "$mod SHIFT, V, exec, copyq toggle"
-        "$mod, Print, exec, ~/arun-nix-config/scripts/screenshot.sh"
-        ", Print, exec, grim - | wl-copy"
-      ] ++ (
-        # Workspaces
-        # binds $mod + [shift +] {1..0} to move to workspace {1..10}
-        builtins.concatLists (builtins.genList (
-            x: let
-              ws = let
-                c = (x + 1) / 10;
+          "$mod, D, exec, rofi -show drun"
+          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+          "$mod SHIFT, V, exec, copyq toggle"
+          "$mod, Print, exec, ~/arun-nix-config/scripts/screenshot.sh"
+          ", Print, exec, grim - | wl-copy"
+        ]
+        ++ (
+          # Workspaces
+          # binds $mod + [shift +] {1..0} to move to workspace {1..10}
+          builtins.concatLists (
+            builtins.genList (
+              x:
+              let
+                ws =
+                  let
+                    c = (x + 1) / 10;
+                  in
+                  builtins.toString (x + 1 - (c * 10));
               in
-                builtins.toString (x + 1 - (c * 10));
-            in [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-            ]
+              [
+                "$mod, ${ws}, workspace, ${toString (x + 1)}"
+                "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              ]
+            ) 10
           )
-        10)
-      );
+        );
     };
   };
 
@@ -725,8 +780,8 @@
           capslock = true;
           format = "{name} {icon}";
           format-icons = {
-              locked = "";
-              unlocked = "";
+            locked = "";
+            unlocked = "";
           };
         };
 
@@ -761,12 +816,26 @@
         temperature = {
           critical-threshold = 80;
           format = "{temperatureC}°C {icon}";
-          format-icons =  ["" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+          ];
         };
 
         backlight = {
           format = "{percent}% {icon}";
-          format-icons = ["" "" "" "" "" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         battery = {
@@ -782,7 +851,13 @@
           format-alt = "{time} {icon}";
           # format-good = ""; # An empty format will hide the module
           # format-full = "";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         "battery#bat2" = {
@@ -802,45 +877,49 @@
         };
 
         network = {
-            # interface = "wlp2*"; # (Optional) To force the use of this interface
-            format-wifi = "{essid} ({signalStrength}%) ";
-            format-ethernet = "{ipaddr}/{cidr} ";
-            tooltip-format = "{ifname} via {gwaddr} ";
-            format-linked = "{ifname} (No IP) ";
-            format-disconnected = "Disconnected ⚠";
-            format-alt = "{ifname}: {ipaddr}/{cidr}";
+          # interface = "wlp2*"; # (Optional) To force the use of this interface
+          format-wifi = "{essid} ({signalStrength}%) ";
+          format-ethernet = "{ipaddr}/{cidr} ";
+          tooltip-format = "{ifname} via {gwaddr} ";
+          format-linked = "{ifname} (No IP) ";
+          format-disconnected = "Disconnected ⚠";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
 
         pulseaudio = {
-            # "scroll-step": 1, # %, can be a float
-            format = "{volume}% {icon} {format_source}";
-            format-bluetooth = "{volume}% {icon} {format_source}";
-            format-bluetooth-muted = " {icon} {format_source}";
-            format-muted = " {format_source}";
-            format-source = "{volume}% ";
-            format-source-muted = "";
-            format-icons = {
-              headphone = "";
-              hands-free = "";
-              headset = "";
-              phone = "";
-              portable = "";
-              car = "";
-              default = ["" "" ""];
-            };
-            on-click = "pavucontrol";
+          # "scroll-step": 1, # %, can be a float
+          format = "{volume}% {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+            headphone = "";
+            hands-free = "";
+            headset = "";
+            phone = "";
+            portable = "";
+            car = "";
+            default = [
+              ""
+              ""
+              ""
+            ];
+          };
+          on-click = "pavucontrol";
         };
 
         "custom/media" = {
-            format = "{icon} {}";
-            return-type = "json";
-            max-length = 40;
-            format-icons = {
-                default = "🎜";
-            };
-            escape = true;
-            exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
-            # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
+          format = "{icon} {}";
+          return-type = "json";
+          max-length = 40;
+          format-icons = {
+            default = "🎜";
+          };
+          escape = true;
+          exec = "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"; # Script in resources folder
+          # exec = "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null"; # Filter player based on name
         };
 
       };
@@ -926,7 +1005,6 @@
     enable = true;
     package = pkgs.tldr;
   };
-  
 
   # Screen drawing: gromit-mpx
   services.gromit-mpx = {
@@ -1027,10 +1105,12 @@
     };
 
     ## zsh framework: none # prezto (disabled)
-    /*prezto = {
-      enable = true;
-      editor.keymap = "vi";
-    };*/
+    /*
+      prezto = {
+        enable = true;
+        editor.keymap = "vi";
+      };
+    */
 
     ## Plugins
     plugins = [
@@ -1050,7 +1130,7 @@
       hupd = "home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       upd = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default' && sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
       fupd = "nix flake update";
-      uchan  = "nix-channel --update";
+      uchan = "nix-channel --update";
       niupd = "nix run 'nixpkgs#nix-index' --extra-experimental-features 'nix-command flakes'";
       ngc = "nix-collect-garbage --delete-older-than 15d";
       sui = "sudo -i ";
@@ -1082,14 +1162,18 @@
     settings = {
       format = "$all";
       palette = lib.toLower (builtins.replaceStrings [ "-" ] [ "_" ] colorSchemeString);
-    } // builtins.fromTOML (builtins.readFile
-      (pkgs.fetchFromGitHub
-        {
+    }
+    // builtins.fromTOML (
+      builtins.readFile (
+        pkgs.fetchFromGitHub {
           owner = "catppuccin";
           repo = "starship";
           rev = "5629d23";
           sha256 = "nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
-        } + /palettes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.toml));
+        }
+        + /palettes/${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.toml
+      )
+    );
   };
 
   ## Shell environment management: direnv
@@ -1369,322 +1453,375 @@
 
     profiles.default = {
 
-    settings = {
-      # Hardening based on: https://brainfucksec.github.io/firefox-hardening-guide
+      settings = {
+        # Hardening based on: https://brainfucksec.github.io/firefox-hardening-guide
 
-      # Startup settings
-      "browser.aboutConfig.showWarning" = false;
-      "browser.startup.page" = 1;
-      "browser.startup.homepage" = "about:home";
-      "browser.newtabpage.enabled" = false;
-      "browser.newtab.preload" = true; # Overrided
-      "browser.newtabpage.activity-stream.feeds.telemetry" = false;
-      "browser.newtabpage.activity-stream.telemetry" = false;
-      "browser.newtabpage.activity-stream.feeds.snippets" = false;
-      "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
-      "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
-      "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
-      "browser.newtabpage.activity-stream.showSponsored" = false;
-      "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
-      "browser.newtabpage.activity-stream.default.sites" = "";
+        # Startup settings
+        "browser.aboutConfig.showWarning" = false;
+        "browser.startup.page" = 1;
+        "browser.startup.homepage" = "about:home";
+        "browser.newtabpage.enabled" = false;
+        "browser.newtab.preload" = true; # Overrided
+        "browser.newtabpage.activity-stream.feeds.telemetry" = false;
+        "browser.newtabpage.activity-stream.telemetry" = false;
+        "browser.newtabpage.activity-stream.feeds.snippets" = false;
+        "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+        "browser.newtabpage.activity-stream.section.highlights.includePocket" = false;
+        "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
+        "browser.newtabpage.activity-stream.showSponsored" = false;
+        "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "browser.newtabpage.activity-stream.default.sites" = "";
 
-      # Geolocation
-      "geo.provider.network.url" = "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
-      "geo.provider.use_gpsd" = false;
-      "geo.provider.use_geoclue" = false;
-      "browser.region.network.url" = "";
-      "browser.region.update.enabled" = false;
+        # Geolocation
+        "geo.provider.network.url" =
+          "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%";
+        "geo.provider.use_gpsd" = false;
+        "geo.provider.use_geoclue" = false;
+        "browser.region.network.url" = "";
+        "browser.region.update.enabled" = false;
 
-      # Language/Locale
-      "intl.accept_languages" = "en-US, en";
-      "javascript.use_us_english_locale" = true;
+        # Language/Locale
+        "intl.accept_languages" = "en-US, en";
+        "javascript.use_us_english_locale" = true;
 
-      # Auto-update/Recommendations
-      "app.update.auto" = false;
-      "extensions.getAddons.showPane" = false;
-      "extensions.htmlaboutaddons.recommendations.enabled" = false;
-      "browser.discovery.enabled" = false;
+        # Auto-update/Recommendations
+        "app.update.auto" = false;
+        "extensions.getAddons.showPane" = false;
+        "extensions.htmlaboutaddons.recommendations.enabled" = false;
+        "browser.discovery.enabled" = false;
 
-      # Telemetry
-      "datareporting.policy.dataSubmissionEnabled" = false;
-      "datareporting.healthreport.uploadEnabled" = false;
-      "toolkit.telemetry.enabled" = false;
-      "toolkit.telemetry.unified" = false;
-      "toolkit.telemetry.server" = "data:,";
-      "toolkit.telemetry.archive.enabled" = false;
-      "toolkit.telemetry.newProfilePing.enabled" = false;
-      "toolkit.telemetry.shutdownPingSender.enabled" = false;
-      "toolkit.telemetry.updatePing.enabled" = false;
-      "toolkit.telemetry.bhrPing.enabled" = false;
-      "toolkit.telemetry.firstShutdownPing.enabled" = false;
-      "toolkit.telemetry.coverage.opt-out" = true;
-      "toolkit.coverage.opt-out" = true;
-      "toolkit.coverage.endpoint.base" = "";
-      "browser.ping-centre.telemetry" = false;
-      "beacon.enabled" = false;
+        # Telemetry
+        "datareporting.policy.dataSubmissionEnabled" = false;
+        "datareporting.healthreport.uploadEnabled" = false;
+        "toolkit.telemetry.enabled" = false;
+        "toolkit.telemetry.unified" = false;
+        "toolkit.telemetry.server" = "data:,";
+        "toolkit.telemetry.archive.enabled" = false;
+        "toolkit.telemetry.newProfilePing.enabled" = false;
+        "toolkit.telemetry.shutdownPingSender.enabled" = false;
+        "toolkit.telemetry.updatePing.enabled" = false;
+        "toolkit.telemetry.bhrPing.enabled" = false;
+        "toolkit.telemetry.firstShutdownPing.enabled" = false;
+        "toolkit.telemetry.coverage.opt-out" = true;
+        "toolkit.coverage.opt-out" = true;
+        "toolkit.coverage.endpoint.base" = "";
+        "browser.ping-centre.telemetry" = false;
+        "beacon.enabled" = false;
 
-      # Studies
-      "app.shield.optoutstudies.enabled" = false;
-      "app.normandy.enabled" = false;
-      "app.normandy.api_url" = "";
+        # Studies
+        "app.shield.optoutstudies.enabled" = false;
+        "app.normandy.enabled" = false;
+        "app.normandy.api_url" = "";
 
-      # Crash Reports
-      "breakpad.reportURL" = "";
-      "browser.tabs.crashReporting.sendReport" = false;
+        # Crash Reports
+        "breakpad.reportURL" = "";
+        "browser.tabs.crashReporting.sendReport" = false;
 
-      # Captive portal detection / Network Checks
-      "captivedetect.canonicalURL" = "";
-      "network.captive-portal-service.enabled" = false;
-      "network.connectivity-service.enabled" = false;
+        # Captive portal detection / Network Checks
+        "captivedetect.canonicalURL" = "";
+        "network.captive-portal-service.enabled" = false;
+        "network.connectivity-service.enabled" = false;
 
-      # Safe browsing
-      "browser.safebrowsing.malware.enabled" = false;
-      "browser.safebrowsing.phishing.enabled" = false;
-      "browser.safebrowsing.blockedURIs.enabled" = false;
-      "browser.safebrowsing.provider.google4.gethashURL" = "";
-      "browser.safebrowsing.provider.google4.updateURL" = "";
-      "browser.safebrowsing.provider.google.gethashURL" = "";
-      "browser.safebrowsing.provider.google.updateURL" = "";
-      "browser.safebrowsing.provider.google4.dataSharingURL" = "";
-      "browser.safebrowsing.downloads.enabled" = false;
-      "browser.safebrowsing.downloads.remote.enabled" = false;
-      "browser.safebrowsing.downloads.remote.url" = "";
-      "browser.safebrowsing.downloads.remote.block_potentially_unwanted" = false;
-      "browser.safebrowsing.downloads.remote.block_uncommon" = false;
-      "browser.safebrowsing.allowOverride" = false;
+        # Safe browsing
+        "browser.safebrowsing.malware.enabled" = false;
+        "browser.safebrowsing.phishing.enabled" = false;
+        "browser.safebrowsing.blockedURIs.enabled" = false;
+        "browser.safebrowsing.provider.google4.gethashURL" = "";
+        "browser.safebrowsing.provider.google4.updateURL" = "";
+        "browser.safebrowsing.provider.google.gethashURL" = "";
+        "browser.safebrowsing.provider.google.updateURL" = "";
+        "browser.safebrowsing.provider.google4.dataSharingURL" = "";
+        "browser.safebrowsing.downloads.enabled" = false;
+        "browser.safebrowsing.downloads.remote.enabled" = false;
+        "browser.safebrowsing.downloads.remote.url" = "";
+        "browser.safebrowsing.downloads.remote.block_potentially_unwanted" = false;
+        "browser.safebrowsing.downloads.remote.block_uncommon" = false;
+        "browser.safebrowsing.allowOverride" = false;
 
-      # Network: DNS, Proxy, IPv6
-      "network.prefetch-next" = true;  # Overrided
-      "network.dns.disablePrefetch" = false;  # Overrided
-      "network.predictor.enabled" = true;  # Overrided
-      # "network.http.speculative-parallel-limit" = 0;  # Overrided
-      "browser.places.speculativeConnect.enabled" = true;  # Overrided
-      "network.dns.disableIPv6" = false;  # Overrided
-      "network.gio.supported-protocols" = "";
-      "network.file.disable_unc_paths" = true;
-      "permissions.manager.defaultsUrl" = "";
-      "network.IDN_show_punycode" = true;
+        # Network: DNS, Proxy, IPv6
+        "network.prefetch-next" = true; # Overrided
+        "network.dns.disablePrefetch" = false; # Overrided
+        "network.predictor.enabled" = true; # Overrided
+        # "network.http.speculative-parallel-limit" = 0;  # Overrided
+        "browser.places.speculativeConnect.enabled" = true; # Overrided
+        "network.dns.disableIPv6" = false; # Overrided
+        "network.gio.supported-protocols" = "";
+        "network.file.disable_unc_paths" = true;
+        "permissions.manager.defaultsUrl" = "";
+        "network.IDN_show_punycode" = true;
 
-      # Search bar: Suggestions, Autofill
-      "browser.search.suggest.enabled" = false;
-      "browser.urlbar.suggest.searches" = false;
-      "browser.fixup.alternate.enabled" = false;
-      "browser.urlbar.trimURLs" = false;
-      "browser.urlbar.speculativeConnect.enabled" = false;
-      "browser.formfill.enable" = false;
-      "extensions.formautofill.addresses.enabled" = false;
-      "extensions.formautofill.available" = "off";
-      "extensions.formautofill.creditCards.available" = false;
-      "extensions.formautofill.creditCards.enabled" = false;
-      "extensions.formautofill.heuristics.enabled" = false;
-      "browser.urlbar.quicksuggest.scenario" = "history";
-      "browser.urlbar.quicksuggest.enabled" = false;
-      "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
-      "browser.urlbar.suggest.quicksuggest.sponsored" = false;
+        # Search bar: Suggestions, Autofill
+        "browser.search.suggest.enabled" = false;
+        "browser.urlbar.suggest.searches" = false;
+        "browser.fixup.alternate.enabled" = false;
+        "browser.urlbar.trimURLs" = false;
+        "browser.urlbar.speculativeConnect.enabled" = false;
+        "browser.formfill.enable" = false;
+        "extensions.formautofill.addresses.enabled" = false;
+        "extensions.formautofill.available" = "off";
+        "extensions.formautofill.creditCards.available" = false;
+        "extensions.formautofill.creditCards.enabled" = false;
+        "extensions.formautofill.heuristics.enabled" = false;
+        "browser.urlbar.quicksuggest.scenario" = "history";
+        "browser.urlbar.quicksuggest.enabled" = false;
+        "browser.urlbar.suggest.quicksuggest.nonsponsored" = false;
+        "browser.urlbar.suggest.quicksuggest.sponsored" = false;
 
-      # Passwords
-      "signon.rememberSignons" = false;
-      "signon.autofillForms" = false;
-      "signon.formlessCapture.enabled" = false;
-      "network.auth.subresource-http-auth-allow" = 1;
+        # Passwords
+        "signon.rememberSignons" = false;
+        "signon.autofillForms" = false;
+        "signon.formlessCapture.enabled" = false;
+        "network.auth.subresource-http-auth-allow" = 1;
 
-      # Disk Cache/Memory
-      "browser.cache.disk.enable" = true;  # Overrided
-      "browser.sessionstore.privacy_level" = 2;
-      "browser.sessionstore.resume_from_crash" = true; # Overrided
-      "browser.pagethumbnails.capturing_disabled" = true;
-      "browser.shell.shortcutFavicons" = false;
-      "browser.helperApps.deleteTempFileOnExit" = true;
+        # Disk Cache/Memory
+        "browser.cache.disk.enable" = true; # Overrided
+        "browser.sessionstore.privacy_level" = 2;
+        "browser.sessionstore.resume_from_crash" = true; # Overrided
+        "browser.pagethumbnails.capturing_disabled" = true;
+        "browser.shell.shortcutFavicons" = false;
+        "browser.helperApps.deleteTempFileOnExit" = true;
 
-      # HTTPS / SSL/TLS / OSCP / CERTS
-      "dom.security.https_only_mode" = true;
-      "dom.security.https_only_mode_send_http_background_request" = false;
-      "browser.xul.error_pages.expert_bad_cert" = true;
-      "security.tls.enable_0rtt_data" = false;
-      "security.OCSP.require" = true;
-      "security.pki.sha1_enforcement_level" = 1;
-      "security.cert_pinning.enforcement_level" = 2;
-      "security.remote_settings.crlite_filters.enabled" = true;
-      "security.pki.crlite_mode" = 2;
+        # HTTPS / SSL/TLS / OSCP / CERTS
+        "dom.security.https_only_mode" = true;
+        "dom.security.https_only_mode_send_http_background_request" = false;
+        "browser.xul.error_pages.expert_bad_cert" = true;
+        "security.tls.enable_0rtt_data" = false;
+        "security.OCSP.require" = true;
+        "security.pki.sha1_enforcement_level" = 1;
+        "security.cert_pinning.enforcement_level" = 2;
+        "security.remote_settings.crlite_filters.enabled" = true;
+        "security.pki.crlite_mode" = 2;
 
-      # Headers/Referers
-      "network.http.referer.XOriginPolicy" = 2;
-      "network.http.referer.XOriginTrimmingPolicy" = 2;
+        # Headers/Referers
+        "network.http.referer.XOriginPolicy" = 2;
+        "network.http.referer.XOriginTrimmingPolicy" = 2;
 
-      # Audio/Video: WebRTC, WebGL, DRM
-      "media.peerconnection.enabled" = true; # Overrided
-      "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
-      "media.peerconnection.ice.default_address_only" = true;
-      "media.peerconnection.ice.no_host" = true;
-      "webgl.disabled" = false; # Overrided
-      "media.autoplay.default" = 5;
-      "media.eme.enabled" = false; # Override?
+        # Audio/Video: WebRTC, WebGL, DRM
+        "media.peerconnection.enabled" = true; # Overrided
+        "media.peerconnection.ice.proxy_only_if_behind_proxy" = true;
+        "media.peerconnection.ice.default_address_only" = true;
+        "media.peerconnection.ice.no_host" = true;
+        "webgl.disabled" = false; # Overrided
+        "media.autoplay.default" = 5;
+        "media.eme.enabled" = false; # Override?
 
-      # Downloads
-      "browser.download.useDownloadDir" = false;
-      "browser.download.manager.addToRecentDocs" = false;
+        # Downloads
+        "browser.download.useDownloadDir" = false;
+        "browser.download.manager.addToRecentDocs" = false;
 
-      # Cookies
-      "browser.contentblocking.category" = "strict";
-      "privacy.partition.serviceWorkers" = true;
-      "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
-      "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" = true;
+        # Cookies
+        "browser.contentblocking.category" = "strict";
+        "privacy.partition.serviceWorkers" = true;
+        "privacy.partition.always_partition_third_party_non_cookie_storage" = true;
+        "privacy.partition.always_partition_third_party_non_cookie_storage.exempt_sessionstorage" = true;
 
-      # UI Features
-      "dom.disable_open_during_load" = true;
-      "dom.popup_allowed_events" = "click dblclick mousedown pointerdown";
-      "extensions.pocket.enabled" = false;
-      "extensions.Screenshots.disabled" = true;
-      "pdfjs.enableScripting" = false;
-      "privacy.userContext.enabled" = true;
+        # UI Features
+        "dom.disable_open_during_load" = true;
+        "dom.popup_allowed_events" = "click dblclick mousedown pointerdown";
+        "extensions.pocket.enabled" = false;
+        "extensions.Screenshots.disabled" = true;
+        "pdfjs.enableScripting" = false;
+        "privacy.userContext.enabled" = true;
 
-      # Extensions
-      "extensions.enabledScopes" = 5;
-      "extensions.webextensions.restrictedDomains" = "";
-      "extensions.postDownloadThirdPartyPrompt" = false;
+        # Extensions
+        "extensions.enabledScopes" = 5;
+        "extensions.webextensions.restrictedDomains" = "";
+        "extensions.postDownloadThirdPartyPrompt" = false;
 
-      # Shutdown Settings
-      "network.cookie.lifetimePolicy" = 2;
-      "privacy.sanitize.sanitizeOnShutdown" = true;
-      "privacy.clearOnShutdown.cache" = true;
-      "privacy.clearOnShutdown.cookies" = true;
-      "privacy.clearOnShutdown.downloads" = true;
-      "privacy.clearOnShutdown.formdata" = true;
-      "privacy.clearOnShutdown.history" = false; # Overrided
-      "privacy.clearOnShutdown.offlineApps" = true;
-      "privacy.clearOnShutdown.sessions" = true;
-      "privacy.clearOnShutdown.sitesettings" = false;
-      "privacy.sanitize.timeSpan" = 0;
+        # Shutdown Settings
+        "network.cookie.lifetimePolicy" = 2;
+        "privacy.sanitize.sanitizeOnShutdown" = true;
+        "privacy.clearOnShutdown.cache" = true;
+        "privacy.clearOnShutdown.cookies" = true;
+        "privacy.clearOnShutdown.downloads" = true;
+        "privacy.clearOnShutdown.formdata" = true;
+        "privacy.clearOnShutdown.history" = false; # Overrided
+        "privacy.clearOnShutdown.offlineApps" = true;
+        "privacy.clearOnShutdown.sessions" = true;
+        "privacy.clearOnShutdown.sitesettings" = false;
+        "privacy.sanitize.timeSpan" = 0;
 
-      # Fingerprinting
-      "privacy.resistFingerprinting" = false; # Overrided
-      "privacy.window.maxInnerWidth" = 1600;
-      "privacy.window.maxInnerHeight" = 900;
-      "privacy.resistFingerprinting.block_mozAddonManager" = true;
-      "browser.display.use_system_colors" = false;
-      "browser.startup.blankWindow" = false;
+        # Fingerprinting
+        "privacy.resistFingerprinting" = false; # Overrided
+        "privacy.window.maxInnerWidth" = 1600;
+        "privacy.window.maxInnerHeight" = 900;
+        "privacy.resistFingerprinting.block_mozAddonManager" = true;
+        "browser.display.use_system_colors" = false;
+        "browser.startup.blankWindow" = false;
 
-      # Non-hardening
+        # Non-hardening
 
-      # Use system dark mode (for prefers color scheme)
-      "ui.systemUsesDarkTheme" = if colorSchemeMode == "Dark" then 1 else (if colorSchemeMode == "Light" then 0 else 2);
-      "browser.in-content.dark-mode" = colorSchemeMode == "Dark";
-      # TODO: as both methods above don't work without disabling resistFingerprinting
-    };
-
-    containers= {
-      fun = {
-        id = 1;
-        icon = "circle";
-        color = "blue";
+        # Use system dark mode (for prefers color scheme)
+        "ui.systemUsesDarkTheme" =
+          if colorSchemeMode == "Dark" then 1 else (if colorSchemeMode == "Light" then 0 else 2);
+        "browser.in-content.dark-mode" = colorSchemeMode == "Dark";
+        # TODO: as both methods above don't work without disabling resistFingerprinting
       };
 
-      iisc = {
-        id = 2;
-        icon = "briefcase";
-        color = "green";
+      containers = {
+        fun = {
+          id = 1;
+          icon = "circle";
+          color = "blue";
+        };
+
+        iisc = {
+          id = 2;
+          icon = "briefcase";
+          color = "green";
+        };
+
+        throwaway = {
+          id = 3;
+          icon = "fence";
+          color = "red";
+        };
       };
 
-      throwaway = {
-        id = 3;
-        icon = "fence";
-        color = "red";
-      };
-    };
-
-    search.engines = {
-      "Nix wiki" = {
-        urls = [{
-          template = "https://nixos.wiki/index.php";
-          params = [
-            { name = "search"; value = "{searchTerms}"; }
-            { name = "go"; value = "Go"; }
+      search.engines = {
+        "Nix wiki" = {
+          urls = [
+            {
+              template = "https://nixos.wiki/index.php";
+              params = [
+                {
+                  name = "search";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "go";
+                  value = "Go";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@nw" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@nw" ];
+        };
 
-      "Nix packages" = {
-        urls = [{
-          template = "https://search.nixos.org/packages";
-          params = [
-            { name = "channel"; value = "unstable"; }
-            { name = "type"; value = "packages"; }
-            { name = "query"; value = "{searchTerms}"; }
+        "Nix packages" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/packages";
+              params = [
+                {
+                  name = "channel";
+                  value = "unstable";
+                }
+                {
+                  name = "type";
+                  value = "packages";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@np" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@np" ];
+        };
 
-      "Nix options" = {
-        urls = [{
-          template = "https://search.nixos.org/options";
-          params = [
-            { name = "channel"; value = "unstable"; }
-            { name = "type"; value = "options"; }
-            { name = "query"; value = "{searchTerms}"; }
+        "Nix options" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/options";
+              params = [
+                {
+                  name = "channel";
+                  value = "unstable";
+                }
+                {
+                  name = "type";
+                  value = "options";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@no" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@no" ];
+        };
 
-      "Nix flakes" = {
-        urls = [{
-          template = "https://search.nixos.org/flakes";
-          params = [
-            { name = "type"; value = "flakes"; }
-            { name = "query"; value = "{searchTerms}"; }
+        "Nix flakes" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/flakes";
+              params = [
+                {
+                  name = "type";
+                  value = "flakes";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@nf" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@nf" ];
+        };
 
-      "Home manager options" = {
-        urls = [{
-          template = "https://home-manager-options.extranix.com";
-          params = [
-            { name = "query"; value = "{searchTerms}"; }
+        "Home manager options" = {
+          urls = [
+            {
+              template = "https://home-manager-options.extranix.com";
+              params = [
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "https://home-manager-options.extranix.com/images/favicon.png";
-        updateInterval = 24 * 60 * 60 * 1000;
-        definedAliases = [ "@ho" ];
-      };
+          icon = "https://home-manager-options.extranix.com/images/favicon.png";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@ho" ];
+        };
 
-      "Brave search" = {
-        urls = [{
-          template = "https://search.brave.com/search";
-          params = [
-            { name = "q"; value = "{searchTerms}"; }
-            { name = "source"; value = "web"; }
+        "Brave search" = {
+          urls = [
+            {
+              template = "https://search.brave.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "source";
+                  value = "web";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "https://brave.com/favicon.ico";
-        updateInterval = 24 * 60 * 60 * 1000;
-        definedAliases = [ "@bs" ];
+          icon = "https://brave.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@bs" ];
+        };
       };
-    };
-    search.force = true;
-    search.default = "Brave search";
-    search.privateDefault = "Brave search";
+      search.force = true;
+      search.default = "Brave search";
+      search.privateDefault = "Brave search";
 
-    extensions.packages = with inputs.firefox-addons.packages.${system}; [
-      ublock-origin
-      sponsorblock
-      tridactyl
-      darkreader
-      firefox-color
-    ];
+      extensions.packages = with inputs.firefox-addons.packages.${system}; [
+        ublock-origin
+        sponsorblock
+        tridactyl
+        darkreader
+        firefox-color
+      ];
     };
   };
 

@@ -4,9 +4,9 @@
   home.username = "arun";
   home.homeDirectory = "/home/arun";
   home.stateVersion = "23.11";
-  home.packages = with pkgs; [];
-  home.file = {};
-  home.sessionVariables = {};
+  home.packages = with pkgs; [ ];
+  home.file = { };
+  home.sessionVariables = { };
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;

@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -60,17 +60,17 @@
   # Enable CUPS to print documents.
   services.printing = {
     enable = true;
-    drivers = [ 
+    drivers = [
       pkgs.gutenprint
-      pkgs.hplip 
+      pkgs.hplip
     ];
   };
 
   # Enable avahi to discover services
-  services.avahi = { 
+  services.avahi = {
     enable = true;
     nssmdns4 = true;
-    openFirewall = true; 
+    openFirewall = true;
   };
 
   # Enable sound with pipewire.
@@ -100,7 +100,10 @@
   users.users.arun = {
     isNormalUser = true;
     description = "Arunachalaeshwaran V R";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -110,7 +113,7 @@
       hplip
       anydesk
       brave
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -124,7 +127,10 @@
   };
 
   # Enable flakes and other experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -132,8 +138,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     pkgs.home-manager
     comma
     plocate
@@ -164,7 +170,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  
+
   system.stateVersion = "23.11"; # Did you read the comment?
   # system.stateVersion = "unstable";
 }

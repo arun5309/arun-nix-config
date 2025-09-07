@@ -1,4 +1,11 @@
-{ config, pkgs, lib, inputs, allowed-unfree-packages, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  allowed-unfree-packages,
+  ...
+}:
 
 {
   # Allow unfree packages
@@ -141,97 +148,142 @@
   programs.firefox = {
     enable = true;
     profiles.default = {
-    
-    search.engines = {
-      "Nix wiki" = {
-        urls = [{
-          template = "https://nixos.wiki/index.php";
-          params = [
-            { name = "search"; value = "{searchTerms}"; }
-            { name = "go"; value = "Go"; }
+
+      search.engines = {
+        "Nix wiki" = {
+          urls = [
+            {
+              template = "https://nixos.wiki/index.php";
+              params = [
+                {
+                  name = "search";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "go";
+                  value = "Go";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@nw" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@nw" ];
+        };
 
-      "Nix packages" = {
-        urls = [{
-          template = "https://search.nixos.org/packages";
-          params = [
-            { name = "type"; value = "packages"; }
-            { name = "query"; value = "{searchTerms}"; }
+        "Nix packages" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/packages";
+              params = [
+                {
+                  name = "type";
+                  value = "packages";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@np" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@np" ];
+        };
 
-      "Nix options" = {
-        urls = [{
-          template = "https://search.nixos.org/options";
-          params = [
-            { name = "type"; value = "options"; }
-            { name = "query"; value = "{searchTerms}"; }
+        "Nix options" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/options";
+              params = [
+                {
+                  name = "type";
+                  value = "options";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@no" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@no" ];
+        };
 
-      "Nix flakes" = {
-        urls = [{
-          template = "https://search.nixos.org/flakes";
-          params = [
-            { name = "type"; value = "flakes"; }
-            { name = "query"; value = "{searchTerms}"; }
+        "Nix flakes" = {
+          urls = [
+            {
+              template = "https://search.nixos.org/flakes";
+              params = [
+                {
+                  name = "type";
+                  value = "flakes";
+                }
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-        definedAliases = [ "@nf" ];
-      };
+          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          definedAliases = [ "@nf" ];
+        };
 
-      "Home manager options" = {
-        urls = [{
-          template = "https://mipmip.github.io/home-manager-option-search";
-          params = [
-            { name = "query"; value = "{searchTerms}"; }
+        "Home manager options" = {
+          urls = [
+            {
+              template = "https://mipmip.github.io/home-manager-option-search";
+              params = [
+                {
+                  name = "query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
           ];
-        }];
 
-        iconUpdateURL = "https://mipmip.github.io/home-manager-option-search/images/favicon.png";
-        updateInterval = 24 * 60 * 60 * 1000;
-        definedAliases = [ "@ho" ];
-      };
+          iconUpdateURL = "https://mipmip.github.io/home-manager-option-search/images/favicon.png";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@ho" ];
+        };
 
-      "Brave search" = {
-        urls = [{
-          template = "https://search.brave.com/search";
-          params = [
-            { name = "q"; value = "{searchTerms}"; }
-            { name = "source"; value = "web"; }
+        "Brave search" = {
+          urls = [
+            {
+              template = "https://search.brave.com/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+                {
+                  name = "source";
+                  value = "web";
+                }
+              ];
+            }
           ];
-        }];
 
-        iconUpdateURL = "https://brave.com/favicon.ico";
-        updateInterval = 24 * 60 * 60 * 1000;
-        definedAliases = [ "@bs" ];
+          iconUpdateURL = "https://brave.com/favicon.ico";
+          updateInterval = 24 * 60 * 60 * 1000;
+          definedAliases = [ "@bs" ];
+        };
       };
-    };  
-    search.force = true;
-    search.default = "Brave search";
-    search.privateDefault = "Brave search";
+      search.force = true;
+      search.default = "Brave search";
+      search.privateDefault = "Brave search";
 
-    extensions = [
-      inputs.firefox-addons.packages."x86_64-linux".ublock-origin
-      inputs.firefox-addons.packages."x86_64-linux".sponsorblock
-      inputs.firefox-addons.packages."x86_64-linux".tridactyl
-      inputs.firefox-addons.packages."x86_64-linux".darkreader
-    ];
+      extensions = [
+        inputs.firefox-addons.packages."x86_64-linux".ublock-origin
+        inputs.firefox-addons.packages."x86_64-linux".sponsorblock
+        inputs.firefox-addons.packages."x86_64-linux".tridactyl
+        inputs.firefox-addons.packages."x86_64-linux".darkreader
+      ];
     };
   };
 }
