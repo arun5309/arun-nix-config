@@ -475,9 +475,10 @@
   home.sessionVariables = {
     QT_QPA_PLATFORMTHEME = "kde"; # Workaround as setting platform theme to KDE breaks system settings
     GTK_THEME = "Breeze-Dark"; # Workaround as Breeze-Dark theme is not being set properly
-    # EDITOR = "emacs";
     PAGER = "bat";
-    VISUAL = "bat";
+    EDITOR = "hx";
+    VISUAL = "hx";
+    ABBR_SET_EXPANSION_CURSOR = 1;
     # Audio plugin paths
     DSSI_PATH = "$HOME/.dssi:$HOME/.nix-profile/lib/dssi:/run/current-system/sw/lib/dssi";
     LADSPA_PATH = "$HOME/.ladspa:$HOME/.nix-profile/lib/ladspa:/run/current-system/sw/lib/ladspa";
