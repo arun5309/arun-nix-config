@@ -70,6 +70,10 @@
 
   # Kernel
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernel.sysctl = {
+    "net.ipv4.icmp_echo_ignore_all" = true;
+    "net.ipv6.icmp.echo_ignore_all" = true;
+  };
 
   # Networking
   networking.hostId = "23ba0f43"; # Automatically generated using: 'head -c4 /dev/urandom | od -A none -t x4'
