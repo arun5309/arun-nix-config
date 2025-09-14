@@ -274,14 +274,14 @@
     #llvmPackages_20.clang-tools-extra
     #llvmPackages_20.stdenv
     #llvmPackages_20.clangWithLibcAndBasicRtAndLibcxx
-    llvmPackages_20.clang-unwrapped
-    llvmPackages_20.bintools-unwrapped
-    llvmPackages_20.openmp
-    llvmPackages_20.libunwind
+    llvmPackages_21.clang-unwrapped
+    llvmPackages_21.bintools-unwrapped
+    llvmPackages_21.openmp
+    llvmPackages_21.libunwind
     #llvmPackages_20.libclc
-    llvmPackages_20.libcxx
-    lld_20
-    lldb_20
+    llvmPackages_21.libcxx
+    lld_21
+    lldb_21
     godot_4
     godot_4-export-templates-bin
     python313Full
