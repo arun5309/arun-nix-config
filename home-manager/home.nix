@@ -230,7 +230,7 @@
     go
     gopls
     marksman
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     docker-compose-language-service
     mold
     ccache
