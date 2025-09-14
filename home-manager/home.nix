@@ -1431,7 +1431,7 @@
       # obs-hyperion
       # droidcam-obs
       obs-websocket
-      obs-webkitgtk
+      # obs-webkitgtk
     ];
   };
 
