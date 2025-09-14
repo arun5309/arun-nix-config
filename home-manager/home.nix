@@ -952,7 +952,6 @@
   # Application launcher: rofi
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
     terminal = "kitty";
     cycle = true;
     theme = "${lib.toLower colorSchemeString}";
