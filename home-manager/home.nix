@@ -284,7 +284,7 @@
     lldb_21
     godot_4
     godot_4-export-templates-bin
-    python313Full
+    python314
     nodejs_24
     # Fun below
     sdlpop
