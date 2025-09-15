@@ -1137,6 +1137,7 @@
       sui = "sudo -i ";
       cht = "curl https://cht.sh/";
       lg = "lazygit";
+      bata = "bat --paging=always";
       ginit = "git init";
       gadd = "git add -A";
       gcom = "git commit -m \"%\"";
