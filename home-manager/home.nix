@@ -257,6 +257,7 @@
     openconnect
     lksctp-tools
     nil
+    dasel
     nixfmt-rfc-style
     hardinfo2
     inxi
