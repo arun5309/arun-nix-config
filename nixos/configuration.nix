@@ -87,6 +87,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # networking.resolvconf.useLocalResolver = true;
   networking.search = [ "netbird.cloud" ];
   
   services.netbird = {
