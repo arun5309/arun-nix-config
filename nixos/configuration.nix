@@ -86,9 +86,14 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
 
-  # networking.resolvconf.useLocalResolver = true;
+  networking.resolvconf.useLocalResolver = true;
   networking.search = [ "netbird.cloud" ];
+  
+  services.resolved = {
+    enable = true;
+  };
   
   services.netbird = {
     enable = true;
