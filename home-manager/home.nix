@@ -644,7 +644,7 @@
         "hypridle"
         "dunst -config $HOME/.config/dunst/dunstrc_themed"
         "wl-clip-persist --clipboard both"
-        "copyq --start-server"
+        # "copyq --start-server"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "waybar"
