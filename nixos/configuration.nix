@@ -207,7 +207,7 @@
       fuse3
       #  thunderbird
       # Kernel packages
-      linuxKernel.packages.linux_xanmod_latest.perf
+      perf
       # linuxKernel.packages.linux_xanmod_latest.zfs
     ];
   };
