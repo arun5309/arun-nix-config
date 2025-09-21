@@ -87,6 +87,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  networking.search = [ "netbird.cloud" ];
+  
   services.netbird = {
     enable = true;
     clients.default = {
