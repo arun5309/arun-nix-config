@@ -613,6 +613,9 @@
         gaps_out = 0;
         gaps_in = 0;
       };
+      dwindle = {
+        preserve_split = true;
+      };
       input = {
         numlock_by_default = true;
       };
@@ -670,7 +673,7 @@
           "$mod, G, togglegroup"
           "$mod SHIFT, N, changegroupactive, f"
           "$mod SHIFT, P, changegroupactive, b"
-          "$mod, R, togglesplit"
+          "$mod, R, layoutmsg, togglesplit"
           "$mod, T, togglefloating"
           "$mod, P, pseudo"
           "$mod ALT, ,resizeactive,"
