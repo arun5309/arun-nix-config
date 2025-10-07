@@ -766,6 +766,7 @@
         ];
         modules-right = [
           "idle_inhibitor"
+          "privacy"
           # "keyboard-state"
           "network"
           "pulseaudio"
