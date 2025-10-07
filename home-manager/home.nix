@@ -765,8 +765,8 @@
           "hyprland/window"
         ];
         modules-right = [
-          "idle_inhibitor"
           "privacy"
+          "idle_inhibitor"
           # "keyboard-state"
           "network"
           "pulseaudio"
@@ -797,6 +797,24 @@
             activated = "";
             deactivated = "";
           };
+        };
+
+        privacy = {
+          modules = [
+            {
+              type = "screenshare";
+              tooltip = true;
+            }
+            {
+              type = "audio-out";
+              tooltip = true;  
+            }
+            {
+              type = "audio-in";
+              tooltip = true;
+            }
+          ];
+          ignore-monitor = true;
         };
 
         tray = {
@@ -934,7 +952,7 @@
       @import "${lib.toLower (builtins.elemAt (builtins.split "-" colorSchemeString) 2)}.css";
 
       * {
-        color: @text;
+        /* color: @text; */
       }
 
       window#waybar {
@@ -949,7 +967,7 @@
 
       box.module {
         padding: 0px 10px;
-        border: 1px solid @overlay0;
+        border: 1px solid @overlay;
       }
 
       #workspaces button.visible {
