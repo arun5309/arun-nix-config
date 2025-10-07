@@ -951,6 +951,15 @@
         padding: 0px 10px;
         border: 1px solid @overlay0;
       }
+
+      #workspaces button.visible {
+        border: 1px solid @${lib.toLower colorSchemeAccent};
+      }
+
+      #workspaces button.active {
+        border: 1px solid @${lib.toLower colorSchemeAccent};
+        color: @${lib.toLower colorSchemeAccent};
+      }
     '';
   };
 
