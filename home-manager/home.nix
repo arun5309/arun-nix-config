@@ -198,7 +198,7 @@
     # freecad # Workaround as one of its dependencies is broken
     # blender
     # natron # Workaround as one of its dependencies is broken
-    libresprite
+    # libresprite # Temporarily disabled
     pixelorama
     ldtk
     tiled
