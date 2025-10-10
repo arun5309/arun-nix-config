@@ -226,7 +226,7 @@
     gnumake
     ninja
     bear
-    ltrace
+    # ltrace # Temporarily disabled
     go
     gopls
     marksman
