@@ -220,7 +220,7 @@
     autoconf
     gnum4
     gdb
-    gef
+    # gef # Temporarily disabled
     meson
     cmakeCurses
     gnumake
