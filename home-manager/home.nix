@@ -96,7 +96,7 @@
     #     ardour
     zynaddsubfx
     odin2
-    surge
+    # surge # Temporarily disabled
     surge-XT
     fluidsynth
     # helm
