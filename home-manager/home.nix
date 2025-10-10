@@ -113,7 +113,7 @@
     caps
     noise-repellent
     speech-denoiser
-    eq10q
+    # eq10q # Temporarily disabled
     vamp-plugin-sdk
     ladspaPlugins
     lv2
