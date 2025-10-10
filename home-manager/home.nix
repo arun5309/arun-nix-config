@@ -97,7 +97,7 @@
     # zynaddsubfx # Temporarily disabled
     odin2
     # surge # Temporarily disabled
-    surge-XT
+    # surge-XT # Temporarily disabled
     fluidsynth
     # helm
     # oxefmsynth # Workaround as causing build issues
