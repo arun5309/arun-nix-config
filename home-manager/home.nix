@@ -238,7 +238,7 @@
     perf-tools
     rr
     gdbgui
-    seer
+    # seer # Temporarily disabled
     kdePackages.kcachegrind
     hotspot
     radare2
