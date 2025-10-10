@@ -136,7 +136,7 @@
     wlogout
     wvkbd
     light
-    avizo
+    # avizo # Temporarily disabled
     wlr-randr
     wayout
     wlrctl
