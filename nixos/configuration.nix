@@ -277,7 +277,7 @@
 
   virtualisation.virtualbox = {
     host = {
-      enable = true;
+      enable = false; # Temporarily disabled as it is having issues compiling
     };
   };
 
