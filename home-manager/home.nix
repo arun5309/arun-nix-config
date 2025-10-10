@@ -94,7 +94,7 @@
     kdePackages.zanshin
     tenacity
     #     ardour
-    zynaddsubfx
+    # zynaddsubfx # Temporarily disabled
     odin2
     # surge # Temporarily disabled
     surge-XT
