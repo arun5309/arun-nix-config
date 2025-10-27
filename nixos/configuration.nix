@@ -66,7 +66,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Boot options
-  boot.supportedFilesystems = [ "zfs" ];
+  boot.supportedFilesystems = [ ]; # "zfs" ];
   boot.zfs.forceImportRoot = false;
 
   # Kernel
