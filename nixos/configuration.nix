@@ -18,6 +18,7 @@
   ];
 
   services.xremap = {
+    enable = true;
     withWlroots = true;
     yamlConfig = ''
       modmap:
