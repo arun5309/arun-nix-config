@@ -1386,12 +1386,14 @@
   ## VCS: git
   programs.git = {
     enable = true;
-    userName = "arun5309";
-    userEmail = "arun5309@gmail.com";
     lfs = {
       enable = true;
     };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "arun5309";
+        email = "arun5309@gmail.com";
+      };
       init = {
         defaultBranch = "main";
       };
