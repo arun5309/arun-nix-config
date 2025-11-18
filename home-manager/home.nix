@@ -92,7 +92,7 @@
     # linuxstopmotion # Not needed for now
     # darktable # Disabled temporarily as it has depends on a vulnerable libsoup package
     kdePackages.zanshin
-    tenacity
+    # tenacity
     #     ardour
     # zynaddsubfx # Temporarily disabled
     odin2
