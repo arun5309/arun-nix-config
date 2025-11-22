@@ -271,15 +271,15 @@
     boost
     gcc
     # Explicitly versioned stuff
-    #llvmPackages_20.clang-tools
-    #llvmPackages_20.clang-tools-extra
-    #llvmPackages_20.stdenv
-    #llvmPackages_20.clangWithLibcAndBasicRtAndLibcxx
+    # llvmPackages_21.clang-tools
+    # llvmPackages_21.clang-tools-extra
+    # llvmPackages_21.stdenv
+    # llvmPackages_21.clangWithLibcAndBasicRtAndLibcxx
     llvmPackages_21.clang-unwrapped
     llvmPackages_21.bintools-unwrapped
     llvmPackages_21.openmp
     llvmPackages_21.libunwind
-    #llvmPackages_20.libclc
+    llvmPackages_21.libclc
     llvmPackages_21.libcxx
     lld_21
     lldb_21
