@@ -60,6 +60,7 @@
     psmisc
     ffmpeg-full
     imagemagick
+    sqlite
     w3m
     autossh
     ugrep
