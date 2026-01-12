@@ -83,7 +83,7 @@
     xournalpp
     krita
     krita-plugin-gmic
-    scribus
+    # scribus
     kdePackages.kdenlive
     # gimp-with-plugins
     glaxnimate
