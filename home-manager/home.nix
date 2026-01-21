@@ -259,7 +259,7 @@
     lksctp-tools
     nil
     dasel
-    nixfmt-rfc-style
+    nixfmt
     hardinfo2
     inxi
     zfs
