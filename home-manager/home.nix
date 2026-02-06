@@ -630,8 +630,13 @@
         disable_splash_rendering = true;
         enable_anr_dialog = false; # Disables annoying application has stopped responding dialogue.
       };
-      windowrulev2 = [
-        "float,class:(waybar),title:(waybar)"
+      windowrule = [
+        {
+          name = "float-waybar";
+          "match:class" = "^(waybar)";
+          float = "on";
+        }
+        # "float,class:(waybar),title:(waybar)"
         #         "noblur, class:^(Gromit-mpx)$"
         #         "opacity 1 override,1 override, class:^(Gromit-mpx)$"
         #         "noshadow, class:^(Gromit-mpx)$"
