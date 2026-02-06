@@ -1159,10 +1159,10 @@
     zsh-abbr.abbreviations = {
       cupd = "rm ~/.mozilla/firefox/default/containers.json ~/.gtkrc-2.0";
       nswt = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default'";
-      hswt = "sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
-      hupd = "home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
+      hswt = "sudo -i nix-channel --update && home-manager switch -b backup --flake '/home/arun/arun-nix-config/#arun_home_default'";
+      hupd = "home-manager switch -b backup --flake '/home/arun/arun-nix-config/#arun_home_default'";
       news = "home-manager news --flake '/home/arun/arun-nix-config/#arun_home_default'";
-      upd = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default' && sudo -i nix-channel --update && home-manager switch --flake '/home/arun/arun-nix-config/#arun_home_default'";
+      upd = "sudo nixos-rebuild switch --flake '/home/arun/arun-nix-config/#arun_nixos_default' && sudo -i nix-channel --update && home-manager switch -b backup --flake '/home/arun/arun-nix-config/#arun_home_default'";
       fupd = "nix flake update";
       gupd = "git commit -m 'Updated lock file'";
       uchan = "nix-channel --update";
