@@ -68,6 +68,7 @@
     rlwrap
     pdftk
     pdfsandwich
+    poppler-utils
     espeak
     livecaptions
     alsa-utils
