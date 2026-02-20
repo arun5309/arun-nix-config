@@ -119,7 +119,7 @@
     vamp-plugin-sdk
     ladspaPlugins
     lv2
-    metersLv2
+    meters-lv2
     # carla
     # sonic-visualiser
     # sonic-lineup
@@ -1388,6 +1388,7 @@
   programs.yazi = {
     enable = true;
     enableZshIntegration = true;
+    shellWrapperName = "y";
     # TODO: configure theming, plugins, keybindings
   };
 
