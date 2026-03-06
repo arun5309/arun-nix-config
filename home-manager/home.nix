@@ -137,7 +137,8 @@
     wl-clip-persist
     wlogout
     wvkbd
-    light
+    brightnessctl
+    # light # Unmaintained
     # avizo # Temporarily disabled
     wlr-randr
     wayout
