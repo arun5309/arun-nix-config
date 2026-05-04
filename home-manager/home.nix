@@ -86,6 +86,7 @@
     krita-plugin-gmic
     # scribus
     kdePackages.kdenlive
+    kdePackages.ksshaskpass
     # gimp-with-plugins
     glaxnimate
     # opentoonz # Workaround as having security issue
